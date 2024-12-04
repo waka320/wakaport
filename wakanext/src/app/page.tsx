@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import styles from '@/styles/top.module.scss';
 
 export default function Home() {
   return (
@@ -7,7 +8,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold">ポートフォリオへようこそ</h1>
-        {/* コンテンツを追加 */}
+        
       </main>
       <Footer />
     </div>
