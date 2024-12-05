@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="w-full bg-white shadow-md p-4 flex justify-between items-center">
       <div className="flex items-center">
-        <h1 className="text-xl font-bold">Wakaport</h1>
+        <h1 className="text-xl font-bold">Wakaport.</h1>
       </div>
 
       <nav className="flex space-x-4">
