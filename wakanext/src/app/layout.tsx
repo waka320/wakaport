@@ -43,6 +43,7 @@ export default function RootLayout({
           text-black 
           dark:bg-black 
           dark:text-white
+          grid-background
         "
       >
         {children}

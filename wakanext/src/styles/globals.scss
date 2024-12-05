@@ -1,3 +1,4 @@
+@use "sass:color";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,4 +19,31 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+$grid-color: #e0e0e0;
+$grid-size: 16px;
+$thick-line-interval: 5;
+
+.grid-background {
+  background-image: linear-gradient(0deg,
+    transparent calc(100% - 1px),
+    #{$grid-color} calc(100% - 1px)),
+  linear-gradient(90deg,
+    transparent calc(100% - 1px),
+    #{$grid-color} calc(100% - 1px)),
+  linear-gradient(0deg,
+    transparent calc(100% - 2px),
+    color.adjust($grid-color) calc(100% - 2px)),
+  linear-gradient(90deg,
+    transparent calc(100% - 2px),
+    color.adjust($grid-color) calc(100% - 2px));
+
+  background-size: #{$grid-size} #{$grid-size},
+  #{$grid-size} #{$grid-size},
+  #{$grid-size * $thick-line-interval} #{$grid-size * $thick-line-interval},
+  #{$grid-size * $thick-line-interval} #{$grid-size * $thick-line-interval};
+
+  background-position: center center;
+  background-repeat: repeat;
 }
