@@ -10,15 +10,16 @@ jobs:
         working-directory: ./wakanext
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
+          cache: 'npm'
       
       - name: Install NPM packages
-        run: npm ci
+        run: npm ci --legacy-peer-deps
       
       - name: Build Next.js App
         run: npm run build
