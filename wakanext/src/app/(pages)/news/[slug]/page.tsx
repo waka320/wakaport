@@ -1,6 +1,7 @@
 import { getArticleBySlug } from "@/lib/articles/articles"
 import { notFound } from 'next/navigation'
 import Markdown from 'react-markdown'
+import Link from 'next/link'
 
 export default async function ArticleDetailPage({
     params
@@ -24,12 +25,7 @@ export default async function ArticleDetailPage({
                 </article>
 
                 <div className="mt-8">
-                    <a
-                        href="/news"
-                        className="text-blue-500 hover:underline"
-                    >
-                        記事一覧に戻る
-                    </a>
+                    <Link href="/news" className="text-blue-500 hover:underline">記事一覧に戻る</Link>
                 </div>
             </div>
         )
