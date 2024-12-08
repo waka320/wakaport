@@ -16,6 +16,14 @@ jobs:
           cache: 'npm'
           cache-dependency-path: './wakanext/package-lock.json'
       
+      - name: Cache Next.js build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+      
       - name: Install dependencies
         working-directory: ./wakanext
         run: npm ci --legacy-peer-deps

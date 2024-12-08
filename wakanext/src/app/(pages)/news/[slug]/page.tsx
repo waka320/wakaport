@@ -1,16 +1,17 @@
-import { getArticleBySlug } from "@/lib/articles/articles"
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Markdown from 'react-markdown'
 import Link from 'next/link'
-import { Metadata } from 'next'
+import { getArticleBySlug } from "@/lib/articles/articles"
 
 export default async function ArticleDetailPage({
     params
 }: {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }) {
+    const resolvedParams = await params;
     try {
-        const article = getArticleBySlug(params.slug)
+        const article = getArticleBySlug(resolvedParams.slug)
 
         if (!article) {
             notFound()
@@ -42,10 +43,11 @@ export default async function ArticleDetailPage({
 export async function generateMetadata({
     params
 }: {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }): Promise<Metadata> {
+    const resolvedParams = await params;
     try {
-        const article = getArticleBySlug(params.slug);
+        const article = getArticleBySlug(resolvedParams.slug);
 
         return {
             title: article.title,
