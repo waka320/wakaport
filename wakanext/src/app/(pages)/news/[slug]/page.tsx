@@ -45,7 +45,7 @@ export async function generateMetadata({
     params: { slug: string }
 }): Promise<Metadata> {
     try {
-        const article = getArticleBySlug(params.slug)
+        const article = getArticleBySlug(params.slug);
 
         return {
             title: article.title,
