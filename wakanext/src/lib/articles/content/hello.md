@@ -2,7 +2,6 @@
 title: ポートフォリオを公開しました
 date: 2025-01-01
 excerpt: ここで近況を報告します
-tags: [web, development, trends]
 ---
 
 ## ほげほげ

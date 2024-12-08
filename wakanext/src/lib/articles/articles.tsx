@@ -16,21 +16,24 @@ function parseMarkdownFile(fileContents: string): {
     content: string
 } {
     const lines = fileContents.split('\n')
-    const metadataEnd = lines.findIndex(line => line.trim() === '---')
+    const metadataStart = lines.findIndex(line => line.trim() === '---')
+    const metadataEnd = lines.slice(metadataStart + 1).findIndex(line => line.trim() === '---')
 
     const metadata: { [key: string]: string } = {}
-    const contentLines = lines.slice(metadataEnd + 1)
+    const metadataLines = lines.slice(metadataStart + 1, metadataStart + metadataEnd + 1)
 
-    lines.slice(1, metadataEnd).forEach(line => {
+    metadataLines.forEach(line => {
         const [key, value] = line.split(':').map(part => part.trim())
         metadata[key] = value.replace(/^["']|["']$/g, '')
     })
+
+    const contentLines = lines.slice(metadataStart + metadataEnd + 2)
 
     return {
         title: metadata['title'] || '',
         date: metadata['date'] || new Date().toISOString(),
         excerpt: metadata['excerpt'] || '',
-        content: contentLines.join('\n')
+        content: contentLines.join('\n').trim()
     }
 }
 

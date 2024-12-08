@@ -1,4 +1,5 @@
 import { getAllArticles } from "@/lib/articles/articles"
+import Link from 'next/link'
 
 export default async function NewsPage() {
     const articles = await getAllArticles()
@@ -16,12 +17,12 @@ export default async function NewsPage() {
                         <p className="text-gray-600 mb-4">{article.excerpt}</p>
                         <div className="flex justify-between items-center">
                             <span className="text-sm text-gray-500">{article.date}</span>
-                            <a
+                            <Link
                                 href={`/news/${article.slug}`}
                                 className="text-blue-500 hover:underline"
                             >
                                 続きを読む
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 ))}
