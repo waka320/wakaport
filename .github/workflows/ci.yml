@@ -5,9 +5,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./wakanext
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -17,9 +14,12 @@ jobs:
         with:
           node-version: 18.x
           cache: 'npm'
+          cache-dependency-path: './wakanext/package-lock.json'
       
-      - name: Install NPM packages
+      - name: Install dependencies
+        working-directory: ./wakanext
         run: npm ci --legacy-peer-deps
       
       - name: Build Next.js App
+        working-directory: ./wakanext
         run: npm run build
