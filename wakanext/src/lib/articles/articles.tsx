@@ -1,24 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import matter from 'gray-matter'
-
-interface FrontMatterData {
-    date?: string | Date
-    title?: string
-    excerpt?: string
-    [key: string]: unknown
-}
-
-export function formatArticleDate(dateInput: string | Date): string {
-    const date = new Date(dateInput)
-
-    return new Intl.DateTimeFormat('ja-JP', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        weekday: 'short'
-    }).format(date)
-}
 
 type ArticleProps = {
     slug: string
@@ -28,13 +9,33 @@ type ArticleProps = {
     content: string
 }
 
+function parseMarkdownFile(fileContents: string): {
+    title: string,
+    date: string,
+    excerpt: string,
+    content: string
+} {
+    const lines = fileContents.split('\n')
+    const metadataEnd = lines.findIndex(line => line.trim() === '---')
+
+    const metadata: { [key: string]: string } = {}
+    const contentLines = lines.slice(metadataEnd + 1)
+
+    lines.slice(1, metadataEnd).forEach(line => {
+        const [key, value] = line.split(':').map(part => part.trim())
+        metadata[key] = value.replace(/^["']|["']$/g, '')
+    })
+
+    return {
+        title: metadata['title'] || '',
+        date: metadata['date'] || new Date().toISOString(),
+        excerpt: metadata['excerpt'] || '',
+        content: contentLines.join('\n')
+    }
+}
+
 export function getAllArticles(): ArticleProps[] {
     const articlesDirectory = path.join(process.cwd(), 'src/lib/articles/content')
-
-    if (!fs.existsSync(articlesDirectory)) {
-        console.error('Articles directory not found')
-        return []
-    }
 
     const fileNames = fs.readdirSync(articlesDirectory)
         .filter(fileName => fileName.endsWith('.md'))
@@ -44,14 +45,14 @@ export function getAllArticles(): ArticleProps[] {
         const fullPath = path.join(articlesDirectory, fileName)
         const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-        const { data, content } = matter<FrontMatterData>(fileContents)
+        const { title, date, excerpt, content } = parseMarkdownFile(fileContents)
 
         return {
             slug,
-            content,
-            date: formatArticleDate(data.date || new Date()),
-            title: data.title || '',
-            excerpt: data.excerpt || '',
+            title,
+            date: formatArticleDate(date),
+            excerpt,
+            content
         }
     })
 
@@ -68,15 +69,24 @@ export function getArticleBySlug(slug: string): ArticleProps {
     }
 
     const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    // matter関数の型を明示的に指定
-    const { data, content } = matter<FrontMatterData>(fileContents)
+    const { title, date, excerpt, content } = parseMarkdownFile(fileContents)
 
     return {
         slug,
-        content,
-        date: formatArticleDate(data.date || new Date()),
-        title: data.title || '',
-        excerpt: data.excerpt || '',
+        title,
+        date: formatArticleDate(date),
+        excerpt,
+        content
     }
+}
+
+export function formatArticleDate(dateInput: string | Date): string {
+    const date = new Date(dateInput)
+
+    return new Intl.DateTimeFormat('ja-JP', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        weekday: 'short'
+    }).format(date)
 }
