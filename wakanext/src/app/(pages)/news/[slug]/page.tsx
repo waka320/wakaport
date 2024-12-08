@@ -2,6 +2,7 @@ import { getArticleBySlug } from "@/lib/articles/articles"
 import { notFound } from 'next/navigation'
 import Markdown from 'react-markdown'
 import Link from 'next/link'
+import { Metadata } from 'next'
 
 export default async function ArticleDetailPage({
     params
@@ -10,6 +11,10 @@ export default async function ArticleDetailPage({
 }) {
     try {
         const article = getArticleBySlug(params.slug)
+
+        if (!article) {
+            notFound()
+        }
 
         return (
             <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -29,7 +34,7 @@ export default async function ArticleDetailPage({
                 </div>
             </div>
         )
-    } catch (error) {
+    } catch {
         notFound()
     }
 }
@@ -38,11 +43,18 @@ export async function generateMetadata({
     params
 }: {
     params: { slug: string }
-}) {
-    const article = getArticleBySlug(params.slug)
+}): Promise<Metadata> {
+    try {
+        const article = getArticleBySlug(params.slug)
 
-    return {
-        title: article.title,
-        description: article.excerpt
+        return {
+            title: article.title,
+            description: article.excerpt
+        }
+    } catch {
+        return {
+            title: '記事が見つかりません',
+            description: 'この記事が見つかりませんでした'
+        }
     }
 }
