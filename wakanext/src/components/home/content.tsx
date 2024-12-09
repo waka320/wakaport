@@ -1,7 +1,7 @@
 import { Card } from "./card";
 export default function Content() {
     return (
-        <>
+        <div className="white-background">
             <Card
                 imageSrc="/images/profile.jpg"
                 title="About"
@@ -24,7 +24,7 @@ export default function Content() {
                 buttonText="やったこと"
                 buttonHref="/products"
             />
-        </>
+        </div>
 
 
     )
