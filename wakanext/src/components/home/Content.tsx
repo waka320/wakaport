@@ -29,7 +29,7 @@ export default async function Content() {
                     "様々な場所で常に何かを作り続ける、大学生生活を歩んでいます。"
                 ]}
                 buttonText="これまで"
-                buttonHref="/products"
+                buttonHref="/progress"
             />
             <div className="content-background mb-4">
                 <h2>News</h2>
