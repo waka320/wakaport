@@ -1,5 +1,12 @@
 import { Card } from "./Card";
-export default function Content() {
+import Link from "next/link";
+import { Button } from "../ui/Button";
+import { getAllArticles } from "@/lib/articles/articles"
+
+export default async function Content() {
+    const articles = await getAllArticles()
+    const latestArticle = articles[0]
+
     return (
         <div className="white-background">
             <Card
@@ -24,17 +31,40 @@ export default function Content() {
                 buttonText="これまで"
                 buttonHref="/products"
             />
-            <Card
-                imageSrc="/images/profile.jpg"
-                title="News"
-                paragraphs={[
-                    "近況をブログの形で報告します",
-                    "「日付」に、",
-                    "「タイトル」を投稿しました。"
-                ]}
-                buttonText="お知らせ"
-                buttonHref="/news"
-            />
+            <div className="content-background mb-4">
+                <h2>News</h2>
+                <div className="flex container">
+                    <div className="flex-[1]">
+
+                    </div>
+                    <div className="flex-[2] flex flex-col justify-between">
+                        <div>
+                            <p>近況をブログの形で報告します。</p>
+                            <p>
+                                <span className="font-bold">「
+                                    <Link
+                                        href={`/news/${latestArticle.slug}`}
+                                        className="text-blue-500 hover:underline"
+                                    >
+                                        {latestArticle.title}
+                                    </Link>
+                                    」
+                                </span>
+                                を
+                                <span className="font-bold">
+                                    {latestArticle.date}
+                                </span>
+                                に、投稿しました。
+                            </p>
+                        </div>
+                        <div className="mt-4 self-start">
+                            <Button href="/news">
+                                一覧へ
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 

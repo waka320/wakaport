@@ -18,20 +18,22 @@ export default async function ArticleDetailPage({
         }
 
         return (
-            <div className="white-background container mx-auto px-4 py-8 max-w-4xl">
-                <article className="prose lg:prose-xl">
-                    <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
-                    <div className="text-gray-600 mb-6">
-                        <time>{article.date}</time>
-                    </div>
+            <div className='white-background '>
+                <div className="container mx-auto px-4 py-8 max-w-4xl">
+                    <article className="prose lg:prose-xl">
+                        <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
+                        <div className="text-gray-600 mb-6">
+                            <time>{article.date}</time>
+                        </div>
 
-                    <div className="markdown-content">
-                        <Markdown>{article.content}</Markdown>
-                    </div>
-                </article>
+                        <div className="markdown-content">
+                            <Markdown>{article.content}</Markdown>
+                        </div>
+                    </article>
 
-                <div className="mt-8">
-                    <Link href="/news" className="text-blue-500 hover:underline">記事一覧に戻る</Link>
+                    <div className="mt-8">
+                        <Link href="/news" className="text-blue-500 hover:underline">記事一覧に戻る</Link>
+                    </div>
                 </div>
             </div>
         )

@@ -35,7 +35,7 @@ export function Card({
                             <p key={index}>{paragraph}</p>
                         ))}
                     </div>
-                    <div className="mt-2 self-start">
+                    <div className="mt-4 self-start">
                         <Button href={buttonHref}>
                             {buttonText}
                         </Button>

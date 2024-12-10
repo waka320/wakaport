@@ -100,10 +100,11 @@ $thick-line-interval: 5;
   .white-background {
     position: relative;
     width: 100%;
-    background-color: rgba(255, 254, 252, 0.6);
-    backdrop-filter: blur(0.75px);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 251, 248, 0.6);
+    backdrop-filter: blur(1.5px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    min-height: 100vh;
 
     .content-background {
 
@@ -114,7 +115,7 @@ $thick-line-interval: 5;
       color: #333;
       max-width: 800px;
       width: 90%;
-      margin: 1.25rem auto;
+      margin: 2rem auto;
       padding: 2rem;
     }
   }
