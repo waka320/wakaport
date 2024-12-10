@@ -1,5 +1,5 @@
-import Hero from "@/components/home/hero"
-import Content from "@/components/home/content"
+import Hero from "@/components/home/Hero"
+import Content from "@/components/home/Content"
 export default function Home() {
   return (
     <>
