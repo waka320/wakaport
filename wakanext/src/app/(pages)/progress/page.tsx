@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-const ProjectsPage = () => (
-    <div className="p-4 max-w-4xl mx-auto">
+const ProgressPage = () => (
+    <div className="white-background p-4 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-gray-800">プロジェクト</h1>
 
         <div className="space-y-6">
@@ -26,4 +26,4 @@ const ProjectsPage = () => (
     </div>
 );
 
-export default ProjectsPage;
+export default ProgressPage;

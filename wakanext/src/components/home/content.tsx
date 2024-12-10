@@ -15,14 +15,25 @@ export default function Content() {
             />
             <Card
                 imageSrc="/images/profile.jpg"
-                title="Products"
+                title="Progress"
                 paragraphs={[
-                    "TypeScript, React, Next.js",
-                    "TailwindCSS, SASS",
-                    "フロントエンド開発に特化したスキルセット"
+                    "文系学生でありながら、インターンや研究などでWebアプリの開発に取り組みました。",
+                    "また、大学祭の実行委員会で幹部を務め、イベントの責任者としての活動も行いました。",
+                    "様々な場所で常に何かを作り続ける、大学生生活を歩んでいます。"
                 ]}
-                buttonText="やったこと"
+                buttonText=""
                 buttonHref="/products"
+            />
+            <Card
+                imageSrc="/images/profile.jpg"
+                title="News"
+                paragraphs={[
+                    "近況をブログの形で報告します",
+                    "「日付」に、",
+                    "「タイトル」を投稿しました。"
+                ]}
+                buttonText="お知らせ"
+                buttonHref="/news"
             />
         </div>
 

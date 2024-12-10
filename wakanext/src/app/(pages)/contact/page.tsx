@@ -16,7 +16,7 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="p-4 max-w-md mx-auto">
+        <div className="white-background p-4 max-w-md mx-auto">
             <h1 className="text-3xl font-bold mb-6 text-gray-800">コンタクト</h1>
 
             <form onSubmit={handleSubmit} className="space-y-4">

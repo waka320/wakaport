@@ -4,7 +4,7 @@
 import React from 'react';
 
 const AboutPage = () => (
-    <div className="p-4 max-w-4xl mx-auto">
+    <div className="white-background p-4 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-gray-800">自己紹介</h1>
         
         <section className="mb-8">
