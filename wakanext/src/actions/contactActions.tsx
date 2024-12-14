@@ -32,7 +32,10 @@ export async function submitContactForm(formData: FormData) {
         const emailSent = await sendContactEmail({ name, email, message });
 
         if (!emailSent) {
-            throw new Error('メール送信に失敗しました');
+            return {
+                success: false,
+                error: 'メール送信に失敗しました。時間をおいて再度お試しください。'
+            };
         }
 
         return {
@@ -40,9 +43,11 @@ export async function submitContactForm(formData: FormData) {
             message: '送信が完了しました'
         };
     } catch (error) {
+        console.error('メール送信エラー:', error);
+
         return {
             success: false,
-            error: '送信中にエラーが発生しました'
+            error: '送信中に予期せぬエラーが発生しました。再度お試しください。'
         };
     }
 }
