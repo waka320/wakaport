@@ -20,7 +20,7 @@ export async function sendContactEmail(data: {
             to: process.env.EMAIL_RECIPIENT,
             subject: `Wakaportからお問い合わせ: ${data.name}様から`,
             html: `
-        <h2>お問い合わせ</h1>
+        <h2>お問い合わせ</h2>
         <p><strong>名前:</strong> ${data.name}</p>
         <p><strong>メールアドレス:</strong> ${data.email}</p>
         <p><strong>本文:</strong></p>
