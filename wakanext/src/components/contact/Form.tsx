@@ -64,8 +64,7 @@ export default function Form() {
                 />
             </div>
 
-            {result.error && <p className="text-red-500">{result.error}</p>}
-            {result.success && <p className="text-green-500">送信完了</p>}
+
 
 
             <Button
@@ -74,6 +73,8 @@ export default function Form() {
             >
                 送信
             </Button>
+            {result.error && <p className="text-red-500">{result.error}</p>}
+            {result.success && <p className="text-green-500">送信が完了しました</p>}
         </form>
     );
 }
