@@ -1,6 +1,6 @@
 "use server";
 
-import { sendContactEmail } from '@/lib/mail';
+import { sendContactEmail } from '@/lib/contact/mail';
 
 export async function submitContactForm(formData: FormData) {
     const name = formData.get('name') as string;
