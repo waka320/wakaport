@@ -1,0 +1,60 @@
+@use "sass:color";
+@use "sass:meta";
+
+@function calculate-grid-color($base-color, $variation: 10%) {
+
+    @if meta.type-of($base-color)=='color' {
+        @return color.adjust($base-color, $lightness: $variation);
+    }
+
+    @else {
+        @return color.adjust(#000, $lightness: $variation);
+    }
+}
+
+
+.grid-background {
+    background-image: linear-gradient(0deg,
+        transparent calc(100% - 1px),
+        #{$grid-color} calc(100% - 1px)),
+    linear-gradient(90deg,
+        transparent calc(100% - 1px),
+        #{$grid-color} calc(100% - 1px)),
+    linear-gradient(0deg,
+        transparent calc(100% - 2px),
+        color.adjust($grid-color) calc(100% - 2px)),
+    linear-gradient(90deg,
+        transparent calc(100% - 2px),
+        color.adjust($grid-color) calc(100% - 2px));
+
+    background-size: #{$grid-size} #{$grid-size},
+    #{$grid-size} #{$grid-size},
+    #{$grid-size * $thick-line-interval} #{$grid-size * $thick-line-interval},
+    #{$grid-size * $thick-line-interval} #{$grid-size * $thick-line-interval};
+
+    background-position: center center;
+    background-repeat: repeat;
+
+    .white-background {
+        position: relative;
+        width: 100%;
+        background-color: rgba(255, 251, 248, 0.6);
+        backdrop-filter: blur(1.5px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        min-height: 100vh;
+
+        .content-background {
+
+            background-color: rgba(255, 255, 255);
+            border: 1px solid rgba(255, 255, 255);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            color: #333;
+            max-width: 800px;
+            width: 90%;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+    }
+}

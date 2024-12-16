@@ -1,0 +1,34 @@
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --primary: #3490dc;
+    --secondary: #6574cd;
+    --accent: #f66d9b;
+
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.2);
+
+    --font-family-base: 'Inter', Arial, sans-serif;
+    --font-size-base: 16px;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+
+    a {
+        color: var(--primary);
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--accent);
+        }
+    }
+
+    .button {
+        background-color: var(--primary);
+        color: white;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 2px 4px var(--shadow-color);
+    }
+}

@@ -1,4 +1,3 @@
-// styles/timeline.scss
 $primary-color: #3b82f6;
 $primary-hover-color: #2563eb;
 $background-color: #ffffff;
@@ -10,13 +9,12 @@ $border-color: #e5e7eb;
     position: relative;
     padding: 2rem 0;
 
-    // タイムラインの縦線
     &::before {
         content: '';
         position: absolute;
         top: 0;
         bottom: 0;
-        left: 30px; // ドットの中心に合わせる
+        left: 30px;
         width: 2px;
         background-color: $border-color;
     }
@@ -48,7 +46,7 @@ $border-color: #e5e7eb;
 
     &-content {
         flex-grow: 1;
-        margin-left: 60px; // ドットの右側に配置
+        margin-left: 60px;
         background-color: $background-color;
         padding: 1.5rem;
         border-radius: 0.5rem;

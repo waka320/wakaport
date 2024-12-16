@@ -1,0 +1,28 @@
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --primary: #3490dc;
+    --secondary: #6574cd;
+    --accent: #f66d9b;
+
+    --font-family-base: 'Arial', sans-serif;
+    --font-size-base: 16px;
+}
+
+.light-theme {
+    --background: #ffffff;
+    --foreground: #171717;
+}
+
+.dark-theme {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+}
+
+.serif-font {
+    --font-family-base: 'Merriweather', serif;
+}
+
+.sans-serif-font {
+    --font-family-base: 'Inter', sans-serif;
+}

@@ -1,0 +1,17 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+        --primary: #2c3e50;
+        --secondary: #34495e;
+        --accent: #e74c3c;
+
+        --border-color: rgba(255, 255, 255, 0.1);
+        --shadow-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.dark-theme {
+    --background: #0a0a0a;
+    --foreground: #422828;
+}

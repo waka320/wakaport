@@ -1,0 +1,9 @@
+
+@function calculate-grid-color($base-color, $variation: 10%) {
+    @return color.adjust($base-color, $lightness: $variation);
+}
+
+
+@function color-contrast($base-color) {
+    @return if(lightness($base-color) > 50%, darken($base-color, 60%), lighten($base-color, 60%));
+}

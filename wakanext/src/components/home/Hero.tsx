@@ -1,3 +1,4 @@
+import { ThemeSwitcher } from "./ThemeSwitcher"
 export default function Hero() {
     return (
         <div className="flex container min-h-[100svh] items-start">
@@ -6,7 +7,7 @@ export default function Hero() {
                     <h1 className="text-5xl font-bold">welcome to <br /><span className="text-9xl">Wakaport.</span></h1>
                 </div>
             </div>
-            <div className="flex-[2]"></div>
+            <div className="flex-[2]"><ThemeSwitcher /></div>
         </div>
     )
 }
