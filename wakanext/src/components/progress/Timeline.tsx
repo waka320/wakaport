@@ -1,10 +1,6 @@
-import '@/styles/timeline.scss';  
-type ProjectProps = {
-    title: string;
-    description: string;
-    technologies: string[];
-    date: string;
-};
+import '@/styles/timeline.scss';
+import { ProjectProps } from '@/lib/progress/projects';
+
 export function Timeline({ projects }: { projects: ProjectProps[] }) {
     return (
         <div className="timeline">
@@ -21,7 +17,7 @@ export function Timeline({ projects }: { projects: ProjectProps[] }) {
                                 {project.title}
                             </h2>
                             <span className="timeline-date">
-                                {project.date}
+                                {project.start}{project.end && ` ~ ${project.end}`}
                             </span>
                         </div>
 
@@ -30,12 +26,12 @@ export function Timeline({ projects }: { projects: ProjectProps[] }) {
                         </p>
 
                         <div className="timeline-technologies">
-                            {project.technologies.map((tech) => (
+                            {project.tags.map((tag) => (
                                 <span
-                                    key={tech}
+                                    key={`${project.title}-${tag}`}
                                     className="timeline-tech"
                                 >
-                                    {tech}
+                                    {tag}
                                 </span>
                             ))}
                         </div>

@@ -93,7 +93,7 @@ const AboutPage = () => (
                 <h4>ゲーム</h4>
                 <p>シリーズ：カービィ、ダンガンロンパ、スマブラ</p>
                 <h4>ニンゲン</h4>
-                <p>桜井政博、庵野秀明、藤子・F・不二雄、春とヒコーキ、</p>
+                <p>桜井政博、庵野秀明、藤子・F・不二雄、春とヒコーキ、まるピンク</p>
                 <h4>アニメ</h4>
                 <h3 className="text-xl font-semibold mt-2 mb-4">ニガテ</h3>
                 <ul className="list-disc pl-5 space-y-2">
