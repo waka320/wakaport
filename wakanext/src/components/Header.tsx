@@ -10,11 +10,11 @@ export default function Header() {
       </div>
 
       <nav className="flex space-x-4">
-        <Link href="/" className="text-gray-800 hover:text-blue-600">Home</Link>
-        <Link href="/about" className="text-gray-800 hover:text-blue-600">About</Link>
-        <Link href="/progress" className="text-gray-800 hover:text-blue-600">Progress</Link>
-        <Link href="/news" className="text-gray-800 hover:text-blue-600">News</Link>
-        <Link href="/contact" className="text-gray-800 hover:text-blue-600">Contact</Link>
+        <Link href="/" className="link">Home</Link>
+        <Link href="/about" className="link">About</Link>
+        <Link href="/progress" className="link">Progress</Link>
+        <Link href="/news" className="link">News</Link>
+        <Link href="/contact" className="link">Contact</Link>
       </nav>
     </header>
   )

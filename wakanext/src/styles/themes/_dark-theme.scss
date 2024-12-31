@@ -4,7 +4,7 @@
         --foreground: #ededed;
         --primary: #2c3e50;
         --secondary: #34495e;
-        --accent: #e74c3c;
+        --accent: #fc923c;
 
         --border-color: rgba(255, 255, 255, 0.1);
         --shadow-color: rgba(255, 255, 255, 0.2);
@@ -15,4 +15,14 @@
     --background: #0a0a0a;
     --foreground: #ededed;
     --text-color: #f0f0f0;
+    
+    .link {
+        color: var(--text-color);
+        transition: color 0.3s ease;
+
+        &:hover {
+            color:var(--accent); 
+        }
+
+    }
 }

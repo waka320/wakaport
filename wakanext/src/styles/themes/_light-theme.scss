@@ -3,7 +3,7 @@
     --foreground: #171717;
     --primary: #3490dc;
     --secondary: #6574cd;
-    --accent: #f66d9b;
+    --accent: #fc923c;
 
     --border-color: rgba(0, 0, 0, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.2);
@@ -16,8 +16,8 @@ body {
     background-color: var(--background);
     color: var(--foreground);
 
-    a {
-        color: var(--primary);
+    .link {
+        color: #1f2937;
         transition: color 0.3s ease;
 
         &:hover {
