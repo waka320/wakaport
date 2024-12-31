@@ -24,6 +24,10 @@ body {
             color: var(--accent);
         }
     }
+    .hero {
+        background-color: var(--background);
+        border-color: var(--foreground);
+    }
 
     .button {
         background-color: var(--primary);

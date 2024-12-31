@@ -26,9 +26,10 @@
     background-position: center center;
     background-repeat: repeat;
 
-    $grid-color-light: #ffffff; // ライトテーマのマス目の色
-    $grid-color-dark: #121212; // ダークテーマのマス目の色
-    $line-color: #ededed; // 境界線の色
+    $grid-color-light: #ffffff;
+    $grid-color-dark: #121212; 
+    $line-color: #ededed;
+    $line-color-dark: rgba(237, 237, 237, 0.3); 
 
     background-image: linear-gradient(0deg, transparent calc(100% - 1px), #{$line-color} calc(100% - 1px)),
     linear-gradient(90deg, transparent calc(100% - 1px), #{$line-color} calc(100% - 1px)),
@@ -37,11 +38,12 @@
 
 
     &.dark-theme {
-        background-image: linear-gradient(0deg, transparent calc(100% - 1px), #{$line-color} calc(100% - 1px)),
-        linear-gradient(90deg, transparent calc(100% - 1px), #{$line-color} calc(100% - 1px)),
+        background-image: linear-gradient(0deg, transparent calc(100% - 1px), #{$line-color-dark} calc(100% - 1px)),
+        linear-gradient(90deg, transparent calc(100% - 1px), #{$line-color-dark} calc(100% - 1px)),
         linear-gradient(0deg, #{$grid-color-dark} 0%, #{$grid-color-dark} 100%),
         linear-gradient(90deg, #{$grid-color-dark} 0%, #{$grid-color-dark} 100%);
     }
+
 
     & {
 
