@@ -1,22 +1,23 @@
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
-    --primary: #3490dc;
-    --secondary: #6574cd;
-    --accent: #f66d9b;
+    --background-rgb: 255, 255, 255; // ホワイト
+    --foreground-rgb: 23, 23, 23; // ほぼ黒
+    --primary-rgb: 52, 144, 220; // ブルー
+    --secondary-rgb: 101, 116, 205; // パープリッシュブルー
+    --accent-rgb: 246, 109, 155; // ピンク
+
+    --background: rgb(var(--background-rgb));
+    --foreground: rgb(var(--foreground-rgb));
+    --primary: rgb(var(--primary-rgb));
+    --secondary: rgb(var(--secondary-rgb));
+    --accent: rgb(var(--accent-rgb));
 
     --font-family-base: 'Arial', sans-serif;
     --font-size-base: 16px;
 }
 
-.light-theme {
-    --background: #ffffff;
-    --foreground: #171717;
-}
-
 .dark-theme {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background-rgb: 10, 10, 10; // ほぼ黒
+    --foreground-rgb: 237, 237, 237; // ライトグレー
 }
 
 .serif-font {
