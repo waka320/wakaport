@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 
 export function ThemeSwitcher() {
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'light';
+
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') || 'light';
+    }
+    return 'light';
   });
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
-
     document.documentElement.className = `${theme}-theme`;
 
     const gridBackground = document.querySelector('.grid-background');
