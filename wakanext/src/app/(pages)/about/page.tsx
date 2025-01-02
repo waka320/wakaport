@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -7,11 +6,11 @@ import React from 'react';
 const AboutPage = () => (
     <div className='white-background'>
         <div className="p-4 max-w-4xl mx-auto">
-            <h1 className="text-3xl font-bold mb-6 text-gray-800">自己紹介</h1>
+            <h1 className="text-3xl font-bold mb-6 text-[var(--foreground)]">自己紹介</h1>
 
             <section className="content-background mb-8">
                 <h2 className="text-2xl font-semibold mb-4">若松勇希</h2>
-                <p className="text-gray-600">
+                <p className="text-[var(--foreground)]">
                     名古屋大学情報学部人間社会情報科学科の学生です。Webエンジニアを目指し、Next.jsやTypeScriptを中心に学んでいます。
                 </p>
             </section>
@@ -20,10 +19,10 @@ const AboutPage = () => (
                 <h2 className="text-2xl font-semibold mb-4">所属</h2>
                 <ul className="list-disc pl-5 space-y-2">
                     <li>名古屋大学 情報学部 人間社会情報科学科 2022年4月から在学中</li>
-                    <li><Link className='text-blue-500 hover:underline' href="https://mdg.si.i.nagoya-u.ac.jp/">Media&Design Group – 名古屋大学 安田・遠藤・浦田研究室</Link> 2024年9月から所属</li>
-                    <li><Link className='text-blue-500 hover:underline' href="https://aixtal.com/">アイクリスタル株式会社</Link>2023年8月からインターン</li>
-                    <li><Link className='text-blue-500 hover:underline' href="https://meidaisai.com/">名大祭実行委員会</Link> 2022年4月〜2024年9月の期間に所属</li>
-                    <li><Link className='text-blue-500 hover:underline' href="https://www.jackapp.jp/">アプリ開発団体 jack</Link> 2022年4月〜2024年9月の期間に所属</li>
+                    <li><Link className='text-[var(--link-color)] hover:text-[var(--link-hover-color)] hover:underline' href="https://mdg.si.i.nagoya-u.ac.jp/">Media&Design Group – 名古屋大学 安田・遠藤・浦田研究室</Link> 2024年9月から所属</li>
+                    <li><Link className='text-[var(--link-color)] hover:text-[var(--link-hover-color)] hover:underline' href="https://aixtal.com/">アイクリスタル株式会社</Link>2023年8月からインターン</li>
+                    <li><Link className='text-[var(--link-color)] hover:text-[var(--link-hover-color)] hover:underline' href="https://meidaisai.com/">名大祭実行委員会</Link> 2022年4月〜2024年9月の期間に所属</li>
+                    <li><Link className='text-[var(--link-color)] hover:text-[var(--link-hover-color)] hover:underline' href="https://www.jackapp.jp/">アプリ開発団体 jack</Link> 2022年4月〜2024年9月の期間に所属</li>
                 </ul>
             </section>
 

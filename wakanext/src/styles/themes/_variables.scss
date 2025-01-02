@@ -18,6 +18,15 @@
 .dark-theme {
     --background-rgb: 10, 10, 10; // ほぼ黒
     --foreground-rgb: 237, 237, 237; // ライトグレー
+    --primary-rgb: 44, 62, 80; // ダークブルー
+    --secondary-rgb: 52, 69, 94; // ダークパープル
+    --accent-rgb: 252, 146, 60; // オレンジ
+
+    --background: rgb(var(--background-rgb));
+    --foreground: rgb(var(--foreground-rgb));
+    --primary: rgb(var(--primary-rgb));
+    --secondary: rgb(var(--secondary-rgb));
+    --accent: rgb(var(--accent-rgb));
 }
 
 .serif-font {
