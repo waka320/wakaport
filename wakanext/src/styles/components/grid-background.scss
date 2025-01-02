@@ -26,9 +26,9 @@
     background-repeat: repeat;
 
     $grid-color-light: #ffffff;
-    $grid-color-dark: #121212; 
+    $grid-color-dark: #121212;
     $line-color: #ededed;
-    $line-color-dark: rgba(237, 237, 237, 0.3); 
+    $line-color-dark: rgba(237, 237, 237, 0.3);
 
     background-image: linear-gradient(0deg, transparent calc(100% - 1px), #{$line-color} calc(100% - 1px)),
     linear-gradient(90deg, transparent calc(100% - 1px), #{$line-color} calc(100% - 1px)),
@@ -57,16 +57,30 @@
             color: var(--foreground);
 
             .content-background {
-                background-color: rgba(var(--background-rgb), 1);
-                border: 1px solid rgba(var(--background-rgb), 1);
-                border-radius: 12px;
-                box-shadow: 0 4px 6px rgba(var(--foreground-rgb), 0.3);
+                background-color: var(--background);
                 color: var(--foreground);
                 max-width: 800px;
                 width: 90%;
                 margin: 2rem auto;
                 padding: 2rem;
+                border-radius: 0.5rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                transition: box-shadow 0.3s ease;
+
+                &:hover {
+                    box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.15);
+                }
             }
         }
+    }
+}
+
+.dark-theme .content-background {
+    background-color: var(--background);
+    color: var(--foreground);
+    box-shadow: 0 10px 15px -3px var(--shadow-color);
+
+    &:hover {
+        box-shadow: 0 15px 20px -5px var(--shadow-color);
     }
 }

@@ -44,7 +44,7 @@ export default async function Content() {
                                 <span className="font-bold">「
                                     <Link
                                         href={`/news/${latestArticle.slug}`}
-                                        className="text-blue-500 hover:underline"
+                                        className="link hover:underline"
                                     >
                                         {latestArticle.title}
                                     </Link>

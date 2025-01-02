@@ -24,17 +24,6 @@ export function Timeline({ projects }: { projects: ProjectProps[] }) {
                         <p className="timeline-description">
                             {project.description}
                         </p>
-
-                        <div className="timeline-technologies">
-                            {project.tags.map((tag) => (
-                                <span
-                                    key={`${project.title}-${tag}`}
-                                    className="timeline-tech"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
                     </div>
                 </div>
             ))}
