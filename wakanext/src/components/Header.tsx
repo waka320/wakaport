@@ -5,7 +5,7 @@ export default function Header() {
     <header className="theme-header bg-[var(--background)] text-[var(--foreground)]border-b-[var(--border-color)] w-full shadow-md p-4 flex justify-between items-center">
       <div className="flex items-center">
         <Link href="/" >
-          <h1 className="my-auto text-xl font-bold">Wakaport.</h1>
+          <h1 className="my-auto text-xl font-bold border-none">Wakaport.</h1>
         </Link>
       </div>
 

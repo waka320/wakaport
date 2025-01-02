@@ -17,7 +17,6 @@
     $grid-size: 24px;
     $thick-line-interval: 5; // 5マスおきに
 
-    // 背景サイズを修正
     background-size: #{$grid-size} #{$grid-size},
     #{$grid-size} #{$grid-size},
     #{$grid-size * $thick-line-interval} #{$grid-size * $thick-line-interval},
