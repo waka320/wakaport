@@ -27,54 +27,54 @@ export default function Form() {
         setResult(response);
     };
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
 
     return (
-        <form onSubmit={handleSubmit} className="content-background space-y-4">
-            <h2 className="text-2xl font-semibold mb-4">お問合せフォーム</h2>
+        <form onSubmit={handleSubmit} className="space-y-4 content-background p-6 rounded-lg shadow-lg">
+            <h2 className="text-2xl font-semibold mb-4 text-[var(--foreground)]">お問い合わせフォーム</h2>
             <div>
-                <label className="block mb-2 font-semibold">名前</label>
+                <label htmlFor="name" className="block text-sm font-medium text-[var(--foreground)]">名前</label>
                 <input
                     type="text"
-                    className="w-full px-3 py-2 border rounded-md"
+                    id="name"
+                    name="name"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
+                    onChange={handleChange}
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md bg-[var(--background)] text-[var(--foreground)] focus:border-blue-500 focus:ring-blue-500"
                 />
             </div>
-
             <div>
-                <label className="block mb-2 font-semibold">メールアドレス</label>
+                <label htmlFor="email" className="block text-sm font-medium text-[var(--foreground)]">メールアドレス</label>
                 <input
                     type="email"
-                    className="w-full px-3 py-2 border rounded-md"
+                    id="email"
+                    name="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
+                    onChange={handleChange}
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md bg-[var(--background)] text-[var(--foreground)] focus:border-blue-500 focus:ring-blue-500"
                 />
             </div>
-
             <div>
-                <label className="block mb-2 font-semibold">メッセージ</label>
+                <label htmlFor="message" className="block text-sm font-medium text-[var(--foreground)]">メッセージ</label>
                 <textarea
-                    className="w-full px-3 py-2 border rounded-md"
+                    id="message"
+                    name="message"
                     rows={4}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                />
+                    onChange={handleChange}
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md bg-[var(--background)] text-[var(--foreground)] focus:border-blue-500 focus:ring-blue-500"
+                ></textarea>
             </div>
-
-
-
-
-            <Button
-                type="submit"
-                className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition"
-            >
-                送信
-            </Button>
-            {result.error && <p className="text-red-500">{result.error}</p>}
-            {result.success && <p className="text-green-500">送信が完了しました</p>}
+            <div>
+                <Button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">送信</Button>
+            </div>
+            {result.success && <p className="text-green-500">送信が成功しました。</p>}
+            {result.error && <p className="text-red-500">送信に失敗しました: {result.error}</p>}
         </form>
     );
 }
