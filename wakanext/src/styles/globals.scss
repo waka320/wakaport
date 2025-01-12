@@ -16,3 +16,7 @@ $breakpoints: (
     'lg': 992px,
     'xl': 1200px
 );
+
+.transition-max-height {
+    transition: max-height 0.5s ease-in-out;
+}
