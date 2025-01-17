@@ -25,7 +25,7 @@ const AffiliationsSection = () => {
                             <li key={index}>{item}</li>
                         ) : (
                             <li key={index}>
-                                <Link className='text-[var(--link-color)] hover:text-[var(--link-hover-color)] hover:underline' href={item.url}>{item.name}</Link>
+                                <Link className='text-[var(--link-color)] hover:text-[var(--accent)] underline' href={item.url}>{item.name}</Link>
                                 <span> {item.description}</span>
                             </li>
                         )
