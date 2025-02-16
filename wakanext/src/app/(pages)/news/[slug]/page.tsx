@@ -11,12 +11,13 @@ export async function generateStaticParams() {
     }))
 }
 
-export default async function ArticleDetailPage(
-    props: {
-        params: Promise<{ slug: string }>
-    }
-) {
-    const params = await props.params;
+type PageProps = {
+    params: { slug: string }
+}
+
+export default async function ArticleDetailPage({
+    params
+}: PageProps) {
     try {
         const article = getArticleBySlug(params.slug)
 
@@ -50,14 +51,11 @@ export default async function ArticleDetailPage(
     }
 }
 
-export async function generateMetadata(
-    props: {
-        params: Promise<{ slug: string }>
-    }
-): Promise<Metadata> {
-    const params = await props.params;
+export async function generateMetadata({
+    params
+}: PageProps): Promise<Metadata> {
     try {
-        const article = getArticleBySlug(params.slug);
+        const article = getArticleBySlug(params.slug)
 
         return {
             title: article.title,
