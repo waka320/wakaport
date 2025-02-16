@@ -5,10 +5,8 @@ import Link from 'next/link'
 import { getArticleBySlug, getAllArticles } from "@/lib/articles/articles"
 
 export async function generateStaticParams() {
-    const articles = getAllArticles()
-    return articles.map((article) => ({
-        slug: article.slug,
-    }))
+    const articles = getAllArticles();
+    return articles.map(article => ({ slug: article.slug }));
 }
 
 type PageProps = {
@@ -56,7 +54,7 @@ export async function generateMetadata({
     params
 }: PageProps): Promise<Metadata> {
     try {
-        const { slug } = await params 
+        const { slug } = await params
         const article = getArticleBySlug(slug)
 
         if (article) {
