@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from 'react';
 import IntroductionSection from '@/components/about/IntroductionSection';
 import AffiliationsSection from '@/components/about/AffiliationsSection';
 import SkillsSection from '@/components/about/SkillsSection';
