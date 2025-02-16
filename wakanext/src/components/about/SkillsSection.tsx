@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { skills } from '@/lib/about/skills';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const SkillsSection = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +33,9 @@ const SkillsSection = () => {
                 </span>
             </h2>
             <div className={`overflow-hidden transition-max-height duration-500 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
+                <p className='text-xs text-gray-500 mb-2'>
+                    Icons are from <Link href="https://icons8.com/" className="underline" target="_blank" rel="noopener noreferrer">Icons8</Link>
+                </p>
                 {skills.categories.map((category, index) => (
                     <div key={index}>
                         <h3 className="text-xl font-semibold mb-4">{category.name}</h3>
