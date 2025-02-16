@@ -108,7 +108,7 @@ export const projects: ProjectProps[] = [
         description: '人生で最初で最後の手術（であってほしい）。自転車から転んで表面に大きな傷ができる。３針縫った。後遺症はなし。',
         tags: ['自分史', '学校'],
         start: '2015年4月',
-        end: '2018年3月'
+        end: '2015年5月'
     },
     {
         title: '名古屋中学校 入学',
