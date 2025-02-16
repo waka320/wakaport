@@ -18,7 +18,6 @@ function parseMarkdownFile(fileContents: string): {
     const lines = fileContents.split('\n')
     const metadataStart = lines.findIndex(line => line.trim() === '---')
     const metadataEnd = lines.slice(metadataStart + 1).findIndex(line => line.trim() === '---')
-
     const metadata: { [key: string]: string } = {}
     const metadataLines = lines.slice(metadataStart + 1, metadataStart + metadataEnd + 1)
 
@@ -39,7 +38,6 @@ function parseMarkdownFile(fileContents: string): {
 
 export function getAllArticles(): ArticleProps[] {
     const articlesDirectory = path.join(process.cwd(), 'src/lib/articles/content')
-
     const fileNames = fs.readdirSync(articlesDirectory)
         .filter(fileName => fileName.endsWith('.md'))
 
@@ -47,7 +45,6 @@ export function getAllArticles(): ArticleProps[] {
         const slug = fileName.replace(/\.md$/, '')
         const fullPath = path.join(articlesDirectory, fileName)
         const fileContents = fs.readFileSync(fullPath, 'utf8')
-
         const { title, date, excerpt, content } = parseMarkdownFile(fileContents)
 
         return {
@@ -85,7 +82,6 @@ export function getArticleBySlug(slug: string): ArticleProps {
 
 export function formatArticleDate(dateInput: string | Date): string {
     const date = new Date(dateInput)
-
     return new Intl.DateTimeFormat('ja-JP', {
         year: 'numeric',
         month: '2-digit',

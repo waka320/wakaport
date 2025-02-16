@@ -2,16 +2,22 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Markdown from 'react-markdown'
 import Link from 'next/link'
-import { getArticleBySlug } from "@/lib/articles/articles"
+import { getArticleBySlug, getAllArticles } from "@/lib/articles/articles"
+
+export async function generateStaticParams() {
+    const articles = getAllArticles()
+    return articles.map((article) => ({
+        slug: article.slug,
+    }))
+}
 
 export default async function ArticleDetailPage({
     params
 }: {
-    params: Promise<{ slug: string }>
+    params: { slug: string }
 }) {
-    const resolvedParams = await params;
     try {
-        const article = getArticleBySlug(resolvedParams.slug)
+        const article = getArticleBySlug(params.slug)
 
         if (!article) {
             notFound()
@@ -31,7 +37,9 @@ export default async function ArticleDetailPage({
                     </article>
 
                     <div className="mt-8">
-                        <Link href="/news" className="text-[var(--link-color)] hover:text-[var(--link-hover-color)] hover:underline">記事一覧に戻る</Link>
+                        <Link href="/news" className="text-[var(--link-color)] hover:text-[var(--link-hover-color)] hover:underline">
+                            記事一覧に戻る
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -44,11 +52,10 @@ export default async function ArticleDetailPage({
 export async function generateMetadata({
     params
 }: {
-    params: Promise<{ slug: string }>
+    params: { slug: string }
 }): Promise<Metadata> {
-    const resolvedParams = await params;
     try {
-        const article = getArticleBySlug(resolvedParams.slug);
+        const article = getArticleBySlug(params.slug);
 
         return {
             title: article.title,
