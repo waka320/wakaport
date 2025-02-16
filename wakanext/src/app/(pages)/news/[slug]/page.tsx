@@ -56,12 +56,19 @@ export async function generateMetadata({
     params
 }: PageProps): Promise<Metadata> {
     try {
-        const { slug } = await params // paramsをawaitで解決
+        const { slug } = await params 
         const article = getArticleBySlug(slug)
 
-        return {
-            title: article.title,
-            description: article.excerpt
+        if (article) {
+            return {
+                title: article.title,
+                description: article.excerpt
+            }
+        } else {
+            return {
+                title: '記事が見つかりません',
+                description: 'この記事が見つかりませんでした'
+            }
         }
     } catch {
         return {
