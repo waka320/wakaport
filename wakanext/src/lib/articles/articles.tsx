@@ -61,11 +61,11 @@ export function getAllArticles(): ArticleProps[] {
     )
 }
 
-export function getArticleBySlug(slug: string): ArticleProps {
+export function getArticleBySlug(slug: string): ArticleProps | undefined {
     const fullPath = path.join(process.cwd(), `src/lib/articles/content/${slug}.md`)
 
     if (!fs.existsSync(fullPath)) {
-        throw new Error(`Article with slug ${slug} not found`)
+        return undefined
     }
 
     const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -79,6 +79,7 @@ export function getArticleBySlug(slug: string): ArticleProps {
         content
     }
 }
+
 
 export function formatArticleDate(dateInput: string | Date): string {
     const date = new Date(dateInput)

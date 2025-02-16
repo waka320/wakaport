@@ -12,14 +12,15 @@ export async function generateStaticParams() {
 }
 
 type PageProps = {
-    params: { slug: string }
+    params: Promise<{ slug: string }>
 }
 
 export default async function ArticleDetailPage({
     params
 }: PageProps) {
     try {
-        const article = getArticleBySlug(params.slug)
+        const { slug } = await params // paramsをawaitで解決
+        const article = getArticleBySlug(slug)
 
         if (!article) {
             notFound()
@@ -55,7 +56,8 @@ export async function generateMetadata({
     params
 }: PageProps): Promise<Metadata> {
     try {
-        const article = getArticleBySlug(params.slug)
+        const { slug } = await params // paramsをawaitで解決
+        const article = getArticleBySlug(slug)
 
         return {
             title: article.title,
