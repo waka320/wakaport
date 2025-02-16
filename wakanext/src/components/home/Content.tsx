@@ -21,7 +21,7 @@ export default async function Content() {
                 buttonHref="/about"
             />
             <Card
-                imageSrc="/images/progress.jpg"
+                imageSrc="/images/cloth.jpg"
                 title="Progress"
                 paragraphs={[
                     "文系学生でありながら、様々な場面でWebアプリを開発しました。",
