@@ -8,6 +8,13 @@ export type ProjectProps = {
 
 export const projects: ProjectProps[] = [
     {
+        title: '江崎グリコにて短期インターン',
+        description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
+        tags: ['技術開発', ],
+        start: '2025年2月',
+        end: ''
+    },
+    {
         title: 'Wakaport. 制作',
         description: 'ポートフォリオであり、自身のポータルでもあるWebサイトの制作。',
         tags: ['技術開発', '自分史', '学校'],
@@ -63,7 +70,7 @@ export const projects: ProjectProps[] = [
     },
     {
         title: 'オランダ短期留学・CuriousU 単位取得',
-        description: 'オランダに2週間短期留学をし、トゥエンテ大学の短期研修でサマースクール「Curious U」を受講',
+        description: 'オランダに2週間短期留学をし、トゥエンテ大学の短期研修でサマースクール「Curious U」を受講。',
         tags: ['自分史', '学校'],
         start: '2022年8月',
         end: ''
