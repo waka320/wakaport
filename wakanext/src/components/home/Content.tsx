@@ -1,8 +1,6 @@
 import { Card } from "./Card";
 import Link from "next/link";
-import { Button } from "../ui/Button";
 import { getAllArticles } from "@/lib/articles/articles"
-import Image from "next/image";
 
 export default async function Content() {
     const articles = await getAllArticles()
