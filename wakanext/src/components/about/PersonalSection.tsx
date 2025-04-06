@@ -61,16 +61,16 @@ const PersonalSection = ({ isOpen, onToggle }: PersonalSectionProps) => {
     };
 
     // カテゴリに基づいた色を取得
-    const getCategoryColor = (category: string) => {
-        const categoryColors: {[key: string]: string} = {
-            "ゲーム": "bg-blue-100 text-blue-800 border-blue-200",
-            "ニンゲン": "bg-green-100 text-green-800 border-green-200",
-            "アニメ": "bg-purple-100 text-purple-800 border-purple-200",
-            "その他": "bg-gray-100 text-gray-800 border-gray-200"
-        };
+    // const getCategoryColor = (category: string) => {
+    //     const categoryColors: {[key: string]: string} = {
+    //         "ゲーム": "bg-blue-100 text-blue-800 border-blue-200",
+    //         "ニンゲン": "bg-green-100 text-green-800 border-green-200",
+    //         "アニメ": "bg-purple-100 text-purple-800 border-purple-200",
+    //         "その他": "bg-gray-100 text-gray-800 border-gray-200"
+    //     };
         
-        return categoryColors[category] || "bg-gray-100 text-gray-800 border-gray-200";
-    };
+    //     return categoryColors[category] || "bg-gray-100 text-gray-800 border-gray-200";
+    // };
 
     // 選択されたカテゴリに基づいてワードクラウドアイテムを生成する関数
     const generateWordCloudItems = (category: DisplayCategory) => {
