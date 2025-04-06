@@ -26,3 +26,19 @@ $breakpoints: (
     @apply bg-gray-50 dark:bg-gray-900;
     // その他のスタイル
 }
+
+@keyframes expand {
+    0% {
+        width: 0;
+        opacity: 0.7;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+.animate-expand {
+    animation: expand 1.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
