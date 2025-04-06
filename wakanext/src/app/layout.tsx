@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import "@/styles/globals.scss";
@@ -37,6 +38,7 @@ export default function RootLayout({
     <html
       lang="ja"
       className={`${geistSans.variable} ${geistMono.variable}`}
+      suppressHydrationWarning
     >
       <body
         className="
@@ -48,17 +50,20 @@ export default function RootLayout({
           grid-background
         "
       >
-
-        <div className="max-auto flex flex-col min-h-screen">
-          <Header />
-          <main className="">
-
-            {children}
-
-          </main>
-
-        </div>
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="mx-auto flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
