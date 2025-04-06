@@ -4,5 +4,6 @@ export const qualifications = {
         "英検準1級 2020年2月 取得",
         "普通四輪 2023年8月 取得",
         "JPHACKS2024 AwardDay進出、三菱重工スポンサー賞、NTTドコモスポンサー賞 2024年取得",
+        "TOEC 890点 2025年 取得",
     ],
 };

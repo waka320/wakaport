@@ -30,7 +30,7 @@ const IntroductionSection = ({ isOpen, onToggle }: IntroductionSectionProps) => 
                                 alt="プロフィール画像"
                                 width={180}
                                 height={180}
-                                className="w-36 md:w-44 transition-transform duration-300 hover:scale-105"
+                                className="w-36 md:w-44 transition-transform duration-300 "
                             />
                         </div>
                     </div>
