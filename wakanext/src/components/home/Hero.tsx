@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Hero() {
     return (
         <div className="flex flex-col lg:flex-row container min-h-screen lg:min-h-[100svh] items-center justify-between lg:items-start relative px-4 py-8 lg:py-0">
@@ -13,15 +15,15 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="mt-12 mb-8 lg:mt-0 lg:mb-0 lg:absolute lg:bottom-24 lg:right-24 flex flex-col items-center lg:items-end">
-                <a
+            <div className="mt-8 lg:mt-0 lg:mb-0 lg:absolute lg:bottom-24 lg:right-24 flex flex-col items-center lg:items-end">
+                <Link
                     href="https://github.com/waka320"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="relative group cursor-pointer block transition-transform duration-300 hover:scale-110 active:scale-95"
                     aria-label="GitHubプロフィールへ"
                 >
-                    <div className="relative w-32 h-32 lg:w-48 lg:h-48 rounded-full overflow-hidden shadow-xl animate-record-spin border-8 border-gray-900/10 dark:border-gray-100/10 group-hover:shadow-2xl">
+                    <div className="relative w-28 h-28 lg:w-48 lg:h-48 rounded-full overflow-hidden shadow-xl animate-record-spin border-8 border-gray-900/10 dark:border-gray-100/10 group-hover:shadow-2xl">
                         <img
                             src="/images/icon.png"
                             alt="Wakaport Icon"
@@ -31,8 +33,8 @@ export default function Hero() {
 
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 lg:w-3 h-2 lg:h-3 bg-gray-900 dark:bg-gray-100 rounded-full z-10 shadow-inner"></div>
 
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 lg:w-24 h-16 lg:h-24 border border-gray-700/20 dark:border-gray-300/20 rounded-full pointer-events-none"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 lg:w-16 h-12 lg:h-16 border border-gray-700/20 dark:border-gray-300/20 rounded-full pointer-events-none"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 lg:w-24 h-14 lg:h-24 border border-gray-700/20 dark:border-gray-300/20 rounded-full pointer-events-none"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 lg:w-16 h-10 lg:h-16 border border-gray-700/20 dark:border-gray-300/20 rounded-full pointer-events-none"></div>
 
                     {/* ラベル部分 */}
                     <div className="absolute bottom-[-10px] right-[-10px] px-2 py-1 bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-300 rounded-full text-xs rotate-12 transition-all duration-300 group-hover:bottom-[-5px] group-hover:right-[-5px]">
@@ -41,9 +43,9 @@ export default function Hero() {
 
                     {/* ホバー時のヒント - 初期状態では非表示 */}
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-orange-600/80 dark:bg-orange-500/80 text-white px-4 py-2 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap z-20">
-                                    GitHub
+                        GitHub
                     </div>
-                </a>
+                </Link>
             </div>
         </div>
     )
