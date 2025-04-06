@@ -1,3 +1,38 @@
+export const iconMapping: Record<string, { provider: string, name: string }> = {
+    // 既存のマッピング
+    "React": { provider: "logos", name: "react" },
+    "Next.Js": { provider: "logos", name: "nextjs-icon" },
+    "MaterialUI": { provider: "logos", name: "material-ui" },
+    "shad/cn": { provider: "simple-icons", name: "shadcnui" },
+    "prisma": { provider: "simple-icons", name: "prisma" },
+    "MacOS": { provider: "logos", name: "apple" },
+    "UbuntuDesktop": { provider: "logos", name: "ubuntu" },
+    "Raspbian": { provider: "logos", name: "raspberry-pi" },
+    "MariaDB": { provider: "logos", name: "mariadb" },
+    "Azure": { provider: "logos", name: "microsoft-azure" },
+    "Vercel": { provider: "logos", name: "vercel" },
+    "Microsoft PowerPoint": { provider: "simple-icons", name: "microsoftpowerpoint" },
+    "Microsoft Teams": { provider: "logos", name: "microsoft-teams" },
+    
+    // 不足しているマッピングを追加
+    "HTML": { provider: "logos", name: "html-5" },
+    "CSS": { provider: "logos", name: "css-3" },
+    "JavaScript": { provider: "logos", name: "javascript" },
+    "TypeScript": { provider: "logos", name: "typescript-icon" },
+    "Python": { provider: "logos", name: "python" },
+    "PHP": { provider: "logos", name: "php" },
+    "MarkDown": { provider: "simple-icons", name: "markdown" },
+    "Flask": { provider: "simple-icons", name: "flask" },
+    "Django": { provider: "logos", name: "django-icon" },
+    "BootStrap": { provider: "logos", name: "bootstrap" },
+    "TailwindCSS": { provider: "logos", name: "tailwindcss-icon" },
+    "Sass": { provider: "logos", name: "sass" },
+    "Windows10/11": { provider: "logos", name: "microsoft-windows" },
+    "WordPress": { provider: "logos", name: "wordpress-icon" },
+    "GitHub": { provider: "logos", name: "github-icon" },
+    "Slack": { provider: "logos", name: "slack-icon" }
+};
+
 export const skills = {
     title: "技術スタック",
     categories: [
@@ -20,7 +55,6 @@ export const skills = {
                 { name: "Django", usage: "時々使用", comment: "フルスタックPythonフレームワーク" },
                 { name: "React", usage: "頻繁に使用", comment: "UIライブラリ" },
                 { name: "Next.Js", usage: "頻繁に使用", comment: "Reactのフレームワーク" },
-                { name: "Vue.js", usage: "時々使用", comment: "シンプルなUIフレームワーク" },
             ],
         },
         {
@@ -32,7 +66,6 @@ export const skills = {
                 { name: "shad/cn", usage: "時々使用", comment: "CSSライブラリ" },
                 { name: "Sass", usage: "時々使用", comment: "CSSプリプロセッサ" },
                 { name: "prisma", usage: "時々使用", comment: "データベースORM" },
-                { name: "matplotlib", usage: "時々使用", comment: "Pythonのグラフ描画ライブラリ" },
             ],
         },
         {

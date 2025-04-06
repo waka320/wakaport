@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { skills } from '@/lib/about/skills';
+import { skills, iconMapping } from '@/lib/about/skills';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const SkillsSection = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true); // 初期値をtrueに変更して最初から開いた状態にする
     interface Skill {
         name: string;
         usage: string;
@@ -21,33 +21,61 @@ const SkillsSection = () => {
         setSelectedSkill(undefined);
     };
 
+    // アイコンURLを取得する関数
+    const getIconUrl = (name: string) => {
+        // 特別対応が必要なアイコンの対応
+        if (name === "Microsoft PowerPoint") {
+            return "https://api.iconify.design/simple-icons/microsoftpowerpoint.svg";
+        }
+        
+        if (iconMapping[name]) {
+            const { provider, name: iconName } = iconMapping[name];
+            return `https://api.iconify.design/${provider}/${iconName}.svg`;
+        }
+        // バックアップとしてIcons8を使用
+        return `https://img.icons8.com/color/50/${name.toLowerCase().replace(/\s+/g, '-')}.png`;
+    };
+
+    // スキルの使用頻度に基づいて色を取得
+    const getUsageColor = (usage: string) => {
+        if (usage === "頻繁に使用") return "bg-green-100 text-green-800";
+        if (usage === "時々使用") return "bg-blue-100 text-blue-800";
+        return "bg-gray-100 text-gray-800";
+    };
+
     return (
-        <section className='content-background'>
+        <section className='content-background mb-6'>
             <h2
-                className="text-2xl font-semibold mb-4 cursor-pointer flex items-center hover:text-[var(--accent)]"
+                className="text-2xl font-semibold mb-4 cursor-pointer flex items-center hover:text-[var(--accent)] transition-colors duration-200"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 {skills.title}
-                <span className={`ml-2 transform transition-transform ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                <span className={`ml-2 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
                     ▼
                 </span>
             </h2>
-            <div className={`overflow-hidden transition-max-height duration-500 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
-                <p className='text-xs text-gray-500 mb-2'>
-                    Icons are from <Link href="https://icons8.com/" className="underline" target="_blank" rel="noopener noreferrer">Icons8</Link>
-                </p>
+            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
                 {skills.categories.map((category, index) => (
-                    <div key={index}>
-                        <h3 className="text-xl font-semibold mb-4">{category.name}</h3>
-                        <div className="flex flex-wrap gap-4">
+                    <div key={index} className="mb-8">
+                        <h3 className="text-xl font-semibold mb-4 border-b pb-2">{category.name}</h3>
+                        <div className="flex flex-wrap gap-6">
                             {category.items.map((item, itemIndex) => (
-                                <div key={itemIndex} className="cursor-pointer" onClick={() => handleSkillClick(item)}>
-                                    <Image
-                                        src={`/icons/${item.name.toLowerCase()}.png`} // アイコンのパスを適宜変更
-                                        alt={item.name}
-                                        width={50}
-                                        height={50}
-                                    />
+                                <div 
+                                    key={itemIndex} 
+                                    className="cursor-pointer flex flex-col items-center hover:scale-110 transition-transform duration-200 bg-white/50 p-3 rounded-lg shadow-sm w-[120px] h-[120px] justify-center" 
+                                    onClick={() => handleSkillClick(item)}
+                                >
+                                    <div className="flex justify-center items-center h-[50px] mb-2">
+                                        <Image
+                                            src={getIconUrl(item.name)}
+                                            alt={item.name}
+                                            width={50}
+                                            height={50}
+                                            unoptimized={true}
+                                            className="object-contain"
+                                        />
+                                    </div>
+                                    <span className="text-sm text-center font-medium">{item.name}</span>
                                 </div>
                             ))}
                         </div>
@@ -55,14 +83,31 @@ const SkillsSection = () => {
                 ))}
             </div>
             {selectedSkill && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 className="text-xl font-semibold mb-4">{selectedSkill.name}</h3>
-                        <p className="text-sm text-gray-600">{selectedSkill.usage}</p>
-                        <p className="text-sm">{selectedSkill.comment}</p>
-                        <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded" onClick={closePopup}>
-                            閉じる
-                        </button>
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={closePopup}>
+                    <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full" onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center mb-4">
+                            <Image
+                                src={getIconUrl(selectedSkill.name)}
+                                alt={selectedSkill.name}
+                                width={40}
+                                height={40}
+                                unoptimized={true}
+                                className="mr-3"
+                            />
+                            <h3 className="text-xl font-semibold">{selectedSkill.name}</h3>
+                        </div>
+                        <div className={`inline-block px-2 py-1 rounded-full text-xs font-medium mb-3 ${getUsageColor(selectedSkill.usage)}`}>
+                            {selectedSkill.usage}
+                        </div>
+                        <p className="text-sm text-gray-700 mb-4">{selectedSkill.comment}</p>
+                        <div className="flex justify-end">
+                            <button 
+                                className="px-4 py-2 bg-[var(--accent)] text-white rounded hover:bg-opacity-90 transition-colors duration-200" 
+                                onClick={closePopup}
+                            >
+                                閉じる
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
