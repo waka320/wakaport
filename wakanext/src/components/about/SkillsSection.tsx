@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { skills, iconMapping } from '@/lib/about/skills';
 import Image from 'next/image';
-import Link from 'next/link';
 
-const SkillsSection = () => {
-    const [isOpen, setIsOpen] = useState(true); // 初期値をtrueに変更して最初から開いた状態にする
+interface SkillsSectionProps {
+    isOpen: boolean;
+    onToggle: () => void;
+}
+
+const SkillsSection = ({ isOpen, onToggle }: SkillsSectionProps) => {
     interface Skill {
         name: string;
         usage: string;
@@ -44,19 +47,19 @@ const SkillsSection = () => {
     };
 
     return (
-        <section className='content-background mb-6'>
+        <section className="content-background mb-8 p-5 md:p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
             <h2
-                className="text-2xl font-semibold mb-4 cursor-pointer flex items-center hover:text-[var(--accent)] transition-colors duration-200"
-                onClick={() => setIsOpen(!isOpen)}
+                className={`text-xl md:text-2xl font-semibold mb-4 cursor-pointer flex items-center justify-between hover:text-[var(--accent)] transition-colors duration-300 ${isOpen ? 'text-[var(--accent)]' : ''}`}
+                onClick={onToggle}
             >
-                {skills.title}
-                <span className={`ml-2 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                <span>{skills.title}</span>
+                <span className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
                     ▼
                 </span>
             </h2>
             <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
                 {skills.categories.map((category, index) => (
-                    <div key={index} className="mb-8">
+                    <div key={index} className="mb-8 mt-4">
                         <h3 className="text-xl font-semibold mb-4 border-b pb-2">{category.name}</h3>
                         <div className="flex flex-wrap gap-6">
                             {category.items.map((item, itemIndex) => (
