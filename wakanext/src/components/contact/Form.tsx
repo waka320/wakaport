@@ -35,8 +35,8 @@ export default function Form() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4 content-background p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4 text-[var(--foreground)]">お問い合わせフォーム</h2>
+        <form onSubmit={handleSubmit} className="space-y-4 content-background p-4 md:p-6 rounded-lg shadow-lg mt-6">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4 text-[var(--foreground)]">お問い合わせフォーム</h2>
             <div>
                 <label htmlFor="name" className="block text-sm font-medium text-[var(--foreground)]">名前</label>
                 <input

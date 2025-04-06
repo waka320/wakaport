@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   description: "若松勇希のポートフォリオ",
   authors: [{ name: "Yuki Wakamatsu" }],
   keywords: ["ポートフォリオ", "Web開発", "Next.js", "TypeScript"],
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   openGraph: {
     title: "若松勇希について",
     description: "ポートフォリオサイト",

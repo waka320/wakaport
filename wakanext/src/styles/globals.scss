@@ -17,11 +17,34 @@ $breakpoints: (
     'xl': 1200px
 );
 
+/* モバイル最適化用追加スタイル */
+html {
+    -webkit-text-size-adjust: 100%;
+    touch-action: manipulation;
+}
+
+body {
+    /* モバイル用スクロールのスムージング */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 入力フィールドとボタンのモバイルでのタップ領域を拡大 */
+input,
+button,
+.link,
+a {
+    @media (max-width: 768px) {
+        font-size: 16px;
+        /* iOSの自動ズームを防止 */
+        min-height: 44px;
+        /* タップ可能エリアを拡大 */
+    }
+}
+
 .transition-max-height {
     transition: max-height 0.5s ease-in-out;
 }
 
-// 必要に応じて、ダークモード対応のスタイルを追加
 .grid-background {
     @apply bg-gray-50 dark:bg-gray-900;
     // その他のスタイル
@@ -74,4 +97,14 @@ $breakpoints: (
 
 .animate-record-spin {
     animation: spin-record 20s linear infinite;
+}
+
+/* スマートフォンでの遅いアニメーション防止 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

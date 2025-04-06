@@ -6,9 +6,9 @@ const IntroductionSection = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <section className="content-background mb-8 p-6 rounded-lg shadow-lg">
+        <section className="content-background mb-8 p-4 md:p-6 rounded-lg shadow-lg">
             <h2
-                className="text-2xl font-semibold mb-4 cursor-pointer flex items-center hover:text-[var(--accent)] transition-colors duration-300"
+                className="text-xl md:text-2xl font-semibold mb-4 cursor-pointer flex items-center hover:text-[var(--accent)] transition-colors duration-300"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 {introduction.title}
@@ -19,25 +19,25 @@ const IntroductionSection = () => {
             <div
                 className={`overflow-hidden transition-max-height duration-500 ease-in-out ${isOpen ? 'max-h-screen' : 'max-h-0'}`}
             >
-                <div className='flex container mt-4'>
-                    <div className='flex-[1]'>
+                <div className='flex flex-col md:flex-row container mt-4 gap-4'>
+                    <div className='flex-none md:flex-[1] flex justify-center'>
                         <Image
                             src={introduction.imageSrc}
                             alt="プロフィール画像"
                             width={150}
                             height={150}
-                            className="w-full"
+                            className="w-32 md:w-full"
                         />
                     </div>
-                    <div className='flex-[2] ml-4 flex flex-col justify-between'>
+                    <div className='flex-auto md:flex-[2] flex flex-col justify-between'>
                         <div>
                             {introduction.content.map((para, index) => (
                                 <div key={index}>
-                                    <p className="text-lg leading-relaxed mb-2">{para}</p>
+                                    <p className="text-base md:text-lg leading-relaxed mb-2">{para}</p>
                                 </div>
                             ))}
                         </div>
-                        <div className="text-right mt-4">
+                        <div className="text-right mt-4 text-sm md:text-base">
                             {introduction.lastEdit}
                         </div>
                     </div>

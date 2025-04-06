@@ -21,7 +21,12 @@ $dark-border-color: #374151;
         position: absolute;
         top: 0;
         bottom: 0;
-        left: 30px;
+        left: 20px;
+
+        @media (min-width: 768px) {
+            left: 30px;
+        }
+
         width: 2px;
         background-color: $border-color;
     }
@@ -35,11 +40,22 @@ $dark-border-color: #374151;
 
     &-dot {
         position: absolute;
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
+
+        @media (min-width: 768px) {
+            width: 20px;
+            height: 20px;
+        }
+
         background-color: $primary-color;
         border-radius: 50%;
-        left: 20px;
+        left: 13px;
+
+        @media (min-width: 768px) {
+            left: 20px;
+        }
+
         top: 0;
         border: 4px solid $background-color;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -53,9 +69,19 @@ $dark-border-color: #374151;
 
     &-content {
         flex-grow: 1;
-        margin-left: 60px;
+        margin-left: 40px;
+
+        @media (min-width: 768px) {
+            margin-left: 60px;
+        }
+
         background-color: $background-color;
-        padding: 1.5rem;
+        padding: 1rem;
+
+        @media (min-width: 768px) {
+            padding: 1.5rem;
+        }
+
         border-radius: 0.5rem;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         transition: box-shadow 0.3s ease;
@@ -67,25 +93,51 @@ $dark-border-color: #374151;
 
     &-header {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         margin-bottom: 0.75rem;
     }
 
     &-title {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
+
+        @media (min-width: 768px) {
+            font-size: 1.25rem;
+        }
+
         font-weight: bold;
         color: $text-color;
+        margin-bottom: 0.25rem;
+
+        @media (min-width: 768px) {
+            margin-bottom: 0;
+        }
     }
 
     &-date {
-        font-size: 0.875rem;
+        font-size: 0.75rem;
+
+        @media (min-width: 768px) {
+            font-size: 0.875rem;
+        }
+
         color: $text-muted-color;
     }
 
     &-description {
         color: $text-muted-color;
         margin-bottom: 1rem;
+        font-size: 0.875rem;
+
+        @media (min-width: 768px) {
+            font-size: 1rem;
+        }
     }
 
     &-technologies {
@@ -99,7 +151,11 @@ $dark-border-color: #374151;
         background-color: lighten($primary-color, 40%);
         color: $primary-color;
         border-radius: 9999px;
-        font-size: 0.875rem;
+        font-size: 0.75rem;
+
+        @media (min-width: 768px) {
+            font-size: 0.875rem;
+        }
     }
 }
 
