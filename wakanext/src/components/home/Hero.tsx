@@ -16,7 +16,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="mt-4 lg:mt-0 lg:mb-0 lg:absolute lg:bottom-24 lg:right-24 flex flex-col items-center lg:items-end">
+            <div className="mt- lg:mt-0 lg:mb-0 lg:absolute lg:bottom-24 lg:right-24 flex flex-col items-center lg:items-end">
                 <Link
                     href="https://github.com/waka320"
                     target="_blank"
@@ -24,14 +24,14 @@ export default function Hero() {
                     className="relative group cursor-pointer block transition-transform duration-300 hover:scale-110 active:scale-95"
                     aria-label="GitHubプロフィールへ"
                 >
+                    <div className="relative w-24 h-24 md:w-28 md:h-28 lg:w-48 lg:h-48 rounded-full overflow-hidden shadow-xl animate-record-spin border-8 border-gray-900/10 dark:border-gray-100/10 group-hover:shadow-2xl">
                         <Image
                             src="/images/icon.png"
                             alt="Wakaport Icon"
                             fill
-                            sizes="(max-width: 768px) 100px, (max-width: 1200px) 112px, 192px"
-                            priority
+                            sizes="(max-width: 768px) 96px, (max-width: 1024px) 112px, 192px"
                             className="object-cover rounded-full"
-                        />
+                            priority
                         />
                     </div>
 
