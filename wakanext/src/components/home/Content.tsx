@@ -11,7 +11,7 @@ export default async function Content() {
     return (
         <div className="white-background">
             <Card
-                imageSrc="/images/profile.jpg"
+                imageSrc="/images/profile.jpg" 
                 title="About"
                 paragraphs={[
                     "名古屋大学情報学部人間・社会情報学科の３年生です。",
@@ -22,7 +22,7 @@ export default async function Content() {
                 buttonHref="/about"
             />
             <Card
-                imageSrc="/images/cloth.jpg"
+                imageSrc="/images/cloth.jpg" 
                 title="Progress"
                 paragraphs={[
                     "文系学生でありながら、様々な場面でWebアプリを開発しました。",
@@ -35,10 +35,10 @@ export default async function Content() {
             <div className="content-background mb-4 p-4 transition-all duration-300 hover:shadow-lg">
                 <h2 className="text-xl md:text-2xl mb-4 text-[var(--foreground)]">News</h2>
                 <div className="container">
-                    <div className="bg-gray-50/90 dark:bg-gray-900/90 p-4 rounded-lg border-l-4 border-orange-500 mb-4 shadow-sm">
+                    <div className="bg-gray-50/90 dark:bg-gray-800/80 p-4 rounded-lg border-l-4 border-orange-500 mb-4 shadow-sm">
                         <p className="text-sm md:text-base mb-4 text-gray-700 dark:text-gray-300">近況をブログの形で報告します。最新の投稿をご覧ください。</p>
                         
-                        <div className="bg-white/90 dark:bg-gray-800/90 p-4 rounded-lg shadow-sm transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md mb-4 border border-gray-100 dark:border-gray-700">
+                        <div className="bg-white/90 dark:bg-gray-900/90 p-4 rounded-lg shadow-sm transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md mb-4 border border-gray-100 dark:border-gray-700">
                             <div className="flex items-center mb-2">
                                 <span className="bg-orange-500 dark:bg-orange-600 text-white text-xs px-2 py-1 rounded mr-2 shadow-sm">NEW</span>
                                 <span className="text-xs text-gray-600 dark:text-gray-400">{latestArticle.date}</span>
@@ -55,7 +55,7 @@ export default async function Content() {
                         </div>
                         
                         <div className="text-right">
-                            <Link href="/news" className="inline-flex items-center px-4 py-2 bg-orange-600 dark:bg-orange-500 text-white text-sm rounded-md hover:bg-orange-700 dark:hover:bg-orange-600 transition-colors duration-300 group shadow-sm">
+                            <Link href="/news" className="inline-flex items-center px-4 py-2 bg-[var(--accent)] text-white text-sm rounded-md hover:bg-orange-700 dark:hover:bg-orange-400 transition-colors duration-300 group shadow-sm">
                                 すべての記事を見る
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
