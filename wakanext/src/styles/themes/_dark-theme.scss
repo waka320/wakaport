@@ -1,10 +1,10 @@
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: #1f2937;
+        --background: #1c1917; // 暗い背景
         --foreground: #ffffff;
-        --primary: #6574cd;
-        --secondary: #4a56a6;
-        --accent: #fc923c;
+        --primary: #f97316; // オレンジ-500
+        --secondary: #fb923c; // オレンジ-400
+        --accent: #fdba74; // オレンジ-300
 
         --border-color: #374151;
         --shadow-color: rgba(0, 0, 0, 0.5);
@@ -13,11 +13,11 @@
 }
 
 .dark-theme {
-    --background: #1f2937;
+    --background: #1c1917; // 暗い背景
     --foreground: #ffffff;
-    --primary: #6574cd;
-    --secondary: #4a56a6;
-    --accent: #fc923c;
+    --primary: #f97316; // オレンジ-500
+    --secondary: #fb923c; // オレンジ-400
+    --accent: #fdba74; // オレンジ-300
 
     --border-color: #374151;
     --shadow-color: rgba(0, 0, 0, 0.5);

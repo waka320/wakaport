@@ -1,15 +1,15 @@
 :root {
     --background: #ffffff;
     --foreground: #171717;
-    --primary: #3490dc;
-    --secondary: #6574cd;
-    --accent: #fc923c;
+    --primary: #f97316; // オレンジ-500
+    --secondary: #fb923c; // オレンジ-400
+    --accent: #ea580c; // オレンジ-600
 
     --border-color: rgba(0, 0, 0, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.2);
 
-    --card-background: #f8f9fa; 
-    --card-text-color: #212529; 
+    --card-background: #fff7ed; // オレンジ-50
+    --card-text-color: #212529;
     --font-family-base: 'Inter', Arial, sans-serif;
     --font-size-base: 16px;
 }
@@ -26,6 +26,7 @@ body {
             color: var(--accent);
         }
     }
+
     .hero {
         background-color: var(--background);
         border-color: var(--foreground);
