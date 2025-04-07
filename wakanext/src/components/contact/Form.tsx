@@ -19,16 +19,25 @@ export default function Form() {
         setIsSubmitting(true);
         setResult({});  // 送信時に前回の結果をクリア
 
-        const formDataObj = new FormData();
-        formDataObj.append('name', formData.name);
-        formDataObj.append('email', formData.email);
-        formDataObj.append('message', formData.message);
+        // フォームデータのデバッグログ
+        console.log('Submitting form data:', formData);
 
         try {
-            const response = await submitContactForm(formDataObj);
-            setResult(response);
+            // FormDataオブジェクトの作成
+            const formDataObj = new FormData();
+            formDataObj.append('name', formData.name);
+            formDataObj.append('email', formData.email);
+            formDataObj.append('message', formData.message);
 
-            if (response.success) {
+            console.log('Form submission started');
+
+            // Server Actionの呼び出し
+            const response = await submitContactForm(formDataObj);
+            console.log('Form submission response:', response);
+
+            setResult(response || { success: true });
+
+            if (response?.success !== false) {
                 // フォームをリセット
                 setFormData({
                     name: '',
@@ -37,7 +46,13 @@ export default function Form() {
                 });
             }
         } catch (error) {
-            setResult({ error: '送信中にエラーが発生しました。後でもう一度お試しください。' });
+            console.error('Form submission error:', error);
+            setResult({
+                success: false,
+                error: error instanceof Error
+                    ? error.message
+                    : '送信中にエラーが発生しました。後でもう一度お試しください。'
+            });
         } finally {
             setIsSubmitting(false);
         }
@@ -51,7 +66,7 @@ export default function Form() {
     };
 
     return (
-        <div className="bg-white/30 rounded-lg p-6 shadow-inner">
+        <div className="bg-white/30 rounded-lg p-4 md:p-6 shadow-inner">
             {result.success ? (
                 <div className="bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded shadow-sm">
                     <div className="flex items-center">
@@ -66,7 +81,7 @@ export default function Form() {
                     </div>
                 </div>
             ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium text-[var(--foreground)] mb-1">お名前</label>
                         <div className="relative">
@@ -77,7 +92,7 @@ export default function Form() {
                                 required
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="block w-full p-3 pl-4 border border-gray-300 rounded-md bg-white/80 text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all duration-200 shadow-sm"
+                                className="block w-full p-2 md:p-3 pl-3 md:pl-4 border border-gray-300 rounded-md bg-white/80 text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all duration-200 shadow-sm text-sm md:text-base"
                                 placeholder="山田 太郎"
                             />
                         </div>
@@ -93,7 +108,7 @@ export default function Form() {
                                 required
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="block w-full p-3 pl-4 border border-gray-300 rounded-md bg-white/80 text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all duration-200 shadow-sm"
+                                className="block w-full p-2 md:p-3 pl-3 md:pl-4 border border-gray-300 rounded-md bg-white/80 text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all duration-200 shadow-sm text-sm md:text-base"
                                 placeholder="example@email.com"
                             />
                         </div>
@@ -104,17 +119,17 @@ export default function Form() {
                         <textarea
                             id="message"
                             name="message"
-                            rows={5}
+                            rows={4}
                             required
                             value={formData.message}
                             onChange={handleChange}
-                            className="block w-full p-3 border border-gray-300 rounded-md bg-white/80 text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all duration-200 resize-y shadow-sm"
+                            className="block w-full p-2 md:p-3 border border-gray-300 rounded-md bg-white/80 text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all duration-200 resize-y shadow-sm text-sm md:text-base"
                             placeholder="お問い合わせ内容をご記入ください"
                         ></textarea>
                     </div>
 
                     {result.error && (
-                        <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded shadow-sm">
+                        <div className="bg-red-50 border-l-4 border-red-500 p-3 md:p-4 rounded shadow-sm">
                             <div className="flex">
                                 <div className="flex-shrink-0 text-red-500">
                                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
