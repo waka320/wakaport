@@ -86,10 +86,10 @@ const SkillsSection = ({ isOpen, onToggle }: SkillsSectionProps) => {
                 ))}
             </div>
             {selectedSkill && (
-                <div className="fixed inset-0 z-50 overflow-y-auto py-10" onClick={closePopup}>
-                    <div className="flex min-h-full items-center justify-center p-4">
-                        <div 
-                            className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative mx-auto"
+                <div className="fixed inset-0 z-50 overflow-y-auto" onClick={closePopup}>
+                    <div className="flex min-h-screen items-center justify-center p-4">
+                        <div
+                            className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative"
                             onClick={e => e.stopPropagation()}
                         >
                             <div className="flex items-center mb-4">
