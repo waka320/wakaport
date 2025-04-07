@@ -36,8 +36,20 @@ export function Card({
                         ))}
                     </div>
                     <div className="mt-4 self-start">
-                        <Button href={buttonHref}>
+                        <Button
+                            href={buttonHref}
+                            className="inline-flex items-center px-4 py-2 bg-orange-500 hover:bg-orange-600 dark:bg-orange-600 dark:hover:bg-orange-500 text-white text-sm font-medium rounded-md transition-colors duration-300 group shadow-sm"
+                        >
                             {buttonText}
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
                         </Button>
                     </div>
                 </div>
