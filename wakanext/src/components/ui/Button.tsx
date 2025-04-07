@@ -1,11 +1,13 @@
 import React from 'react';
+import Link from 'next/link';
 
 export interface ButtonProps {
     children: React.ReactNode;
     type?: 'button' | 'submit' | 'reset';
     className?: string;
     onClick?: () => void;
-    disabled?: boolean; // disabled プロパティを追加
+    disabled?: boolean;
+    href?: string; // hrefプロパティを追加
 }
 
 export const Button = ({
@@ -13,8 +15,22 @@ export const Button = ({
     type = 'button',
     className = '',
     onClick,
-    disabled = false // デフォルト値も設定
+    disabled = false,
+    href
 }: ButtonProps) => {
+    // hrefがある場合はLinkコンポーネントを返す
+    if (href) {
+        return (
+            <Link
+                href={href}
+                className={className}
+            >
+                {children}
+            </Link>
+        );
+    }
+
+    // hrefがない場合は通常のbuttonを返す
     return (
         <button
             type={type}
