@@ -14,148 +14,180 @@ $dark-border-color: #374151;
 
 .timeline {
     position: relative;
-    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
 
     &::before {
         content: '';
         position: absolute;
+        width: 4px;
+        background: var(--primary-light, #ddd);
         top: 0;
         bottom: 0;
         left: 20px;
+        margin-left: -2px;
+        border-radius: 4px;
 
         @media (min-width: 768px) {
-            left: 30px;
+            left: 50%;
         }
+    }
+}
 
-        width: 2px;
-        background-color: $border-color;
+.timeline-item {
+    padding: 10px 40px 10px 70px;
+    position: relative;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+
+    &.animate-in {
+        opacity: 1;
+        transform: translateY(0);
     }
 
-    &-item {
-        position: relative;
-        margin-bottom: 2rem;
-        display: flex;
-        align-items: flex-start;
-    }
+    @media (min-width: 768px) {
+        width: 50%;
+        padding: 10px 40px;
 
-    &-dot {
-        position: absolute;
-        width: 16px;
-        height: 16px;
-
-        @media (min-width: 768px) {
-            width: 20px;
-            height: 20px;
+        &:nth-child(odd) {
+            left: 0;
+            padding-right: 60px;
         }
 
-        background-color: $primary-color;
+        &:nth-child(even) {
+            left: 50%;
+            padding-left: 60px;
+        }
+    }
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    left: 18px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--primary-light, #ddd);
+
+    @media (min-width: 768px) {
+        left: auto;
+        right: -13px;
+
+        .timeline-item:nth-child(even) & {
+            right: auto;
+            left: -13px;
+        }
+    }
+
+    .timeline-dot-inner {
+        width: 14px;
+        height: 14px;
+        background-color: var(--primary, #4a6cf7);
         border-radius: 50%;
-        left: 13px;
+        transition: all 0.3s ease;
+
+        .timeline-item:hover & {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.timeline-content {
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+
+    &::after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 10px 12px 10px 0;
+        border-color: transparent #fff transparent transparent;
+        top: 20px;
+        left: -12px;
 
         @media (min-width: 768px) {
-            left: 20px;
-        }
-
-        top: 0;
-        border: 4px solid $background-color;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease;
-        z-index: 1;
-
-        &:hover {
-            background-color: $primary-hover-color;
+            .timeline-item:nth-child(even) & {
+                left: auto;
+                right: -12px;
+                border-width: 10px 0 10px 12px;
+                border-color: transparent transparent transparent #fff;
+            }
         }
     }
 
-    &-content {
-        flex-grow: 1;
-        margin-left: 40px;
-
-        @media (min-width: 768px) {
-            margin-left: 60px;
-        }
-
-        background-color: $background-color;
-        padding: 1rem;
-
-        @media (min-width: 768px) {
-            padding: 1.5rem;
-        }
-
-        border-radius: 0.5rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease;
-
-        &:hover {
-            box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.15);
-        }
+    .timeline-item:hover & {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
     }
+}
 
-    &-header {
-        display: flex;
-        flex-direction: column;
+.timeline-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 10px;
 
-        @media (min-width: 768px) {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        margin-bottom: 0.75rem;
+    @media (min-width: 640px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
+}
 
-    &-title {
-        font-size: 1.1rem;
+.timeline-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-dark, #333);
+    margin: 0 0 5px 0;
 
-        @media (min-width: 768px) {
-            font-size: 1.25rem;
-        }
-
-        font-weight: bold;
-        color: $text-color;
-        margin-bottom: 0.25rem;
-
-        @media (min-width: 768px) {
-            margin-bottom: 0;
-        }
+    @media (min-width: 640px) {
+        margin: 0;
     }
+}
 
-    &-date {
-        font-size: 0.75rem;
+.timeline-date {
+    font-size: 0.875rem;
+    color: var(--primary, #4a6cf7);
+    font-weight: 500;
+    white-space: nowrap;
+}
 
-        @media (min-width: 768px) {
-            font-size: 0.875rem;
-        }
+.timeline-description {
+    margin: 0 0 15px 0;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
 
-        color: $text-muted-color;
-    }
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
 
-    &-description {
-        color: $text-muted-color;
-        margin-bottom: 1rem;
-        font-size: 0.875rem;
+.timeline-tag {
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
 
-        @media (min-width: 768px) {
-            font-size: 1rem;
-        }
-    }
-
-    &-technologies {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-
-    &-tech {
-        padding: 0.25rem 0.75rem;
-        background-color: lighten($primary-color, 40%);
-        color: $primary-color;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-
-        @media (min-width: 768px) {
-            font-size: 0.875rem;
-        }
+    &:hover {
+        transform: scale(1.05);
     }
 }
 
