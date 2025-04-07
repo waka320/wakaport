@@ -1,28 +1,28 @@
-import Link from "next/link";
+import React from 'react';
 
-type ButtonProps = {
-    href?: string;
-    type?: "button" | "submit" | "reset";
-    onClick?: () => void;
+export interface ButtonProps {
     children: React.ReactNode;
+    type?: 'button' | 'submit' | 'reset';
     className?: string;
-};
+    onClick?: () => void;
+    disabled?: boolean; // disabled プロパティを追加
+}
 
-export function Button({ href, type = "button", onClick, children, className = "" }: ButtonProps) {
-    const baseClasses = "inline-flex items-center px-4 py-2 bg-[var(--accent)] text-white text-sm rounded-md hover:bg-[var(--accent-hover)] transition-colors duration-300";
-    const classes = `${baseClasses} ${className}`;
-
-    if (href) {
-        return (
-            <Link href={href} className={classes}>
-                {children}
-            </Link>
-        );
-    }
-
+export const Button = ({
+    children,
+    type = 'button',
+    className = '',
+    onClick,
+    disabled = false // デフォルト値も設定
+}: ButtonProps) => {
     return (
-        <button type={type} onClick={onClick} className={classes}>
+        <button
+            type={type}
+            className={className}
+            onClick={onClick}
+            disabled={disabled}
+        >
             {children}
         </button>
     );
-}
+};
