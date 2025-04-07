@@ -5,9 +5,9 @@ import Link from 'next/link';
 
 const ContactPage = () => {
     return (
-        <div className='white-background'>
+        <div className='white-background min-h-screen py-8'>
             <div className="p-4 max-w-4xl mx-auto">
-                <h1 className="text-3xl font-bold mb-6 text-[var(--foreground)]">お問い合わせ</h1>
+                <h1 className="text-center text-3xl font-bold mb-8 text-[var(--primary)]">お問い合わせ</h1>
                 <div className='content-background p-6 rounded-lg shadow-lg'>
                     <h2 className="text-2xl font-semibold mb-4 text-[var(--foreground)]">連絡先</h2>
                     <ul>

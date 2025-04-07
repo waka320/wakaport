@@ -5,9 +5,9 @@ export default async function NewsPage() {
     const articles = await getAllArticles()
 
     return (
-        <div className='white-background'>
+        <div className='white-background min-h-screen py-8'>
             <div className="p-4 max-w-4xl mx-auto">
-                <h1 className="text-2xl md:text-3xl font-bold mb-6 text-[var(--foreground)]">記事一覧</h1>
+                <h1 className="text-center text-3xl font-bold mb-8 text-[var(--primary)]">記事一覧</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     {articles.map((article) => (
                         <div

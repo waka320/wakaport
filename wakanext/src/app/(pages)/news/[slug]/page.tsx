@@ -17,7 +17,7 @@ export default async function ArticleDetailPage({
     params
 }: PageProps) {
     try {
-        const { slug } = await params // paramsをawaitで解決
+        const { slug } = await params
         const article = getArticleBySlug(slug)
 
         if (!article) {
@@ -25,11 +25,11 @@ export default async function ArticleDetailPage({
         }
 
         return (
-            <div className='white-background'>
-                <div className="container mx-auto px-4 py-8 max-w-4xl">
+            <div className='white-background min-h-screen py-8'>
+                <div className="p-4 max-w-4xl mx-auto">
+                    <h1 className="text-center text-3xl font-bold mb-8 text-[var(--primary)]">{article.title}</h1>
                     <article className="content-background p-6 rounded-lg shadow-lg">
-                        <h1 className="text-4xl font-bold mb-4 text-[var(--foreground)]">{article.title}</h1>
-                        <div className="text-gray-600 mb-6">
+                        <div className="text-gray-600 mb-6 text-center">
                             <time>{article.date}</time>
                         </div>
                         <div className="prose lg:prose-xl text-[var(--foreground)]">
@@ -37,7 +37,7 @@ export default async function ArticleDetailPage({
                         </div>
                     </article>
 
-                    <div className="mt-8">
+                    <div className="mt-8 text-center">
                         <Link href="/news" className="text-[var(--link-color)] hover:text-[var(--link-hover-color)] hover:underline">
                             記事一覧に戻る
                         </Link>
