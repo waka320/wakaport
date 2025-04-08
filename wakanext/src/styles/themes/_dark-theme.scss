@@ -1,24 +1,9 @@
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #1c1917; // 暗い背景
-        --foreground: #ffffff;
-        --primary: #f97316; // オレンジ-500
-        --secondary: #fb923c; // オレンジ-400
-        --accent: #fdba74; // オレンジ-300
-
-        --border-color: #374151;
-        --shadow-color: rgba(0, 0, 0, 0.5);
-        --text-muted-color: #9ca3af;
-    }
-}
-
-.dark-theme {
+.dark {
     --background: #1c1917; // 暗い背景
     --foreground: #ffffff;
-    --primary: #f97316; // オレンジ-500
-    --secondary: #fb923c; // オレンジ-400
-    --accent: #fdba74; // オレンジ-300
-
+    --primary: #f97316;
+    --secondary: #fb923c;
+    --accent: #fdba74;
     --border-color: #374151;
     --shadow-color: rgba(0, 0, 0, 0.5);
     --text-muted-color: #9ca3af;
@@ -44,3 +29,5 @@
         box-shadow: 0 2px 4px var(--shadow-color);
     }
 }
+
+/* カスタムクラスは削除し、:root.darkに統一 */

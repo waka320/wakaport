@@ -10,7 +10,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="theme-header bg-[var(--background)] text-[var(--foreground)] border-b border-[var(--border-color)] w-full shadow-md p-4 sticky top-0 z-50">
+    <header className="bg-white dark:bg-gray-900 text-black dark:text-white border-b border-gray-200 dark:border-gray-700 w-full shadow-md p-4 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center flex-shrink-0">
           <Link href="/" >
@@ -20,11 +20,11 @@ export default function Header() {
 
         {/* デスクトップ用ナビゲーション */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link href="/" className={`link ${pathname === '/' ? 'font-bold' : ''}`}>Home</Link>
-          <Link href="/about" className={`link ${pathname === '/about' ? 'font-bold' : ''}`}>About</Link>
-          <Link href="/progress" className={`link ${pathname === '/progress' ? 'font-bold' : ''}`}>Progress</Link>
-          <Link href="/news" className={`link ${pathname === '/news' ? 'font-bold' : ''}`}>News</Link>
-          <Link href="/contact" className={`link ${pathname === '/contact' ? 'font-bold' : ''}`}>Contact</Link>
+          <Link href="/" className={`transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/' ? 'font-bold' : ''}`}>Home</Link>
+          <Link href="/about" className={`transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/about' ? 'font-bold' : ''}`}>About</Link>
+          <Link href="/progress" className={`transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/progress' ? 'font-bold' : ''}`}>Progress</Link>
+          <Link href="/news" className={`transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/news' ? 'font-bold' : ''}`}>News</Link>
+          <Link href="/contact" className={`transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/contact' ? 'font-bold' : ''}`}>Contact</Link>
         </nav>
 
         <div className="flex items-center">
@@ -64,39 +64,39 @@ export default function Header() {
 
       {/* モバイル用ナビゲーションメニュー */}
       {isMenuOpen && (
-        <div className="md:hidden absolute left-0 right-0 bg-[var(--background)] shadow-md p-4 border-t border-[var(--border-color)] animate-slideDown">
+        <div className="md:hidden absolute left-0 right-0 bg-white dark:bg-gray-900 shadow-md p-4 border-t border-gray-200 dark:border-gray-700 animate-slideDown">
           <nav className="flex flex-col space-y-4">
             <Link 
               href="/" 
-              className={`link py-2 ${pathname === '/' ? 'font-bold' : ''}`}
+              className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/' ? 'font-bold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link 
               href="/about" 
-              className={`link py-2 ${pathname === '/about' ? 'font-bold' : ''}`}
+              className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/about' ? 'font-bold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link 
               href="/progress" 
-              className={`link py-2 ${pathname === '/progress' ? 'font-bold' : ''}`}
+              className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/progress' ? 'font-bold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Progress
             </Link>
             <Link 
               href="/news" 
-              className={`link py-2 ${pathname === '/news' ? 'font-bold' : ''}`}
+              className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/news' ? 'font-bold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               News
             </Link>
             <Link 
               href="/contact" 
-              className={`link py-2 ${pathname === '/contact' ? 'font-bold' : ''}`}
+              className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/contact' ? 'font-bold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Contact

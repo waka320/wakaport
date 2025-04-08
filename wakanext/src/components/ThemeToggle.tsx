@@ -13,17 +13,8 @@ export function ThemeToggle() {
         setMounted(true)
     }, [])
 
-    // テーマ変更時にカスタムプロパティを更新
-    useEffect(() => {
-        if (mounted) {
-            document.documentElement.className = `${resolvedTheme}-theme`;
-
-            const gridBackground = document.querySelector('.grid-background');
-            if (gridBackground) {
-                gridBackground.className = `grid-background ${resolvedTheme}-theme`;
-            }
-        }
-    }, [resolvedTheme, mounted]);
+    // DOM操作を行うコードを削除
+    // next-themesがテーマ切り替えを適切に処理するため
 
     if (!mounted) return null
 

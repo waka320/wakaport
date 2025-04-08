@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { GridBackground } from "@/components/GridBackground";
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import "@/styles/globals.scss";
@@ -48,7 +49,7 @@ export default function RootLayout({
           text-black 
           dark:bg-black 
           dark:text-white
-          grid-background
+          transition-colors duration-300
         "
       >
         <ThemeProvider
@@ -57,13 +58,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="mx-auto flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <GridBackground>
+            <div className="mx-auto flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </GridBackground>
         </ThemeProvider>
       </body>
     </html>
