@@ -66,36 +66,36 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden absolute left-0 right-0 bg-white dark:bg-gray-900 shadow-md p-4 border-t border-gray-200 dark:border-gray-700 animate-slideDown">
           <nav className="flex flex-col space-y-4">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/' ? 'font-bold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/about' ? 'font-bold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
-            <Link 
-              href="/progress" 
+            <Link
+              href="/progress"
               className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/progress' ? 'font-bold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Progress
             </Link>
-            <Link 
-              href="/news" 
+            <Link
+              href="/news"
               className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/news' ? 'font-bold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               News
             </Link>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/contact' ? 'font-bold' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >

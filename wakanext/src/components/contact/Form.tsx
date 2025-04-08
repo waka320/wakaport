@@ -2,7 +2,7 @@
 
 import { submitContactForm } from '@/actions/contactActions';
 import { useState, FormEvent } from 'react';
-import { Button } from '../ui/Button';
+import { Button } from '@/components/ui/Button';
 import { FaPaperPlane, FaSpinner } from 'react-icons/fa';
 
 export default function Form() {
@@ -92,7 +92,15 @@ export default function Form() {
                                 required
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="block w-full p-2 md:p-3 pl-3 md:pl-4 border border-gray-300 rounded-md bg-white/80 text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all duration-200 shadow-sm text-sm md:text-base"
+                                className="w-full px-4 py-2 rounded-md 
+                                           bg-[var(--input-background)] 
+                                           text-[var(--input-text)]
+                                           border border-[var(--input-border)]
+                                           placeholder-[var(--input-placeholder)]
+                                           focus:border-[var(--input-focus-border)]
+                                           focus:ring-1 focus:ring-[var(--primary)]
+                                           focus:outline-none
+                                           transition-all duration-200"
                                 placeholder="山田 太郎"
                             />
                         </div>
@@ -108,7 +116,15 @@ export default function Form() {
                                 required
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="block w-full p-2 md:p-3 pl-3 md:pl-4 border border-gray-300 rounded-md bg-white/80 text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all duration-200 shadow-sm text-sm md:text-base"
+                                className="w-full px-4 py-2 rounded-md 
+                                           bg-[var(--input-background)] 
+                                           text-[var(--input-text)]
+                                           border border-[var(--input-border)]
+                                           placeholder-[var(--input-placeholder)]
+                                           focus:border-[var(--input-focus-border)]
+                                           focus:ring-1 focus:ring-[var(--primary)]
+                                           focus:outline-none
+                                           transition-all duration-200"
                                 placeholder="example@email.com"
                             />
                         </div>
@@ -123,7 +139,15 @@ export default function Form() {
                             required
                             value={formData.message}
                             onChange={handleChange}
-                            className="block w-full p-2 md:p-3 border border-gray-300 rounded-md bg-white/80 text-[var(--foreground)] focus:ring-2 focus:ring-[var(--accent)] focus:border-transparent transition-all duration-200 resize-y shadow-sm text-sm md:text-base"
+                            className="w-full px-4 py-2 rounded-md 
+                                       bg-[var(--input-background)] 
+                                       text-[var(--input-text)]
+                                       border border-[var(--input-border)]
+                                       placeholder-[var(--input-placeholder)]
+                                       focus:border-[var(--input-focus-border)]
+                                       focus:ring-1 focus:ring-[var(--primary)]
+                                       focus:outline-none
+                                       transition-all duration-200 resize-y"
                             placeholder="お問い合わせ内容をご記入ください"
                         ></textarea>
                     </div>
@@ -147,19 +171,8 @@ export default function Form() {
                         <Button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full sm:w-auto px-6 py-3 bg-[var(--accent)] text-white rounded-md hover:bg-opacity-90 transition-all duration-300 font-medium disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                         >
-                            {isSubmitting ? (
-                                <>
-                                    <FaSpinner className="animate-spin" />
-                                    <span>送信中...</span>
-                                </>
-                            ) : (
-                                <>
-                                    <FaPaperPlane />
-                                    <span>送信する</span>
-                                </>
-                            )}
+                            {isSubmitting ? '送信中...' : '送信する'}
                         </Button>
                     </div>
                 </form>

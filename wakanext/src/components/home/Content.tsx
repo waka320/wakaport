@@ -1,6 +1,7 @@
 import { Card } from "./Card";
 import Link from "next/link";
-import { getAllArticles } from "@/lib/articles/articles"
+import { getAllArticles } from "@/lib/articles/articles";
+import { Button } from "@/components/ui/Button";
 
 export default async function Content() {
     const articles = await getAllArticles()
@@ -53,18 +54,7 @@ export default async function Content() {
                         </div>
 
                         <div className="text-right">
-                            <Link href="/news" className="inline-flex items-center px-4 py-2 bg-[var(--accent)] text-white text-sm rounded-md hover:bg-orange-700 dark:hover:bg-orange-400 transition-colors duration-300 group shadow-sm">
-                                すべての記事を見る
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-4 w-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                            </Link>
+                            <Button href="/news" withArrow>すべての記事を見る</Button>
                         </div>
                     </div>
                 </div>

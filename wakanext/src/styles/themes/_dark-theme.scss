@@ -8,6 +8,24 @@
     --shadow-color: rgba(0, 0, 0, 0.5);
     --text-muted-color: #9ca3af;
 
+    // ボタン関連の変数を統一（コントラスト改善）
+    --button-bg: #f97316; // 濃いめのオレンジ
+    --button-text: #ffffff;
+    --button-hover-bg: #ea580c; // さらに濃いオレンジ
+    --button-hover-text: #ffffff;
+    --button-border: transparent;
+    --button-shadow: 0 2px 4px var(--shadow-color);
+
+    // フォーム要素のスタイル
+    --input-background: #262220;
+    --input-text: #ffffff;
+    --input-border: #52525b;
+    --input-focus-border: var(--primary);
+    --input-focus-shadow: 0 0 0 2px rgba(249, 115, 22, 0.3);
+    --input-placeholder: #94a3b8;
+    --link-color: #fdba74;
+    --link-hover-color: #f97316;
+
     .link {
         color: var(--foreground);
         transition: color 0.3s ease;
@@ -22,12 +40,17 @@
         border-color: var(--foreground);
     }
 
+    // ボタンクラスの更新
     .button {
-        background-color: var(--primary);
-        color: white;
-        border: 1px solid var(--border-color);
-        box-shadow: 0 2px 4px var(--shadow-color);
+        background-color: var(--button-bg);
+        color: var(--button-text);
+        border: 1px solid var(--button-border);
+        box-shadow: var(--button-shadow);
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: var(--button-hover-bg);
+            color: var(--button-hover-text);
+        }
     }
 }
-
-/* カスタムクラスは削除し、:root.darkに統一 */
