@@ -24,7 +24,7 @@ const ProgressPage = () => {
     return (
         <div className={`white-background min-h-screen py-8 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
             <div className="p-4 max-w-5xl mx-auto">
-                <h1 className="text-center text-4xl font-bold mb-4 text-[var(--primary)]">
+                <h1 className="text-center text-3xl font-bold mb-4 text-[var(--primary)]">
                     経歴
                 </h1>
                 <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
