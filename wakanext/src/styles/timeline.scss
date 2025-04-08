@@ -18,168 +18,155 @@ $timeline-center-desktop: 50%; // デスクトップ時の中心線の位置
 
 .timeline {
     position: relative;
+    padding: 1rem 0;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 0;
 
     &::before {
         content: '';
         position: absolute;
-        width: 4px;
-        background: var(--primary-light, #ddd);
+        width: 3px;
+        background-color: #e0e0e0;
         top: 0;
         bottom: 0;
-        left: $timeline-center-mobile;
-        margin-left: -2px;
-        border-radius: 4px;
+        left: 20px;
 
         @media (min-width: 768px) {
-            left: $timeline-center-desktop;
+            left: 50%;
+            transform: translateX(-50%);
         }
+    }
+
+    .dark &::before {
+        background-color: #4b5563; // ダークモードでの線の色
     }
 }
 
 .timeline-item {
-    padding: 10px 40px 10px 70px;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
+    padding-left: 45px;
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.5s ease;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 
     &.animate-in {
         opacity: 1;
-        transform: translateY(0);   
+        transform: translateY(0);
+    }
+
+    &:last-child {
+        margin-bottom: 0;
     }
 
     @media (min-width: 768px) {
-        width: 50%;
-        padding: 10px;
+        padding-left: 0;
+        width: 100%;
 
         &:nth-child(odd) {
-            left: 0;
-            padding-right: 30px;
+            padding-right: calc(50% + 30px);
         }
 
         &:nth-child(even) {
-            left: 50%;
-            padding-left: 30px;
+            padding-left: calc(50% + 30px);
         }
     }
 }
 
 .timeline-dot {
     position: absolute;
-    width: 26px;
-    height: 26px;
-    left: $timeline-center-mobile;
-    transform: translateX(-50%); // 中央揃え
-    background: #fff;
+    left: 12px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
+    background-color: white;
+    border: 1px solid #f97316;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
-    box-shadow: 0 0 0 4px var(--primary-light, #ddd);
+    z-index: 1;
 
     @media (min-width: 768px) {
-        left: auto;
-        right: -13px;
-        transform: none; // デスクトップではリセット
-
-        .timeline-item:nth-child(even) & {
-            right: auto;
-            left: -13px;
-        }
-    }
-
-    .timeline-dot-inner {
-        width: 14px;
-        height: 14px;
-        background-color: var(--primary, #4a6cf7);
-        border-radius: 50%;
-        transition: all 0.3s ease;
-
-        .timeline-item:hover & {
-            transform: scale(1.2);
-        }
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
+.timeline-dot-inner {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #f97316;
+}
+
 .timeline-content {
-    padding: 15px; // モバイル向けに狭めたパディング
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    position: relative;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e5e5;
 
-    @media (min-width: 640px) {
-        padding: 20px; // デスクトップではオリジナルのパディングに戻す
-    }
-
-    .timeline-item:hover & {
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        transform: translateY(-2px);
+    .dark & {
+        border-color: #4b5563;
     }
 }
 
 .timeline-header {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding-bottom: 10px;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 
-    @media (min-width: 640px) {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    @media (min-width: 768px) {
+        flex-wrap: nowrap;
     }
 }
 
 .timeline-title {
-    font-size: 1.25rem;
     font-weight: 600;
-    color: var(--primary-dark, #333);
-    margin: 0 0 5px 0;
+    font-size: 1.25rem;
+    color: #333;
+    margin: 0;
 
-    @media (min-width: 640px) {
-        margin: 0;
+    .dark & {
+        color: white;
     }
 }
 
 .timeline-date {
     font-size: 0.875rem;
-    color: var(--primary, #4a6cf7);
-    font-weight: 500;
-    white-space: nowrap;
+    color: #666;
+
+    .dark & {
+        color: #d1d5db;
+    }
 }
 
 .timeline-description {
-    margin: 0 0 15px 0;
-    color: #555;
-    font-size: 0.95rem;
+    margin-bottom: 1rem;
     line-height: 1.6;
+    color: #555;
+
+    .dark & {
+        color: #e5e7eb;
+    }
 }
 
 .timeline-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 0.5rem;
 }
 
 .timeline-tag {
-    padding: 4px 10px;
-    border-radius: 100px;
     font-size: 0.75rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-
-    &:hover {
-        transform: scale(1.05);
-    }
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dark-theme {

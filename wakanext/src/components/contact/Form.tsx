@@ -3,7 +3,6 @@
 import { submitContactForm } from '@/actions/contactActions';
 import { useState, FormEvent } from 'react';
 import { Button } from '@/components/ui/Button';
-import { FaPaperPlane, FaSpinner } from 'react-icons/fa';
 
 export default function Form() {
     const [formData, setFormData] = useState({

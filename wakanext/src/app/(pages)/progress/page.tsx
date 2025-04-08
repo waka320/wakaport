@@ -27,32 +27,41 @@ const ProgressPage = () => {
                 <h1 className="text-center text-3xl font-bold mb-4 text-[var(--primary)]">
                     経歴
                 </h1>
-                <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+                <p className="text-center text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
                     自分の人生の出来事や成果をタイムラインで表示しています。タグをクリックして絞り込むことができます。
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-4 mb-8">
                     <button
-                        className={`px-4 py-2 rounded-full transition-all ${filter === '技術開発' ? 'bg-[#e1f5fe] text-[#0277bd] font-medium shadow-md' : 'bg-gray-100 hover:bg-gray-200'}`}
+                        className={`px-4 py-2 rounded-full transition-all ${filter === '技術開発'
+                                ? 'bg-[#e1f5fe] dark:bg-[#0277bd]/30 text-[#0277bd] dark:text-[#90caf9] font-medium shadow-md'
+                                : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
+                            }`}
                         onClick={() => handleFilterChange('技術開発')}
                     >
                         技術開発
                     </button>
                     <button
-                        className={`px-4 py-2 rounded-full transition-all ${filter === '自分史' ? 'bg-[#f3e5f5] text-[#7b1fa2] font-medium shadow-md' : 'bg-gray-100 hover:bg-gray-200'}`}
+                        className={`px-4 py-2 rounded-full transition-all ${filter === '自分史'
+                                ? 'bg-[#f3e5f5] dark:bg-[#7b1fa2]/30 text-[#7b1fa2] dark:text-[#ce93d8] font-medium shadow-md'
+                                : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
+                            }`}
                         onClick={() => handleFilterChange('自分史')}
                     >
                         自分史
                     </button>
                     <button
-                        className={`px-4 py-2 rounded-full transition-all ${filter === '学校' ? 'bg-[#e8f5e9] text-[#2e7d32] font-medium shadow-md' : 'bg-gray-100 hover:bg-gray-200'}`}
+                        className={`px-4 py-2 rounded-full transition-all ${filter === '学校'
+                                ? 'bg-[#e8f5e9] dark:bg-[#2e7d32]/30 text-[#2e7d32] dark:text-[#a5d6a7] font-medium shadow-md'
+                                : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
+                            }`}
                         onClick={() => handleFilterChange('学校')}
                     >
                         学校
                     </button>
                     {filter && (
                         <button
-                            className="px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-all"
+                            className="px-4 py-2 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 transition-all text-gray-800 dark:text-gray-200"
                             onClick={() => setFilter(null)}
                         >
                             すべて表示
@@ -60,11 +69,11 @@ const ProgressPage = () => {
                     )}
                 </div>
 
-                <div className=" mb-8 md:p-6 rounded-lg transition-all duration-300 ">
+                <div className="mb-8 md:p-6 rounded-lg transition-all duration-300">
                     <Timeline projects={filteredProjects} />
                 </div>
 
-                <div className="text-center text-sm text-gray-500 mt-8">
+                <div className="text-center text-sm text-gray-500 dark:text-gray-400 mt-8">
                     表示されているイベント数: {filteredProjects.length} / {projects.length}
                 </div>
             </div>

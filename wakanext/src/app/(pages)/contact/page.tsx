@@ -1,12 +1,20 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import Form from '@/components/contact/Form';
 import Link from 'next/link';
 import { FaEnvelope, FaFacebook } from 'react-icons/fa';
 
 const ContactPage = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        // ページ読み込み時のアニメーション効果
+        setIsLoading(false);
+    }, []);
+
     return (
-        <div className='white-background min-h-screen py-6 md:py-8'>
+        <div className={`white-background min-h-screen py-6 md:py-8 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
             <div className="px-4 max-w-4xl mx-auto">
                 <h1 className="text-center text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-[var(--primary)]">お問い合わせ</h1>
                 <div className='content-background mb-8 p-4 md:p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl'>
