@@ -6,14 +6,14 @@ export default async function NewsPage() {
     const articles = await getAllArticles()
 
     return (
-        <div className='white-background min-h-screen py-8 md:py-12'>
-            <div className="px-4 sm:p-4 max-w-5xl mx-auto">
-                <div className="mb-8 md:mb-12 text-center">
-                    <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold mb-2 md:mb-3 text-[var(--primary)]">記事一覧</h1>
-                    <p className="text-sm md:text-base mt-3 text-[var(--text-muted-color)] max-w-2xl mx-auto px-3 sm:px-0">
-                        つらつらと近況報告など
-                    </p>
-                </div>
+        <div className='white-background min-h-screen py-8 '>
+            <div className="p-4 sm:p-4 max-w-5xl mx-auto">
+                <h1 className="text-center text-3xl font-bold mb-4 text-[var(--primary)]">
+                    記事一覧
+                </h1>
+                <p className="text-center text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+                    近況をつらつらと
+                </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                     {articles.map((article) => (
@@ -22,10 +22,10 @@ export default async function NewsPage() {
                             key={article.slug}
                             className="group flex flex-col h-full touch-manipulation"
                         >
-                            <div className="content-background shadow-md rounded-lg overflow-hidden flex flex-col h-full transform transition-all duration-300 hover:shadow-xl active:scale-98 hover:-translate-y-1 bg-white dark:bg-[var(--background)]">
+                            <div className="content-background shadow-md rounded-lg overflow-hidden flex flex-col h-full transform transition-all duration-300 hover:shadow-xl active:scale-98 hover:-translate-y-1 bg-white dark:bg-[var(--card-background)]">
                                 <div className="h-2 sm:h-3 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)]"></div>
                                 <div className="p-4 sm:p-5 md:p-6 flex flex-col h-full">
-                                    <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-[var(--foreground)] group-hover:text-[var(--primary)] transition-colors">
+                                    <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-[var(--heading-color)] group-hover:text-[var(--primary)] transition-colors">
                                         {article.title}
                                     </h2>
 
@@ -34,7 +34,7 @@ export default async function NewsPage() {
                                         <span>{article.date}</span>
                                     </div>
 
-                                    <p className="text-[var(--text-muted-color)] mb-4 sm:mb-6 flex-grow text-xs sm:text-sm md:text-base line-clamp-3 sm:line-clamp-none">
+                                    <p className="text-[var(--text-color)] dark:text-[var(--text-color-dark)] mb-4 sm:mb-6 flex-grow text-xs sm:text-sm md:text-base line-clamp-3 sm:line-clamp-none">
                                         {article.excerpt}
                                     </p>
 
