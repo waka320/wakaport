@@ -27,9 +27,9 @@ const ContactPage = () => {
                             </div>
                             <Link
                                 className='link text-[var(--link-color)] underline hover:text-[var(--link-hover-color)] hover:underline transition-colors break-all'
-                                href="mailto:yukiwakmatsu6a@gmail.com"
+                                href="mailto:yuki@wakaport.com"
                             >
-                                yukiwakmatsu6a@gmail.com
+                                yuki@wakaport.com
                             </Link>
                         </li>
                         <li className="flex flex-col sm:flex-row sm:items-center">
