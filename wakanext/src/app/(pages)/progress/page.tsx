@@ -60,7 +60,7 @@ const ProgressPage = () => {
                     )}
                 </div>
 
-                <div className="content-background mb-8 p-5 md:p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
+                <div className=" mb-8 md:p-6 rounded-lg transition-all duration-300 ">
                     <Timeline projects={filteredProjects} />
                 </div>
 

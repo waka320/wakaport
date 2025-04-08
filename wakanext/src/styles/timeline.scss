@@ -12,6 +12,10 @@ $dark-text-color: #ffffff;
 $dark-text-muted-color: #9ca3af;
 $dark-border-color: #374151;
 
+// 変数を定義
+$timeline-center-mobile: 21px; // モバイル時の中心線の位置
+$timeline-center-desktop: 50%; // デスクトップ時の中心線の位置
+
 .timeline {
     position: relative;
     max-width: 1200px;
@@ -25,12 +29,12 @@ $dark-border-color: #374151;
         background: var(--primary-light, #ddd);
         top: 0;
         bottom: 0;
-        left: 20px;
+        left: $timeline-center-mobile;
         margin-left: -2px;
         border-radius: 4px;
 
         @media (min-width: 768px) {
-            left: 50%;
+            left: $timeline-center-desktop;
         }
     }
 }
@@ -45,21 +49,21 @@ $dark-border-color: #374151;
 
     &.animate-in {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0);   
     }
 
     @media (min-width: 768px) {
         width: 50%;
-        padding: 10px 40px;
+        padding: 10px;
 
         &:nth-child(odd) {
             left: 0;
-            padding-right: 60px;
+            padding-right: 30px;
         }
 
         &:nth-child(even) {
             left: 50%;
-            padding-left: 60px;
+            padding-left: 30px;
         }
     }
 }
@@ -68,7 +72,8 @@ $dark-border-color: #374151;
     position: absolute;
     width: 26px;
     height: 26px;
-    left: 18px;
+    left: $timeline-center-mobile;
+    transform: translateX(-50%); // 中央揃え
     background: #fff;
     border-radius: 50%;
     display: flex;
@@ -80,6 +85,7 @@ $dark-border-color: #374151;
     @media (min-width: 768px) {
         left: auto;
         right: -13px;
+        transform: none; // デスクトップではリセット
 
         .timeline-item:nth-child(even) & {
             right: auto;
@@ -101,7 +107,7 @@ $dark-border-color: #374151;
 }
 
 .timeline-content {
-    padding: 20px;
+    padding: 15px; // モバイル向けに狭めたパディング
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
@@ -109,23 +115,8 @@ $dark-border-color: #374151;
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
 
-    &::after {
-        content: '';
-        position: absolute;
-        border-style: solid;
-        border-width: 10px 12px 10px 0;
-        border-color: transparent #fff transparent transparent;
-        top: 20px;
-        left: -12px;
-
-        @media (min-width: 768px) {
-            .timeline-item:nth-child(even) & {
-                left: auto;
-                right: -12px;
-                border-width: 10px 0 10px 12px;
-                border-color: transparent transparent transparent #fff;
-            }
-        }
+    @media (min-width: 640px) {
+        padding: 20px; // デスクトップではオリジナルのパディングに戻す
     }
 
     .timeline-item:hover & {
