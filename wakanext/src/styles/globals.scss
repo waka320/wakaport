@@ -26,6 +26,8 @@ html {
 body {
     /* モバイル用スクロールのスムージング */
     -webkit-overflow-scrolling: touch;
+    font-family: var(--font-pixel-14), var(--font-pixel-12), var(--font-pixel-16), system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    image-rendering: pixelated;
 }
 
 /* 入力フィールドとボタンのモバイルでのタップ領域を拡大 */
