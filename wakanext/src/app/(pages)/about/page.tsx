@@ -1,9 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import IntroductionSection from '@/components/about/IntroductionSection';
 import AffiliationsSection from '@/components/about/AffiliationsSection';
-import SkillsSection from '@/components/about/SkillsSection';
 import QualificationsSection from '@/components/about/QualificationsSection';
 import PersonalSection from '@/components/about/PersonalSection';
 import { projects } from '@/lib/progress/projects';
@@ -25,9 +23,9 @@ const AboutPage = () => {
                     自己紹介
                 </h1>
                 <div className="space-y-4">
-                    <IntroductionSection />
+                    {/* Introduction removed */}
                     <AffiliationsSection />
-                    <SkillsSection />
+                    {/* Skills removed */}
                     <QualificationsSection />
                     <PersonalSection />
                     <section className="content-background mb-4 p-4 rounded-lg">
