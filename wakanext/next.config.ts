@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
         hostname: '**'
       }
     ]
+  },
+  async redirects() {
+    return [
+      { source: '/news', destination: '/about', permanent: false },
+      { source: '/news/:path*', destination: '/about', permanent: false },
+    ]
   }
 };
 

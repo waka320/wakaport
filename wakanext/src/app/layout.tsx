@@ -18,6 +18,28 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+// Pixel fonts
+const pixel12 = localFont({
+  src: "../../public/x12y16pxMaruMonica.ttf",
+  variable: "--font-pixel-12",
+  weight: "400",
+  style: "normal",
+});
+
+const pixel14 = localFont({
+  src: "../../public/x14y24pxHeadUpDaisy.ttf",
+  variable: "--font-pixel-14",
+  weight: "400",
+  style: "normal",
+});
+
+const pixel16 = localFont({
+  src: "../../public/x16y32pxGridGazer.ttf",
+  variable: "--font-pixel-16",
+  weight: "400",
+  style: "normal",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://wakaport.com'),
   title: "Wakaport. | Webエンジニア・開発者ポートフォリオ ポータル",
@@ -55,7 +77,7 @@ export const metadata: Metadata = {
     description: "若松勇希のポートフォリオかつポータルサイト。Webアプリケーション開発の経験と実績を紹介しています。",
     images: [
       {
-        url: "https://wakaport.com/og-image.png", 
+        url: "https://wakaport.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Wakaport-若松勇希(waka320)のポートフォリオサイト",
@@ -82,7 +104,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${pixel12.variable} ${pixel14.variable} ${pixel16.variable}`}
       suppressHydrationWarning
     >
       <body

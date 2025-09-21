@@ -19,11 +19,9 @@ export default function Header() {
         </div>
 
         {/* デスクトップ用ナビゲーション */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-4">
           <Link href="/" className={`transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/' ? 'font-bold' : ''}`}>Home</Link>
           <Link href="/about" className={`transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/about' ? 'font-bold' : ''}`}>About</Link>
-          <Link href="/progress" className={`transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/progress' ? 'font-bold' : ''}`}>Progress</Link>
-          <Link href="/news" className={`transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/news' ? 'font-bold' : ''}`}>News</Link>
           <Link href="/contact" className={`transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/contact' ? 'font-bold' : ''}`}>Contact</Link>
         </nav>
 
@@ -64,7 +62,7 @@ export default function Header() {
 
       {/* モバイル用ナビゲーションメニュー */}
       {isMenuOpen && (
-        <div className="md:hidden absolute left-0 right-0 bg-white dark:bg-gray-900 shadow-md p-4 border-t border-gray-200 dark:border-gray-700 animate-slideDown">
+        <div className="md:hidden absolute left-0 right-0 bg-white dark:bg-gray-900 shadow-md p-3 border-t border-gray-200 dark:border-gray-700 animate-slideDown">
           <nav className="flex flex-col space-y-4">
             <Link
               href="/"
@@ -79,20 +77,6 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               About
-            </Link>
-            <Link
-              href="/progress"
-              className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/progress' ? 'font-bold' : ''}`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Progress
-            </Link>
-            <Link
-              href="/news"
-              className={`py-2 transition-colors hover:text-orange-500 dark:hover:text-orange-300 ${pathname === '/news' ? 'font-bold' : ''}`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              News
             </Link>
             <Link
               href="/contact"

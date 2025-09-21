@@ -1,9 +1,29 @@
 .dark {
-    --background: #1c1917; // 暗い背景
+    --background: #0b0b0b;
     --foreground: #ffffff;
     --primary: #f97316;
+    --primary-foreground: #111827;
     --secondary: #fb923c;
+    --secondary-foreground: #111827;
     --accent: #fdba74;
+    --accent-foreground: #111827;
+    --muted: #111827;
+    --muted-foreground: #9ca3af;
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    --card: #111827;
+    --card-foreground: #f9fafb;
+    --popover: #0b0b0b;
+    --popover-foreground: #e5e7eb;
+    --border: #374151;
+    --input: #262220;
+    --ring: #f97316;
+    --chart-1: #fdba74;
+    --chart-2: #fb923c;
+    --chart-3: #f97316;
+    --chart-4: #ea580c;
+    --chart-5: #fb7185;
+
     --border-color: #374151;
     --shadow-color: rgba(0, 0, 0, 0.5);
     --text-muted-color: #9ca3af;

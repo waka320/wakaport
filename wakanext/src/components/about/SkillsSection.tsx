@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import { skills, iconMapping } from '@/lib/about/skills';
 import Image from 'next/image';
 
-interface SkillsSectionProps {
-    isOpen: boolean;
-    onToggle: () => void;
-}
-
-const SkillsSection = ({ isOpen, onToggle }: SkillsSectionProps) => {
+const SkillsSection = () => {
     interface Skill {
         name: string;
         usage: string;
@@ -47,25 +42,17 @@ const SkillsSection = ({ isOpen, onToggle }: SkillsSectionProps) => {
     };
 
     return (
-        <section className="content-background mb-8 p-5 md:p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
-            <h2
-                className={`text-xl md:text-2xl font-semibold mb-4 cursor-pointer flex items-center justify-between hover:text-[var(--accent)] transition-colors duration-300 ${isOpen ? 'text-[var(--accent)]' : ''}`}
-                onClick={onToggle}
-            >
-                <span>{skills.title}</span>
-                <span className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
-                    ▼
-                </span>
-            </h2>
-            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+        <section className="content-background mb-4 p-4 rounded-lg">
+            <h2 className="text-xl md:text-2xl font-semibold mb-3">{skills.title}</h2>
+            <>
                 {skills.categories.map((category, index) => (
-                    <div key={index} className="mb-8 mt-4">
-                        <h3 className="text-xl font-semibold mb-4 border-b pb-2">{category.name}</h3>
+                    <div key={index} className="mb-6 mt-3">
+                        <h3 className="text-lg font-semibold mb-3 border-b pb-1">{category.name}</h3>
                         <div className="flex flex-wrap gap-2 md:gap-3 justify-start">
                             {category.items.map((item, itemIndex) => (
                                 <div
                                     key={itemIndex}
-                                    className="cursor-pointer flex flex-col items-start hover:scale-110 transition-transform duration-200 bg-white/50 p-3 rounded-lg shadow-sm w-[85px] sm:w-[100px] md:w-[120px] h-[85px] sm:h-[100px] md:h-[120px]"
+                                    className="cursor-pointer flex flex-col items-start bg-white/50 p-2 rounded-md shadow-sm w-[85px] sm:w-[100px] md:w-[120px] h-[85px] sm:h-[100px] md:h-[120px]"
                                     onClick={() => handleSkillClick(item)}
                                 >
                                     <div className="flex justify-start w-full h-[40px] sm:h-[45px] md:h-[50px] mb-2">
@@ -78,13 +65,13 @@ const SkillsSection = ({ isOpen, onToggle }: SkillsSectionProps) => {
                                             className="object-contain sm:w-[45px] md:w-[50px] sm:h-[45px] md:h-[50px]"
                                         />
                                     </div>
-                                    <span className="text-xs sm:text-sm font-medium">{item.name}</span>
+                                    <span className="text-xs sm:text-sm">{item.name}</span>
                                 </div>
                             ))}
                         </div>
                     </div>
                 ))}
-            </div>
+            </>
             {selectedSkill && (
                 <div className="fixed inset-0 z-50 overflow-y-auto" onClick={closePopup}>
                     <div className="flex min-h-screen items-center justify-center p-4">
