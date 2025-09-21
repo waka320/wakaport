@@ -3,6 +3,8 @@
 import { submitContactForm } from '@/actions/contactActions';
 import { useState, FormEvent } from 'react';
 import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/shad/ui/input';
+import { Textarea } from '@/components/shad/ui/textarea';
 
 export default function Form() {
     const [formData, setFormData] = useState({
@@ -84,22 +86,13 @@ export default function Form() {
                     <div>
                         <label htmlFor="name" className="block text-sm font-medium text-[var(--foreground)] mb-1">お名前</label>
                         <div className="relative">
-                            <input
+                            <Input
                                 type="text"
                                 id="name"
                                 name="name"
                                 required
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="w-full px-4 py-2 rounded-md 
-                                           bg-[var(--input-background)] 
-                                           text-[var(--input-text)]
-                                           border border-[var(--input-border)]
-                                           placeholder-[var(--input-placeholder)]
-                                           focus:border-[var(--input-focus-border)]
-                                           focus:ring-1 focus:ring-[var(--primary)]
-                                           focus:outline-none
-                                           transition-all duration-200"
                                 placeholder="山田 太郎"
                             />
                         </div>
@@ -108,22 +101,13 @@ export default function Form() {
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-[var(--foreground)] mb-1">メールアドレス</label>
                         <div className="relative">
-                            <input
+                            <Input
                                 type="email"
                                 id="email"
                                 name="email"
                                 required
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="w-full px-4 py-2 rounded-md 
-                                           bg-[var(--input-background)] 
-                                           text-[var(--input-text)]
-                                           border border-[var(--input-border)]
-                                           placeholder-[var(--input-placeholder)]
-                                           focus:border-[var(--input-focus-border)]
-                                           focus:ring-1 focus:ring-[var(--primary)]
-                                           focus:outline-none
-                                           transition-all duration-200"
                                 placeholder="example@email.com"
                             />
                         </div>
@@ -131,24 +115,15 @@ export default function Form() {
 
                     <div>
                         <label htmlFor="message" className="block text-sm font-medium text-[var(--foreground)] mb-1">メッセージ</label>
-                        <textarea
+                        <Textarea
                             id="message"
                             name="message"
                             rows={4}
                             required
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 rounded-md 
-                                       bg-[var(--input-background)] 
-                                       text-[var(--input-text)]
-                                       border border-[var(--input-border)]
-                                       placeholder-[var(--input-placeholder)]
-                                       focus:border-[var(--input-focus-border)]
-                                       focus:ring-1 focus:ring-[var(--primary)]
-                                       focus:outline-none
-                                       transition-all duration-200 resize-y"
                             placeholder="お問い合わせ内容をご記入ください"
-                        ></textarea>
+                        />
                     </div>
 
                     {result.error && (

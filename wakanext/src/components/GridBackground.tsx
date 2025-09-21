@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
+import { cn } from "@/lib/utils"
 
 export function GridBackground({ children }: { children: React.ReactNode }) {
     const { resolvedTheme } = useTheme()
@@ -12,7 +13,10 @@ export function GridBackground({ children }: { children: React.ReactNode }) {
     }, [])
 
     return (
-        <div className={`grid-background ${mounted && resolvedTheme === 'dark' ? 'dark' : ''}`}>
+        <div className={cn(
+            "grid-background",
+            mounted && resolvedTheme === 'dark' && 'dark'
+        )}>
             {children}
         </div>
     )

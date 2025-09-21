@@ -1,5 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import { Button as ShadButton } from '@/components/shad/ui/button';
+import { cn } from '@/lib/utils';
 
 export interface ButtonProps {
     children: React.ReactNode;
@@ -22,10 +24,6 @@ export const Button = ({
     withArrow = false,
     external = false
 }: ButtonProps) => {
-    // CSSカスタムプロパティを参照するのではなく、テーマに応じた固定の色を使用
-    const baseClasses = "inline-flex items-center px-4 py-2 bg-orange-500 dark:bg-orange-600 text-white font-medium text-sm rounded-md hover:bg-orange-600 dark:hover:bg-orange-500 transition-colors duration-300 group shadow-sm";
-    const combinedClasses = `${baseClasses} ${className}`;
-
     const arrow = withArrow && (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,35 +36,31 @@ export const Button = ({
         </svg>
     );
 
-    // hrefがある場合はLinkコンポーネントを返す
     if (href) {
         const linkProps = external ? {
             target: "_blank",
             rel: "noopener noreferrer"
-        } : {};
+        } as const : {};
 
         return (
-            <Link
-                href={href}
-                className={combinedClasses}
-                {...linkProps}
-            >
-                {children}
-                {arrow}
-            </Link>
+            <ShadButton asChild className={cn('group', className)}>
+                <Link href={href} {...linkProps}>
+                    {children}
+                    {arrow}
+                </Link>
+            </ShadButton>
         );
     }
 
-    // hrefがない場合は通常のbuttonを返す
     return (
-        <button
+        <ShadButton
             type={type}
-            className={combinedClasses}
             onClick={onClick}
             disabled={disabled}
+            className={cn('group', className)}
         >
             {children}
             {arrow}
-        </button>
+        </ShadButton>
     );
 };
