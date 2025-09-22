@@ -145,6 +145,7 @@ export default function Form() {
                         <Button
                             type="submit"
                             disabled={isSubmitting}
+                            variant="pixel"
                         >
                             {isSubmitting ? '送信中...' : '送信する'}
                         </Button>

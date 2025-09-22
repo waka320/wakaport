@@ -16,7 +16,7 @@ export const Card = ({ title, paragraphs, buttonText, buttonHref }: CardProps) =
                     <p key={index} className="text-sm md:text-base">{paragraph}</p>
                 ))}
             </div>
-            <Button href={buttonHref} withArrow className="text-sm">{buttonText}</Button>
+            <Button href={buttonHref} withArrow className="text-sm" variant="pixel">{buttonText}</Button>
         </div>
     );
 };

@@ -17,7 +17,7 @@ const AboutPage = () => {
 
 
     return (
-        <div className={`white-background min-h-screen py-8 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`white-background relative crt-overlay min-h-screen py-8 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
             <div className="p-4 max-w-4xl mx-auto">
                 <h1 className="text-center text-3xl font-bold mb-8 text-[var(--primary)]">
                     自己紹介
@@ -28,8 +28,8 @@ const AboutPage = () => {
                     {/* Skills removed */}
                     <QualificationsSection />
                     <PersonalSection />
-                    <section className="content-background mb-4 p-4 rounded-lg">
-                        <h2 className="text-xl md:text-2xl font-semibold mb-3">経歴（タイトルのみ）</h2>
+                    <section className="content-background pixel-panel mb-4 p-4 rounded-lg">
+                        <h2 className="text-xl md:text-2xl font-semibold mb-3">経歴</h2>
                         <ul className="space-y-2">
                             {projects.map((p, i) => (
                                 <li key={i} className="text-sm md:text-base">

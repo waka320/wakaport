@@ -14,10 +14,10 @@ const ContactPage = () => {
     }, []);
 
     return (
-        <div className={`white-background min-h-screen py-6 md:py-8 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`white-background relative crt-overlay min-h-screen py-6 md:py-8 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
             <div className="px-4 max-w-4xl mx-auto">
                 <h1 className="text-center text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-[var(--primary)]">お問い合わせ</h1>
-                <div className='content-background mb-8 p-4 md:p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl'>
+                <div className='content-background pixel-panel mb-8 p-4 md:p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl'>
                     <h2 className="text-lg md:text-2xl font-semibold mb-4 md:mb-6 border-b pb-2 text-[var(--foreground)]">連絡先</h2>
                     <ul className="space-y-4 mb-6">
                         <li className="flex flex-col sm:flex-row sm:items-center">

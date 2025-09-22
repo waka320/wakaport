@@ -30,6 +30,49 @@ body {
     image-rendering: pixelated;
 }
 
+/* CRT scanline utility */
+.crt-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.15) 0px,
+            rgba(0, 0, 0, 0.15) 1px,
+            transparent 1px,
+            transparent 3px);
+    mix-blend-mode: multiply;
+    opacity: 0.25;
+}
+
+/* Composite glow utility for retro UI */
+.neon-composite {
+    position: relative;
+}
+
+.neon-composite::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    filter: blur(4px);
+    background: radial-gradient(closest-side, rgba(0, 209, 255, 0.25), transparent 70%),
+        radial-gradient(closest-side, rgba(57, 255, 20, 0.18), transparent 60%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+/* Pixel panel border like retro UI */
+.pixel-panel {
+    position: relative;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+.dark .pixel-panel {
+    border-color: #e6f1ff;
+    box-shadow: 2px 2px 0 0 #e6f1ff;
+}
+
 /* 入力フィールドとボタンのモバイルでのタップ領域を拡大 */
 input,
 button,

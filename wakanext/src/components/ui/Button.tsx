@@ -1,7 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { Button as ShadButton } from '@/components/shad/ui/button';
+import { Button as ShadButton, buttonVariants } from '@/components/shad/ui/button';
+import { type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
+
+type ShadVariant = VariantProps<typeof buttonVariants>["variant"];
 
 export interface ButtonProps {
     children: React.ReactNode;
@@ -12,6 +15,7 @@ export interface ButtonProps {
     href?: string;
     withArrow?: boolean;
     external?: boolean;
+    variant?: ShadVariant;
 }
 
 export const Button = ({
@@ -22,7 +26,8 @@ export const Button = ({
     disabled = false,
     href,
     withArrow = false,
-    external = false
+    external = false,
+    variant = 'default'
 }: ButtonProps) => {
     const arrow = withArrow && (
         <svg
@@ -43,7 +48,7 @@ export const Button = ({
         } as const : {};
 
         return (
-            <ShadButton asChild className={cn('group', className)}>
+            <ShadButton asChild variant={variant} className={cn('group', className)}>
                 <Link href={href} {...linkProps}>
                     {children}
                     {arrow}
@@ -57,6 +62,7 @@ export const Button = ({
             type={type}
             onClick={onClick}
             disabled={disabled}
+            variant={variant}
             className={cn('group', className)}
         >
             {children}

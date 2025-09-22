@@ -22,7 +22,7 @@ const ProgressPage = () => {
     };
 
     return (
-        <div className={`white-background min-h-screen py-8 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`white-background relative crt-overlay min-h-screen py-8 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
             <div className="p-4 max-w-5xl mx-auto">
                 <h1 className="text-center text-3xl font-bold mb-4 text-[var(--primary)]">
                     経歴
@@ -34,8 +34,8 @@ const ProgressPage = () => {
                 <div className="flex flex-wrap justify-center gap-4 mb-8">
                     <button
                         className={`px-4 py-2 rounded-full transition-all ${filter === '技術開発'
-                                ? 'bg-[#e1f5fe] dark:bg-[#0277bd]/30 text-[#0277bd] dark:text-[#90caf9] font-medium shadow-md'
-                                : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
+                            ? 'bg-[#e1f5fe] dark:bg-[#0277bd]/30 text-[#0277bd] dark:text-[#90caf9] font-medium shadow-md'
+                            : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
                             }`}
                         onClick={() => handleFilterChange('技術開発')}
                     >
@@ -43,8 +43,8 @@ const ProgressPage = () => {
                     </button>
                     <button
                         className={`px-4 py-2 rounded-full transition-all ${filter === '自分史'
-                                ? 'bg-[#f3e5f5] dark:bg-[#7b1fa2]/30 text-[#7b1fa2] dark:text-[#ce93d8] font-medium shadow-md'
-                                : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
+                            ? 'bg-[#f3e5f5] dark:bg-[#7b1fa2]/30 text-[#7b1fa2] dark:text-[#ce93d8] font-medium shadow-md'
+                            : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
                             }`}
                         onClick={() => handleFilterChange('自分史')}
                     >
@@ -52,8 +52,8 @@ const ProgressPage = () => {
                     </button>
                     <button
                         className={`px-4 py-2 rounded-full transition-all ${filter === '学校'
-                                ? 'bg-[#e8f5e9] dark:bg-[#2e7d32]/30 text-[#2e7d32] dark:text-[#a5d6a7] font-medium shadow-md'
-                                : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
+                            ? 'bg-[#e8f5e9] dark:bg-[#2e7d32]/30 text-[#2e7d32] dark:text-[#a5d6a7] font-medium shadow-md'
+                            : 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200'
                             }`}
                         onClick={() => handleFilterChange('学校')}
                     >
