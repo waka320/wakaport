@@ -51,11 +51,22 @@
             position: relative;
             width: 100%;
             background-color: rgba(var(--background-rgb), 0.6);
-            backdrop-filter: blur(1.5px);
+            backdrop-filter: blur(3px) saturate(1.05);
             border: 1px solid rgba(var(--foreground-rgb), 0.1);
             box-shadow: 0 4px 6px rgba(var(--foreground-rgb), 0.2);
             min-height: 100vh;
             color: var(--foreground);
+
+            /* subtle noise over content area */
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0 0 0 0.02 0.04 0.06 0.08 0.1'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+                opacity: 0.08;
+                mix-blend-mode: overlay;
+            }
 
             .content-background {
                 background-color: var(--background);
@@ -90,6 +101,33 @@
             }
         }
     }
+
+    /* Psychedelic overlay (MOTHER2-like) */
+    &.psy::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: conic-gradient(from 0deg,
+                rgba(255, 0, 102, 0.08), rgba(255, 204, 0, 0.06), rgba(0, 255, 153, 0.06), rgba(0, 153, 255, 0.06), rgba(153, 51, 255, 0.08), rgba(255, 0, 102, 0.08));
+        mix-blend-mode: soft-light;
+        animation: mother-swirl 30s linear infinite;
+        opacity: 0.18;
+        z-index: 0;
+        filter: blur(2px) saturate(1.1);
+    }
+
+    /* subtle grain */
+    &.psy::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0 0 0 0 0.04 0.08 0.12 0.16 0.2'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+        opacity: 0.18;
+        mix-blend-mode: overlay;
+        z-index: 0;
+    }
 }
 
 // クラス名をdarkに統一
@@ -100,5 +138,19 @@
 
     &:hover {
         box-shadow: 0 15px 20px -5px var(--shadow-color);
+    }
+}
+
+@keyframes mother-swirl {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.05);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
     }
 }

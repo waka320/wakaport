@@ -1,28 +1,32 @@
 .dark {
-    --background: #0b0b0b;
-    --foreground: #ffffff;
-    --primary: #f97316;
-    --primary-foreground: #111827;
-    --secondary: #fb923c;
-    --secondary-foreground: #111827;
-    --accent: #fdba74;
-    --accent-foreground: #111827;
-    --muted: #111827;
-    --muted-foreground: #9ca3af;
-    --destructive: #ef4444;
-    --destructive-foreground: #ffffff;
-    --card: #111827;
-    --card-foreground: #f9fafb;
-    --popover: #0b0b0b;
-    --popover-foreground: #e5e7eb;
-    --border: #374151;
-    --input: #262220;
-    --ring: #f97316;
-    --chart-1: #fdba74;
-    --chart-2: #fb923c;
-    --chart-3: #f97316;
-    --chart-4: #ea580c;
-    --chart-5: #fb7185;
+    /* Neon-inspired dark palette */
+    --background: #090b10;
+    --foreground: #e6f1ff;
+    --primary: #00d1ff;
+    /* cyan */
+    --primary-foreground: #001018;
+    --secondary: #b300ff;
+    /* magenta */
+    --secondary-foreground: #15001e;
+    --accent: #39ff14;
+    /* neon green */
+    --accent-foreground: #001a00;
+    --muted: #0f1220;
+    --muted-foreground: #8aa0b8;
+    --destructive: #ff4d4f;
+    --destructive-foreground: #1a0000;
+    --card: #0e1020;
+    --card-foreground: #e6f1ff;
+    --popover: #090b10;
+    --popover-foreground: #d0e0ff;
+    --border: #1f2a44;
+    --input: #111422;
+    --ring: #00d1ff;
+    --chart-1: #00d1ff;
+    --chart-2: #b300ff;
+    --chart-3: #39ff14;
+    --chart-4: #ff8a00;
+    --chart-5: #ff4d4f;
 
     --border-color: #374151;
     --shadow-color: rgba(0, 0, 0, 0.5);
@@ -37,14 +41,14 @@
     --button-shadow: 0 2px 4px var(--shadow-color);
 
     // フォーム要素のスタイル
-    --input-background: #262220;
-    --input-text: #ffffff;
-    --input-border: #52525b;
+    --input-background: #0f1220;
+    --input-text: #e6f1ff;
+    --input-border: #22304f;
     --input-focus-border: var(--primary);
-    --input-focus-shadow: 0 0 0 2px rgba(249, 115, 22, 0.3);
-    --input-placeholder: #94a3b8;
-    --link-color: #fdba74;
-    --link-hover-color: #f97316;
+    --input-focus-shadow: 0 0 0 2px rgba(0, 209, 255, 0.35);
+    --input-placeholder: #8aa0b8;
+    --link-color: #00d1ff;
+    --link-hover-color: #39ff14;
 
     .link {
         color: var(--foreground);

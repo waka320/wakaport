@@ -30,6 +30,107 @@ body {
     image-rendering: pixelated;
 }
 
+/* CRT scanline utility */
+.crt-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.15) 0px,
+            rgba(0, 0, 0, 0.15) 1px,
+            transparent 1px,
+            transparent 3px);
+    mix-blend-mode: multiply;
+    opacity: 0.25;
+}
+
+/* Composite glow utility for retro UI */
+.neon-composite {
+    position: relative;
+}
+
+.neon-composite::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    filter: blur(4px);
+    background: radial-gradient(closest-side, rgba(0, 209, 255, 0.25), transparent 70%),
+        radial-gradient(closest-side, rgba(57, 255, 20, 0.18), transparent 60%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+/* Pixel panel border like retro UI */
+.pixel-panel {
+    position: relative;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+.dark .pixel-panel {
+    border-color: #e6f1ff;
+    box-shadow: 2px 2px 0 0 #e6f1ff;
+}
+
+/* Decorative title styles */
+.title-pop {
+    display: inline-block;
+    animation: riseIn 2800ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+.room-text {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 8px rgba(249, 115, 22, 0.4), 0 0 16px rgba(234, 88, 12, 0.3);
+    filter: brightness(1.2) saturate(1.3);
+}
+
+/* Light theme cyber enhancement */
+:root {
+    --cyber-glow: rgba(249, 115, 22, 0.3);
+    --cyber-accent: rgba(234, 88, 12, 0.25);
+}
+
+.dark {
+    --cyber-glow: rgba(0, 209, 255, 0.4);
+    --cyber-accent: rgba(57, 255, 20, 0.2);
+}
+
+.dot-accent {
+    color: var(--accent);
+    text-shadow: 0 0 6px var(--cyber-accent), 0 0 12px var(--cyber-glow);
+    animation: pulse-cyber 3s ease-in-out infinite;
+}
+
+@keyframes pulse-cyber {
+
+    0%,
+    100% {
+        opacity: 0.9;
+        text-shadow: 0 0 6px var(--cyber-accent), 0 0 12px var(--cyber-glow);
+    }
+
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 10px var(--cyber-accent), 0 0 20px var(--cyber-glow), 0 0 30px var(--cyber-accent);
+    }
+}
+
+@keyframes riseIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 /* 入力フィールドとボタンのモバイルでのタップ領域を拡大 */
 input,
 button,

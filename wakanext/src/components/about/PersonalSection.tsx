@@ -128,7 +128,7 @@ const PersonalSection = () => {
     }, [selectedCategory]);
 
     return (
-        <section className="content-background mb-4 p-4 rounded-lg">
+        <section className="content-background pixel-panel mb-4 p-4 rounded-lg">
             <h2 className="text-xl md:text-2xl font-semibold mb-3">{personal.title}</h2>
             <div>
                 <div className="mt-4 space-y-8">

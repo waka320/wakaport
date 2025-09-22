@@ -42,13 +42,11 @@ const pixel16 = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://wakaport.com'),
-  title: "Wakaport. | Webエンジニア・開発者ポートフォリオ ポータル",
-  description: "若松勇希のポートフォリオかつポータルサイト。Webアプリケーション開発の経験と実績を紹介しています。",
+  title: "Wakamatsu Yuki の部屋",
+  description: "若松勇希のポートフォリオ。",
   authors: [{ name: "若松勇希", url: "https://wakaport.com" }],
   keywords: [
-    "若松勇希", "ポートフォリオ", "Webエンジニア", "フロントエンド開発",
-    "Next.js", "TypeScript", "React", "JavaScript", "Web開発",
-    "UI/UXデザイン", "レスポンシブデザイン", "Wakaport", "若松", "勇希",
+    "若松勇希", "ポートフォリオ", "Wakaport", "若松", "勇希",
     "Yuki Wakamatsu", "Wakamatsu Yuki", "wakaport.com", "wakaport",
     "名古屋大学", "情報学部", "人間社会情報学科", "名大", "名古屋大学生",
     "名古屋大学情報学部", "名古屋大学情報学部人間社会情報学科",
@@ -72,9 +70,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     url: "https://wakaport.com",
-    siteName: "Wakaport.",
-    title: "Wakaport. | Webエンジニア・開発者ポートフォリオ ポータル",
-    description: "若松勇希のポートフォリオかつポータルサイト。Webアプリケーション開発の経験と実績を紹介しています。",
+    siteName: "WakamatsuYukiの部屋.",
+    title: "WakamatsuYukiの部屋.",
+    description: "若松勇希のポートフォリオ。",
     images: [
       {
         url: "https://wakaport.com/og-image.png",
