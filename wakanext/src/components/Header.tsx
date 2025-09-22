@@ -14,7 +14,9 @@ export default function Header() {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center flex-shrink-0">
           <Link href="/" >
-            <h1 className="text-xl font-bold border-none mb-0">Wakaport.</h1>
+            <h1 className="text-xl font-bold border-none mb-0 title-pop">
+              WakamatsuYukiの<span className="room-text">部屋</span><span className="dot-accent">.</span>
+            </h1>
           </Link>
         </div>
 

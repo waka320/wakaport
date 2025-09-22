@@ -10,12 +10,12 @@ export const projects: ProjectProps[] = [
     {
         title: '江崎グリコにて短期インターン',
         description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
-        tags: ['技術開発', ],
+        tags: ['技術開発',],
         start: '2025年2月',
         end: ''
     },
     {
-        title: 'Wakaport. 制作',
+        title: 'WakamatsuYukiの部屋. 制作',
         description: 'ポートフォリオであり、自身のポータルでもあるWebサイトの制作。',
         tags: ['技術開発', '自分史', '学校'],
         start: '2025年1月',
