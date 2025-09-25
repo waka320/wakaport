@@ -37,7 +37,7 @@ const AboutPage = () => {
                                             href={p.link}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-primary hover:text-primary/80 underline transition-colors"
+                                            className="text-[var(--link-color)] hover:text-[var(--link-hover-color)] underline transition-colors"
                                         >
                                             {p.title}
                                         </a>
