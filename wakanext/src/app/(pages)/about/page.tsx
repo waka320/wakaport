@@ -19,7 +19,7 @@ const AboutPage = () => {
         <div className={`white-background relative crt-overlay min-h-screen py-8 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
             <div className="p-4 max-w-4xl mx-auto">
                 <h1 className="text-center text-3xl font-bold mb-8 text-[var(--primary)]">
-                    自己紹介
+                    WakamatsuYukiについて
                 </h1>
                 <div className="space-y-4">
                     {/* Introduction removed */}
