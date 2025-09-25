@@ -32,7 +32,18 @@ const AboutPage = () => {
                             {projects.map((p, i) => (
                                 <li key={i} className="text-sm md:text-base">
                                     <span className="text-muted-foreground mr-2 text-xs">{p.start}{p.end && ` ~ ${p.end}`}</span>
-                                    {p.title}
+                                    {p.link ? (
+                                        <a
+                                            href={p.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-primary hover:text-primary/80 underline transition-colors"
+                                        >
+                                            {p.title}
+                                        </a>
+                                    ) : (
+                                        p.title
+                                    )}
                                 </li>
                             ))}
                         </ul>
