@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/Button"
 
 export default function Social() {
     return (
-        <div className="container px-4 pb-4 md:pb-8">
-            <div className="grid md:grid-cols-3 gap-3 md:gap-4">
+        <div className="container px-2 md:px-4 pb-4 md:pb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 max-w-sm md:max-w-none mx-auto">
                 {/* GitHub */}
                 <div className="content-background pixel-panel p-3 md:p-4">
                     <h2 className="text-base md:text-lg font-semibold mb-2">GitHub</h2>
@@ -21,7 +21,6 @@ export default function Social() {
                 {/* X (Twitter) - ウィジェットは使わずリンクのみで軽量化 */}
                 <div className="content-background pixel-panel p-3 md:p-4">
                     <h2 className="text-base md:text-lg font-semibold mb-2">X</h2>
-                    <p className="text-sm text-muted-foreground">最近の投稿はXでチェック</p>
                     <div className="mt-2 md:mt-3">
                         <Button href="https://twitter.com/waka320port" external variant="pixel" className="text-sm">Open X</Button>
                     </div>

@@ -4,9 +4,41 @@ export type ProjectProps = {
     tags: string[];
     start: string;
     end?: string;
+    link?: string;
 };
 
 export const projects: ProjectProps[] = [
+    {
+        title: '名古屋大学 大学院 情報学研究科 情報社会設計論講座 入学予定',
+        description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
+        tags: ['技術開発',],
+        start: '2026年4月',
+        end: ''
+    },
+    {
+        title: 'Chrome拡張機能「ReadEasy.JP」を制作',
+        description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
+        tags: ['技術開発',],
+        start: '2025年9月',
+        end: '',
+        link: 'https://chromewebstore.google.com/detail/readeasyjp/jjfjlfbdjklmpgfnfomkbcfjhmiekhdn?authuser=0&hl=ja'
+    },
+    {
+        title: '日本財団 HUMAIプログラム 奨励金A 採択',
+        description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
+        tags: ['技術開発',],
+        start: '2025年8月',
+        end: '2026年3月',
+        link: 'https://zen.ac.jp/humai'
+    },
+    {
+        title: '高山市 目的ベースダッシュボード制作',
+        description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
+        tags: ['技術開発',],
+        start: '2025年4月',
+        end: '',
+        link: 'https://ai-camera.lab.mdg-meidai.com'
+    },
     {
         title: '江崎グリコにて短期インターン',
         description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
@@ -19,7 +51,8 @@ export const projects: ProjectProps[] = [
         description: 'ポートフォリオであり、自身のポータルでもあるWebサイトの制作。',
         tags: ['技術開発', '自分史', '学校'],
         start: '2025年1月',
-        end: ''
+        end: '',
+        link: 'https://wakaport'
     },
     {
         title: '歩行者逆引きボード 制作',
@@ -32,13 +65,15 @@ export const projects: ProjectProps[] = [
         title: '安心打診おばあ 制作',
         description: 'JPHACKS2024出場の際に作成したプロダクト。決勝の全国大会に進出したほか、スポンサー賞を2つ獲得。',
         tags: ['技術開発', '自分史',],
-        start: '2024年11月'
+        start: '2024年11月',
+        link: 'https://jphacks.github.io/ng_2406/'    
     },
     {
         title: '第65回名大祭 「スナップ！」 運営',
         description: '広報局長として大学祭の運営。主な仕事はテーマの決定、プレスリリースの作成、撤収の統括など。イベント中は運営本部で、全体の運営をサポートしました。',
         tags: ['自分史', '学校'],
-        start: '2024年6月'
+        start: '2024年6月',
+        link: 'https://meidaisai.com/65th/'
     },
     {
         title: '第45回秋革祭 運営',
@@ -73,7 +108,8 @@ export const projects: ProjectProps[] = [
         description: 'オランダに2週間短期留学をし、トゥエンテ大学の短期研修でサマースクール「Curious U」を受講。',
         tags: ['自分史', '学校'],
         start: '2022年8月',
-        end: ''
+        end: '',
+        link: 'https://www.uni-muenster.de/studium/en/outgoing/CuriousU.html'
     },
     {
         title: '名古屋大学 情報学部 人間・社会情報学科 入学',

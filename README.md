@@ -1,1 +1,1 @@
-# Wakamatsu Yukiの部屋.
+# Wakamatsu Yukiの部屋
