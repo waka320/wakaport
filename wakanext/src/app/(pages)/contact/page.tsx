@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Form from '@/components/contact/Form';
 import Link from 'next/link';
 import { FaEnvelope, FaFacebook } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const ContactPage = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +27,7 @@ const ContactPage = () => {
                                 <span className="font-medium mr-2">Email:</span>
                             </div>
                             <Link
-                                className='link text-[var(--link-color)] underline hover:text-[var(--link-hover-color)] hover:underline transition-colors break-all'
+                                className='text-[var(--link-color)] hover:text-[var(--link-hover-color)] underline transition-colors break-all'
                                 href="mailto:yuki@wakaport.com"
                             >
                                 yuki@wakaport.com
@@ -38,12 +39,26 @@ const ContactPage = () => {
                                 <span className="font-medium mr-2">Facebook:</span>
                             </div>
                             <Link
-                                className='link text-[var(--link-color)] underline hover:text-[var(--link-hover-color)] hover:underline transition-colors break-all'
+                                className='text-[var(--link-color)] hover:text-[var(--link-hover-color)] underline transition-colors break-all'
                                 href="https://www.facebook.com/ruo.song.yong.xi/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 www.facebook.com/ruo.song.yong.xi/
+                            </Link>
+                        </li>
+                        <li className="flex flex-col sm:flex-row sm:items-center">
+                            <div className="flex items-center mb-1 sm:mb-0">
+                                <FaXTwitter className="text-[var(--accent)] mr-3 text-lg md:text-xl" />
+                                <span className="font-medium mr-2">X (Twitter):</span>
+                            </div>
+                            <Link
+                                className='text-[var(--link-color)] hover:text-[var(--link-hover-color)] underline transition-colors break-all'
+                                href="https://twitter.com/waka320port"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                @waka320port
                             </Link>
                         </li>
                     </ul>
