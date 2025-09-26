@@ -37,7 +37,7 @@ export default function GamesTable({ games }: { games: GameData[] }) {
             accessorKey: "platform",
             header: () => <span>プラットフォーム</span>,
             cell: ({ row }) => (
-                <span className={`text-xs font-black ${platformColors[row.original.platform] || 'text-foreground'} pachinko-glow`}>
+                <span className={`text-base font-black ${platformColors[row.original.platform] || 'text-foreground'} pachinko-glow`}>
                     {row.original.platform}
                 </span>
             ),
@@ -45,7 +45,23 @@ export default function GamesTable({ games }: { games: GameData[] }) {
         {
             accessorKey: "title",
             header: () => <span>タイトル</span>,
-            cell: ({ row }) => <span className="text-xs font-semibold">🎯 {row.original.title}</span>,
+            cell: ({ row }) => {
+                const handleTitleClick = () => {
+                    const searchQuery = `${row.original.platform} ${row.original.title}`;
+                    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+                    window.open(googleSearchUrl, '_blank', 'noopener,noreferrer');
+                };
+
+                return (
+                    <span
+                        className="text-base font-semibold cursor-pointer hover:text-[var(--link-color)] hover:underline transition-colors"
+                        onClick={handleTitleClick}
+                        title={`「${row.original.platform} ${row.original.title}」をGoogleで検索`}
+                    >
+                        {row.original.title}
+                    </span>
+                );
+            },
         },
     ], [platformColors]);
 
@@ -120,7 +136,7 @@ export default function GamesTable({ games }: { games: GameData[] }) {
                     <input
                         value={globalFilter ?? ""}
                         onChange={(e) => setGlobalFilter(e.target.value)}
-                        placeholder="🔍 検索（プラットフォーム/タイトル）"
+                        placeholder="🔍 検索"
                         className="w-full px-2 py-1 text-sm font-semibold bg-background border border-border rounded focus:border-yellow-500 dark:focus:border-yellow-400 focus:ring-1 focus:ring-yellow-500 dark:focus:ring-yellow-400"
                     />
                 </div>
@@ -130,18 +146,18 @@ export default function GamesTable({ games }: { games: GameData[] }) {
             <div className="rainbow-border p-1">
                 <div className="bg-background rounded-lg overflow-hidden">
                     <div className="overflow-x-auto">
-                        <table className="w-full text-left">
+                        <table className="w-full text-left text-base leading-tight">
                             <thead className="bg-gradient-to-r from-gray-800 to-gray-900 dark:from-gray-900 dark:to-black text-white">
                                 {table.getHeaderGroups().map(headerGroup => (
                                     <tr key={headerGroup.id}>
                                         {headerGroup.headers.map(header => (
                                             <th
                                                 key={header.id}
-                                                className="px-2 py-1 text-xs font-black cursor-pointer select-none hover:bg-yellow-600 dark:hover:bg-yellow-500 transition-colors pachinko-glow"
+                                                className={`px-2 py-0.5 text-xs leading-none font-black cursor-pointer select-none hover:bg-yellow-600 dark:hover:bg-yellow-500 transition-colors pachinko-glow ${header.column.id === 'platform' ? 'w-28 md:w-36 whitespace-nowrap' : 'w-auto'}`}
                                                 onClick={header.column.getToggleSortingHandler()}
                                             >
                                                 <div className="flex items-center gap-1">
-                                                    <span className="text-sm">
+                                                    <span className="text-sm truncate leading-none">
                                                         {flexRender(header.column.columnDef.header, header.getContext())}
                                                     </span>
                                                     <span className="text-yellow-400 dark:text-yellow-300 text-sm">
@@ -161,7 +177,7 @@ export default function GamesTable({ games }: { games: GameData[] }) {
                                             }`}
                                     >
                                         {row.getVisibleCells().map(cell => (
-                                            <td key={cell.id} className="px-2 py-1">
+                                            <td key={cell.id} className={`px-1.5 py-0.5 ${cell.column.id === 'platform' ? 'w-28 md:w-36 whitespace-nowrap' : 'w-auto'}`}>
                                                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                             </td>
                                         ))}
