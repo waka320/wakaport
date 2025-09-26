@@ -195,7 +195,6 @@ export default function GamesTable({ games }: { games: GameData[] }) {
                     <div className="flex flex-col gap-2">
                         <div className="flex justify-between items-center text-xs">
                             <span className="text-muted-foreground font-semibold">
-                                📊 表示中: <span className="text-yellow-600 dark:text-yellow-400 font-black text-sm pachinko-glow">{paginatedData.length}</span> 本 /
                                 全体: <span className="text-green-600 dark:text-green-400 font-black text-sm pachinko-glow">{filteredData.length}</span> 本
                             </span>
                             {selectedPlatform !== "全て" && (

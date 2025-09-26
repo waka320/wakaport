@@ -45,22 +45,22 @@ body {
     inset: 0;
     pointer-events: none;
     background: repeating-linear-gradient(0deg,
-            rgba(0, 0, 0, 0.15) 0px,
-            rgba(0, 0, 0, 0.15) 1px,
+            rgba(0, 0, 0, 0.08) 0px,
+            rgba(0, 0, 0, 0.08) 1px,
             transparent 1px,
             transparent 3px);
     mix-blend-mode: multiply;
-    opacity: 0.25;
+    opacity: 0.15;
 }
 
 /* ダークテーマではスキャンラインのコントラストと色成分を強化 */
 .dark .crt-overlay::after {
     background:
-        linear-gradient(rgba(255, 255, 255, 0.02) 50%, rgba(0, 0, 0, 0.38) 50%),
-        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.03), rgba(0, 0, 255, 0.06));
+        linear-gradient(rgba(255, 255, 255, 0.01) 50%, rgba(0, 0, 0, 0.18) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.015), rgba(0, 0, 255, 0.03));
     background-size: 100% 2px, 3px 100%;
     mix-blend-mode: overlay;
-    opacity: 0.38;
+    opacity: 0.22;
 }
 
 /* 粒状ノイズの前景レイヤー（フィルムグレイン） */
@@ -70,20 +70,20 @@ body {
     inset: 0;
     pointer-events: none;
     background-image:
-        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
     background-size: 5px 5px, 8px 8px;
     background-position: 0 0, 2px 2px;
     mix-blend-mode: soft-light;
-    opacity: 0.5;
+    opacity: 0.25;
     animation: crt-flicker 7s ease-in-out infinite;
 }
 
 .dark .crt-overlay::before {
     background-image:
-        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        radial-gradient(circle at 65% 75%, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-    opacity: 0.26;
+        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        radial-gradient(circle at 65% 75%, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+    opacity: 0.15;
     mix-blend-mode: screen;
 }
 
@@ -387,6 +387,60 @@ a {
 .no-scrollbar::-webkit-scrollbar {
     /* Chrome/Safari */
     display: none;
+}
+
+/* セクション内可読性向上用スタイル */
+.content-background {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: #1a1a1a !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.dark .content-background {
+    background: rgba(30, 30, 30, 0.95) !important;
+    color: #f0f0f0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* セクション内の文字サイズを大きく */
+.content-background h2 {
+    font-size: 1.5rem !important;
+    /* text-xl → text-2xl */
+    line-height: 1.3 !important;
+}
+
+.content-background h3 {
+    font-size: 1.25rem !important;
+    /* text-lg → text-xl */
+    line-height: 1.4 !important;
+}
+
+.content-background p,
+.content-background li,
+.content-background span:not(.text-xs):not(.text-sm) {
+    font-size: 1.125rem !important;
+    /* text-base → text-lg */
+    line-height: 1.6 !important;
+}
+
+/* セクション内のリンクの視認性向上 */
+.content-background a {
+    color: #0066cc !important;
+    text-decoration: underline;
+}
+
+.content-background a:hover {
+    color: #004499 !important;
+}
+
+.dark .content-background a {
+    color: #66b3ff !important;
+    text-decoration: underline;
+}
+
+.dark .content-background a:hover {
+    color: #99ccff !important;
 }
 
 @keyframes expand {
