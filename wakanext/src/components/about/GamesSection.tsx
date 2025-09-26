@@ -12,6 +12,7 @@ export default function GamesSection({ sheetId }: GamesSectionProps) {
     const [games, setGames] = useState<GameData[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
     useEffect(() => {
         const loadGames = async () => {
@@ -47,25 +48,37 @@ export default function GamesSection({ sheetId }: GamesSectionProps) {
     }, [sheetId]);
 
     return (
-        <section className="content-background pixel-panel mb-4 p-4 rounded-lg rainbow-border">
-            <h2 className="text-2xl md:text-4xl font-black mb-6 white-text text-center">🎮 所持しているゲーム 🎮</h2>
+        <section className="content-background pixel-panel mb-2 p-2 rounded-lg rainbow-border">
+            <h2 
+                className="text-2xl md:text-4xl font-black mb-2 white-text text-center cursor-pointer select-none hover:opacity-80 transition-opacity flex items-center justify-center gap-2"
+                onClick={() => setIsCollapsed(!isCollapsed)}
+            >
+                🎮 所持しているゲーム 🎮
+                <span className="text-lg">
+                    {isCollapsed ? '▼' : '▲'}
+                </span>
+            </h2>
 
-            {loading ? (
-                <div className="flex items-center justify-center h-40">
-                    <div className="text-muted-foreground">読み込み中...</div>
-                </div>
-            ) : error && games.length === 0 ? (
-                <div className="flex items-center justify-center h-40">
-                    <div className="text-destructive">{error}</div>
-                </div>
-            ) : (
+            {!isCollapsed && (
                 <>
-                    {error && (
-                        <div className="mb-4 p-3 bg-yellow-100 dark:bg-yellow-900/20 border border-yellow-300 dark:border-yellow-700 rounded text-sm text-yellow-800 dark:text-yellow-200">
-                            注意: {error}（モックデータを表示中）
+                    {loading ? (
+                        <div className="flex items-center justify-center h-20">
+                            <div className="text-muted-foreground">読み込み中...</div>
                         </div>
+                    ) : error && games.length === 0 ? (
+                        <div className="flex items-center justify-center h-20">
+                            <div className="text-destructive">{error}</div>
+                        </div>
+                    ) : (
+                        <>
+                            {error && (
+                                <div className="mb-2 p-2 bg-yellow-100 dark:bg-yellow-900/20 border border-yellow-300 dark:border-yellow-700 rounded text-sm text-yellow-800 dark:text-yellow-200">
+                                    注意: {error}（モックデータを表示中）
+                                </div>
+                            )}
+                            <GamesTable games={games} />
+                        </>
                     )}
-                    <GamesTable games={games} />
                 </>
             )}
         </section>

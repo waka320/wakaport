@@ -37,7 +37,7 @@ export default function GamesTable({ games }: { games: GameData[] }) {
             accessorKey: "platform",
             header: () => <span>プラットフォーム</span>,
             cell: ({ row }) => (
-                <span className={`text-sm font-black ${platformColors[row.original.platform] || 'text-foreground'} pachinko-glow`}>
+                <span className={`text-xs font-black ${platformColors[row.original.platform] || 'text-foreground'} pachinko-glow`}>
                     {row.original.platform}
                 </span>
             ),
@@ -45,7 +45,7 @@ export default function GamesTable({ games }: { games: GameData[] }) {
         {
             accessorKey: "title",
             header: () => <span>タイトル</span>,
-            cell: ({ row }) => <span className="text-sm font-semibold">🎯 {row.original.title}</span>,
+            cell: ({ row }) => <span className="text-xs font-semibold">🎯 {row.original.title}</span>,
         },
     ], [platformColors]);
 
@@ -53,7 +53,7 @@ export default function GamesTable({ games }: { games: GameData[] }) {
     const [globalFilter, setGlobalFilter] = useState("");
     const [selectedPlatform, setSelectedPlatform] = useState<string>("全て");
     const [currentPage, setCurrentPage] = useState(0);
-    const itemsPerPage = 50;
+    const itemsPerPage = 15;
 
     // プラットフォーム一覧を取得
     const platforms = useMemo(() => {
@@ -94,16 +94,16 @@ export default function GamesTable({ games }: { games: GameData[] }) {
     });
 
     return (
-        <div className="space-y-3">
+        <div className="space-y-1">
             {/* パチスロ風ギラギラヘッダー */}
             <div className="rainbow-border p-1">
-                <div className="bg-background rounded-lg p-4">
-                    <div className="flex flex-wrap gap-2 mb-3">
+                <div className="bg-background rounded-lg p-2">
+                    <div className="flex flex-wrap gap-1 mb-2">
                         {platforms.map(platform => (
                             <button
                                 key={platform}
                                 onClick={() => setSelectedPlatform(platform)}
-                                className={`px-3 py-2 text-sm rounded transition-all duration-200 ${selectedPlatform === platform
+                                className={`px-2 py-1 text-xs rounded transition-all duration-200 ${selectedPlatform === platform
                                     ? 'bg-gradient-to-r from-yellow-400 to-orange-500 dark:from-yellow-500 dark:to-orange-400 text-black dark:text-gray-900 font-black shadow-lg transform scale-110 pachinko-glow'
                                     : 'bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground font-semibold'
                                     }`}
@@ -121,7 +121,7 @@ export default function GamesTable({ games }: { games: GameData[] }) {
                         value={globalFilter ?? ""}
                         onChange={(e) => setGlobalFilter(e.target.value)}
                         placeholder="🔍 検索（プラットフォーム/タイトル）"
-                        className="w-full px-4 py-3 text-base font-semibold bg-background border-2 border-border rounded-lg focus:border-yellow-500 dark:focus:border-yellow-400 focus:ring-2 focus:ring-yellow-500 dark:focus:ring-yellow-400 shadow-lg"
+                        className="w-full px-2 py-1 text-sm font-semibold bg-background border border-border rounded focus:border-yellow-500 dark:focus:border-yellow-400 focus:ring-1 focus:ring-yellow-500 dark:focus:ring-yellow-400"
                     />
                 </div>
             </div>
@@ -137,14 +137,14 @@ export default function GamesTable({ games }: { games: GameData[] }) {
                                         {headerGroup.headers.map(header => (
                                             <th
                                                 key={header.id}
-                                                className="px-4 py-3 text-sm font-black cursor-pointer select-none hover:bg-yellow-600 dark:hover:bg-yellow-500 transition-colors pachinko-glow"
+                                                className="px-2 py-1 text-xs font-black cursor-pointer select-none hover:bg-yellow-600 dark:hover:bg-yellow-500 transition-colors pachinko-glow"
                                                 onClick={header.column.getToggleSortingHandler()}
                                             >
-                                                <div className="flex items-center gap-2">
-                                                    <span className="text-lg">
+                                                <div className="flex items-center gap-1">
+                                                    <span className="text-sm">
                                                         {flexRender(header.column.columnDef.header, header.getContext())}
                                                     </span>
-                                                    <span className="text-yellow-400 dark:text-yellow-300 text-lg">
+                                                    <span className="text-yellow-400 dark:text-yellow-300 text-sm">
                                                         {{ asc: "🔼", desc: "🔽" }[header.column.getIsSorted() as string] ?? "⚪"}
                                                     </span>
                                                 </div>
@@ -161,7 +161,7 @@ export default function GamesTable({ games }: { games: GameData[] }) {
                                             }`}
                                     >
                                         {row.getVisibleCells().map(cell => (
-                                            <td key={cell.id} className="px-4 py-2.5">
+                                            <td key={cell.id} className="px-2 py-1">
                                                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                             </td>
                                         ))}
@@ -175,15 +175,15 @@ export default function GamesTable({ games }: { games: GameData[] }) {
 
             {/* パチスロ風ギラギラ統計 */}
             <div className="rainbow-border p-1">
-                <div className="bg-background rounded-lg p-4">
-                    <div className="flex flex-col gap-3">
-                        <div className="flex justify-between items-center text-sm">
+                <div className="bg-background rounded-lg p-2">
+                    <div className="flex flex-col gap-2">
+                        <div className="flex justify-between items-center text-xs">
                             <span className="text-muted-foreground font-semibold">
-                                📊 表示中: <span className="text-yellow-600 dark:text-yellow-400 font-black text-lg pachinko-glow">{paginatedData.length}</span> 本 /
-                                全体: <span className="text-green-600 dark:text-green-400 font-black text-lg pachinko-glow">{filteredData.length}</span> 本
+                                📊 表示中: <span className="text-yellow-600 dark:text-yellow-400 font-black text-sm pachinko-glow">{paginatedData.length}</span> 本 /
+                                全体: <span className="text-green-600 dark:text-green-400 font-black text-sm pachinko-glow">{filteredData.length}</span> 本
                             </span>
                             {selectedPlatform !== "全て" && (
-                                <span className={`font-black text-lg ${platformColors[selectedPlatform] || 'text-foreground'} pachinko-glow`}>
+                                <span className={`font-black text-sm ${platformColors[selectedPlatform] || 'text-foreground'} pachinko-glow`}>
                                     🎮 {selectedPlatform} 専用表示
                                 </span>
                             )}
@@ -191,11 +191,11 @@ export default function GamesTable({ games }: { games: GameData[] }) {
 
                         {/* ページネーション */}
                         {totalPages > 1 && (
-                            <div className="flex justify-center items-center gap-2">
+                            <div className="flex justify-center items-center gap-1">
                                 <button
                                     onClick={() => setCurrentPage(Math.max(0, currentPage - 1))}
                                     disabled={currentPage === 0}
-                                    className="px-3 py-2 text-sm font-bold bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed hover:from-blue-600 hover:to-purple-600 transition-all pachinko-glow"
+                                    className="px-2 py-1 text-xs font-bold bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed hover:from-blue-600 hover:to-purple-600 transition-all pachinko-glow"
                                 >
                                     ⬅️ 前へ
                                 </button>
@@ -217,7 +217,7 @@ export default function GamesTable({ games }: { games: GameData[] }) {
                                             <button
                                                 key={pageNum}
                                                 onClick={() => setCurrentPage(pageNum)}
-                                                className={`px-3 py-2 text-sm font-bold rounded transition-all ${currentPage === pageNum
+                                                className={`px-2 py-1 text-xs font-bold rounded transition-all ${currentPage === pageNum
                                                         ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black pachinko-glow transform scale-110'
                                                         : 'bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground'
                                                     }`}
@@ -231,12 +231,12 @@ export default function GamesTable({ games }: { games: GameData[] }) {
                                 <button
                                     onClick={() => setCurrentPage(Math.min(totalPages - 1, currentPage + 1))}
                                     disabled={currentPage === totalPages - 1}
-                                    className="px-3 py-2 text-sm font-bold bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed hover:from-blue-600 hover:to-purple-600 transition-all pachinko-glow"
+                                    className="px-2 py-1 text-xs font-bold bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed hover:from-blue-600 hover:to-purple-600 transition-all pachinko-glow"
                                 >
                                     次へ ➡️
                                 </button>
-
-                                <span className="text-xs text-muted-foreground ml-2">
+                                
+                                <span className="text-xs text-muted-foreground ml-1">
                                     {currentPage + 1} / {totalPages} ページ
                                 </span>
                             </div>
