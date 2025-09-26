@@ -9,9 +9,9 @@ export default function Social() {
                 {/* GitHub */}
                 <div className="content-background pixel-panel p-3 md:p-4">
                     <h2 className="text-lg md:text-xl font-semibold mb-2">GitHub</h2>
-                    <Link href="https://github.com/waka320" target="_blank" className="inline-flex items-center gap-2">
+                    <Link href="https://github.com/waka320" target="_blank" className="inline-flex items-center gap-2 no-underline">
                         <Image src="/images/icon.png" alt="GitHub" width={20} height={20} />
-                        <span className="text-base">@waka320</span>
+                        <span className="text-base text-inherit">@waka320</span>
                     </Link>
                     <div className="mt-2 md:mt-3">
                         <Button href="https://github.com/waka320" external variant="pixel" className="text-base">Visit</Button>

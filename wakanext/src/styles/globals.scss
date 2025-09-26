@@ -443,6 +443,25 @@ a {
     color: #99ccff !important;
 }
 
+/* ピクセルボタンの文字色を白に強制 */
+.content-background button[class*="pixel"],
+.content-background a[class*="pixel"] {
+    color: white !important;
+}
+
+/* ホームページのSocialセクション内のテキストとリンクの色を調整 */
+.content-background .text-base:not(button):not(a) {
+    color: inherit !important;
+}
+
+.content-background .text-muted-foreground {
+    color: #6b7280 !important;
+}
+
+.dark .content-background .text-muted-foreground {
+    color: #9ca3af !important;
+}
+
 @keyframes expand {
     0% {
         width: 0;
