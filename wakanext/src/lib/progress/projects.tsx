@@ -52,7 +52,7 @@ export const projects: ProjectProps[] = [
         tags: ['技術開発', '自分史', '学校'],
         start: '2025年1月',
         end: '',
-        link: 'https://wakaport'
+        link: 'https://wakaport.com'
     },
     {
         title: '歩行者逆引きボード 制作',

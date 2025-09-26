@@ -15,11 +15,11 @@ const ContactPage = () => {
     }, []);
 
     return (
-        <div className={`white-background relative crt-overlay min-h-screen py-6 md:py-8 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
-            <div className="px-4 max-w-4xl mx-auto">
-                <h1 className="text-center text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-[var(--primary)]">お問い合わせ</h1>
-                <div className='content-background pixel-panel mb-8 p-4 md:p-6 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl'>
-                    <h2 className="text-lg md:text-2xl font-semibold mb-4 md:mb-6 border-b pb-2 text-[var(--foreground)]">連絡先</h2>
+        <div className={`relative crt-overlay min-h-screen py-4 md:py-6 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+            <div className="container px-1 md:px-4">
+                <h1 className="text-center text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-[var(--primary)]">お問い合わせ</h1>
+                <div className='content-background pixel-panel mb-6 p-3 md:p-5 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl'>
+                    <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4 border-b pb-2 text-[var(--foreground)]">連絡先</h2>
                     <ul className="space-y-4 mb-6">
                         <li className="flex flex-col sm:flex-row sm:items-center">
                             <div className="flex items-center mb-1 sm:mb-0">
@@ -63,7 +63,7 @@ const ContactPage = () => {
                         </li>
                     </ul>
 
-                    <h2 className="text-lg md:text-2xl font-semibold mb-4 md:mb-6 border-b pb-2 text-[var(--foreground)]">お問い合わせフォーム</h2>
+                    <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4 border-b pb-2 text-[var(--foreground)]">お問い合わせフォーム</h2>
                     <Form />
                 </div>
             </div>

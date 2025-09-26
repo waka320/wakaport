@@ -9,6 +9,14 @@ const config: Config = {
 	],
 	darkMode: 'class',
 	theme: {
+		container: {
+			center: true,
+			padding: {
+				DEFAULT: '0.5rem',
+				sm: '0.75rem',
+				md: '1rem'
+			}
+		},
 		extend: {
 			colors: {
 				background: 'var(--background)',
