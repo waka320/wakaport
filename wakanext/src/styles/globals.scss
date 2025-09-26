@@ -30,6 +30,14 @@ body {
     image-rendering: pixelated;
 }
 
+/* モバイルのベース文字サイズを少し大きく */
+@media (max-width: 768px) {
+    body {
+        font-size: 17px;
+        line-height: 1.65;
+    }
+}
+
 /* CRT scanline utility */
 .crt-overlay::after {
     content: "";
@@ -43,6 +51,65 @@ body {
             transparent 3px);
     mix-blend-mode: multiply;
     opacity: 0.25;
+}
+
+/* ダークテーマではスキャンラインのコントラストと色成分を強化 */
+.dark .crt-overlay::after {
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.02) 50%, rgba(0, 0, 0, 0.38) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.03), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    mix-blend-mode: overlay;
+    opacity: 0.38;
+}
+
+/* 粒状ノイズの前景レイヤー（フィルムグレイン） */
+.crt-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 5px 5px, 8px 8px;
+    background-position: 0 0, 2px 2px;
+    mix-blend-mode: soft-light;
+    opacity: 0.5;
+    animation: crt-flicker 7s ease-in-out infinite;
+}
+
+.dark .crt-overlay::before {
+    background-image:
+        radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 65% 75%, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    opacity: 0.26;
+    mix-blend-mode: screen;
+}
+
+@keyframes crt-flicker {
+
+    0%,
+    100% {
+        opacity: var(--crt-opacity, 1);
+        filter: none;
+    }
+
+    10% {
+        opacity: calc(var(--crt-opacity, 1) - 0.04);
+    }
+
+    45% {
+        opacity: calc(var(--crt-opacity, 1) - 0.02);
+    }
+
+    55% {
+        opacity: var(--crt-opacity, 1);
+    }
+
+    70% {
+        opacity: calc(var(--crt-opacity, 1) - 0.03);
+    }
 }
 
 /* Composite glow utility for retro UI */
@@ -307,6 +374,19 @@ a {
 .grid-background {
     @apply bg-gray-50 dark:bg-gray-900;
     // その他のスタイル
+}
+
+/* 横スクロール用スクロールバー非表示ユーティリティ */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE/Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    /* Chrome/Safari */
+    display: none;
 }
 
 @keyframes expand {

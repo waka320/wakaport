@@ -12,7 +12,7 @@ export default function GamesSection({ sheetId }: GamesSectionProps) {
     const [games, setGames] = useState<GameData[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(true);
 
     useEffect(() => {
         const loadGames = async () => {
@@ -49,7 +49,7 @@ export default function GamesSection({ sheetId }: GamesSectionProps) {
 
     return (
         <section className="content-background pixel-panel mb-2 p-2 rounded-lg rainbow-border">
-            <h2 
+            <h2
                 className="text-2xl md:text-4xl font-black mb-2 white-text text-center cursor-pointer select-none hover:opacity-80 transition-opacity flex items-center justify-center gap-2"
                 onClick={() => setIsCollapsed(!isCollapsed)}
             >

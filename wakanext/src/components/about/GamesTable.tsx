@@ -98,12 +98,12 @@ export default function GamesTable({ games }: { games: GameData[] }) {
             {/* パチスロ風ギラギラヘッダー */}
             <div className="rainbow-border p-1">
                 <div className="bg-background rounded-lg p-2">
-                    <div className="flex flex-wrap gap-1 mb-2">
+                    <div className="flex flex-nowrap gap-1 mb-2 overflow-x-auto no-scrollbar">
                         {platforms.map(platform => (
                             <button
                                 key={platform}
                                 onClick={() => setSelectedPlatform(platform)}
-                                className={`px-2 py-1 text-xs rounded transition-all duration-200 ${selectedPlatform === platform
+                                className={`px-2 py-1 text-xs rounded transition-all duration-200 shrink-0 ${selectedPlatform === platform
                                     ? 'bg-gradient-to-r from-yellow-400 to-orange-500 dark:from-yellow-500 dark:to-orange-400 text-black dark:text-gray-900 font-black shadow-lg transform scale-110 pachinko-glow'
                                     : 'bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground font-semibold'
                                     }`}
@@ -218,8 +218,8 @@ export default function GamesTable({ games }: { games: GameData[] }) {
                                                 key={pageNum}
                                                 onClick={() => setCurrentPage(pageNum)}
                                                 className={`px-2 py-1 text-xs font-bold rounded transition-all ${currentPage === pageNum
-                                                        ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black pachinko-glow transform scale-110'
-                                                        : 'bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground'
+                                                    ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black pachinko-glow transform scale-110'
+                                                    : 'bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground'
                                                     }`}
                                             >
                                                 {pageNum + 1}
@@ -235,7 +235,7 @@ export default function GamesTable({ games }: { games: GameData[] }) {
                                 >
                                     次へ ➡️
                                 </button>
-                                
+
                                 <span className="text-xs text-muted-foreground ml-1">
                                     {currentPage + 1} / {totalPages} ページ
                                 </span>
