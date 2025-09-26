@@ -394,7 +394,15 @@ a {
     background: rgba(255, 255, 255, 0.95) !important;
     color: #1a1a1a !important;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(4px);
+}
+
+/* Safari専用のブラー軽減 */
+@supports (-webkit-backdrop-filter: blur(1px)) {
+    .content-background {
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    }
 }
 
 .dark .content-background {
