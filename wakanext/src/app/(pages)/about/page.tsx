@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import AffiliationsSection from '@/components/about/AffiliationsSection';
 import QualificationsSection from '@/components/about/QualificationsSection';
+import GamesSection from '@/components/about/GamesSection';
 import { projects } from '@/lib/progress/projects';
 
 const AboutPage = () => {
@@ -26,6 +27,7 @@ const AboutPage = () => {
                     <AffiliationsSection />
                     {/* Skills removed */}
                     <QualificationsSection />
+
                     <section className="content-background pixel-panel mb-4 p-4 rounded-lg">
                         <h2 className="text-xl md:text-2xl font-semibold mb-3">経歴</h2>
                         <ul className="space-y-2">
@@ -48,6 +50,7 @@ const AboutPage = () => {
                             ))}
                         </ul>
                     </section>
+                    <GamesSection sheetId="1ZoL1TgPKWzHJVq3osj6Nyttm_XqNPeR0jeNR9lYYr_w" />
                 </div>
             </div>
         </div>
