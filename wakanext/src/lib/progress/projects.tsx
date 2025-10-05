@@ -10,34 +10,41 @@ export type ProjectProps = {
 export const projects: ProjectProps[] = [
     {
         title: '名古屋大学 大学院 情報学研究科 情報社会設計論講座 入学予定',
-        description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
-        tags: ['技術開発',],
+        description: '学部での学びを深めるため、大学院進学を決意。情報社会設計論講座にて研究活動を継続予定。',
+        tags: ['学校'],
         start: '2026年4月',
         end: ''
     },
     {
         title: 'Chrome拡張機能「ReadEasy.JP」を制作',
-        description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
-        tags: ['技術開発',],
+        description: '日本語学習者向けのChrome拡張機能を開発。Webページ上の漢字にふりがなを自動で付与し、読みやすさを向上させる機能を実装。',
+        tags: ['技術開発'],
         start: '2025年9月',
         end: '',
         link: 'https://chromewebstore.google.com/detail/readeasyjp/jjfjlfbdjklmpgfnfomkbcfjhmiekhdn?authuser=0&hl=ja'
     },
     {
         title: '日本財団 HUMAIプログラム 奨励金A 採択',
-        description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
-        tags: ['技術開発',],
+        description: '次世代AI人材育成プログラムの奨励金Aに採択され、AI・データサイエンス分野の研究に従事。',
+        tags: ['技術開発', '学校'],
         start: '2025年8月',
         end: '2026年3月',
         link: 'https://zen.ac.jp/humai'
     },
     {
         title: '高山市 目的ベースダッシュボード制作',
-        description: 'glico梅田オフィスで行われたデジタル推進（CRMコース）インターンシップに参加。同イベント内で開催されたコンペでチームで優勝し、高級ポッキーをいただく。',
-        tags: ['技術開発',],
+        description: '岐阜県高山市における研究の一環で作成したダッシュボード。商店街の歩行者データをわかりやすく表示。',
+        tags: ['技術開発', '学校'],
         start: '2025年4月',
         end: '',
         link: 'https://ai-camera.lab.mdg-meidai.com'
+    },
+    {
+        title: '株式会社ハウテレビジョンにて短期インターン',
+        description: 'メディア・エンターテインメント業界での短期インターンシップに参加。業界の最新動向や技術について学習。',
+        tags: ['技術開発'],
+        start: '2025年3月',
+        end: ''
     },
     {
         title: '江崎グリコにて短期インターン',
@@ -124,13 +131,6 @@ export const projects: ProjectProps[] = [
         tags: ['自分史',],
         start: '2021年4月',
         end: '2022年3月'
-    },
-    {
-        title: '英検準1級 合格',
-        description: '高校2年生の冬に念願の合格をしました。',
-        tags: ['自分史'],
-        start: '2020年2月',
-        end: ''
     },
     {
         title: '名古屋高校 入学',
