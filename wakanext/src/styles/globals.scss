@@ -433,7 +433,7 @@ a {
 }
 
 /* セクション内のリンクの視認性向上 */
-.content-background a {
+.content-background a:not(.btn-pixel) {
     color: #0066cc !important;
     text-decoration: underline;
 }
@@ -442,13 +442,44 @@ a {
     color: #004499 !important;
 }
 
-.dark .content-background a {
+.dark .content-background a:not(.btn-pixel) {
     color: #66b3ff !important;
     text-decoration: underline;
 }
 
-.dark .content-background a:hover {
+.dark .content-background a:not(.btn-pixel):hover {
     color: #99ccff !important;
+}
+
+/* フォームUIのコントラスト（テーマトークンを強制適用） */
+.content-background input,
+.content-background textarea {
+    background-color: var(--input-background) !important;
+    color: var(--input-text) !important;
+    border-color: var(--input-border) !important;
+}
+
+.content-background input:focus,
+.content-background textarea:focus {
+    border-color: var(--input-focus-border) !important;
+    box-shadow: var(--input-focus-shadow) !important;
+}
+
+.content-background input::placeholder,
+.content-background textarea::placeholder {
+    color: var(--input-placeholder) !important;
+    opacity: 1 !important;
+}
+
+/* Safari/旧Edge対策のベンダープレフィックス */
+.content-background input::-webkit-input-placeholder,
+.content-background textarea::-webkit-input-placeholder {
+    color: var(--input-placeholder) !important;
+}
+
+.content-background input::-moz-placeholder,
+.content-background textarea::-moz-placeholder {
+    color: var(--input-placeholder) !important;
 }
 
 /* ピクセルボタンの文字色を白に強制 */
@@ -457,9 +488,26 @@ a {
     color: white !important;
 }
 
+/* pixelバリアントのボタン内のテキストを強制的に白に */
+button[class*="pixel"],
+a[class*="pixel"] {
+    color: white !important;
+}
+
+button[class*="pixel"] *,
+a[class*="pixel"] * {
+    color: white !important;
+}
+
 /* ホームページのSocialセクション内のテキストとリンクの色を調整 */
-.content-background .text-base:not(button):not(a) {
+.content-background .text-base:not(button):not(a):not([class*="pixel"]) {
     color: inherit !important;
+}
+
+/* pixelバリアントのボタンとリンクは常に白 */
+.content-background button[class*="pixel"].text-base,
+.content-background a[class*="pixel"].text-base {
+    color: white !important;
 }
 
 .content-background .text-muted-foreground {

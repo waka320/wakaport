@@ -73,7 +73,7 @@ export const projects: ProjectProps[] = [
         description: 'JPHACKS2024出場の際に作成したプロダクト。決勝の全国大会に進出したほか、スポンサー賞を2つ獲得。',
         tags: ['技術開発', '自分史',],
         start: '2024年11月',
-        link: 'https://jphacks.github.io/ng_2406/'    
+        link: 'https://jphacks.github.io/ng_2406/'
     },
     {
         title: '第65回名大祭 「スナップ！」 運営',

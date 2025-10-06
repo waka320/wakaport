@@ -21,8 +21,11 @@ export default function Social() {
                 {/* X (Twitter) - ウィジェットは使わずリンクのみで軽量化 */}
                 <div className="content-background pixel-panel p-3 md:p-4">
                     <h2 className="text-lg md:text-xl font-semibold mb-2">X</h2>
+                    <Link href="https://x.com/waka320port" target="_blank" className="inline-flex items-center gap-2 no-underline">
+                        <span className="text-base text-inherit">@waka320port</span>
+                    </Link>
                     <div className="mt-2 md:mt-3">
-                        <Button href="https://twitter.com/waka320port" external variant="pixel" className="text-base">Open X</Button>
+                        <Button href="https://x.com/waka320port" external variant="pixel" className="text-base">Open X</Button>
                     </div>
                 </div>
 
@@ -31,7 +34,7 @@ export default function Social() {
                     <h2 className="text-lg md:text-xl font-semibold mb-2">Contact</h2>
                     <p className="text-base text-muted-foreground">ご相談・ご連絡はこちらから</p>
                     <div className="mt-2 md:mt-3">
-                        <Button href="/contact" withArrow variant="pixel" className="text-base">お問い合わせ</Button>
+                        <Button href="/contact" variant="pixel" className="text-base">お問い合わせ</Button>
                     </div>
                 </div>
             </div>
