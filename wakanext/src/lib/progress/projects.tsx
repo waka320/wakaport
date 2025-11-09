@@ -16,6 +16,14 @@ export const projects: ProjectProps[] = [
         end: ''
     },
     {
+        title: '数学動画ジェネレーター「SUDO」を制作',
+        description: 'JPHACKS2025出場の際に作成したプロダクト。決勝の全国大会に進出したほか、審査員特別賞やスポンサー賞を獲得。',
+        tags: ['技術開発'],
+        start: '2025年10月',
+        end: '',
+        link: 'https://github.com/jphacks/ng_2501'
+    },
+    {
         title: 'Chrome拡張機能「ReadEasy.JP」を制作',
         description: '日本語学習者向けのChrome拡張機能を開発。Webページ上の漢字にふりがなを自動で付与し、読みやすさを向上させる機能を実装。',
         tags: ['技術開発'],
