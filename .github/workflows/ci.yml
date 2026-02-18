@@ -8,26 +8,29 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18.x
-          cache: 'npm'
-          cache-dependency-path: './wakanext/package-lock.json'
-      
+          cache: 'pnpm'
+          cache-dependency-path: './wakanext/pnpm-lock.yaml'
+
       - name: Cache Next.js build
         uses: actions/cache@v4
         with:
-          path: |
-            ~/.npm
-            ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
-      
+          path: ${{ github.workspace }}/wakanext/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}
+
       - name: Install dependencies
         working-directory: ./wakanext
-        run: npm ci --legacy-peer-deps
-      
+        run: pnpm install --frozen-lockfile
+
       - name: Build Next.js App
         working-directory: ./wakanext
-        run: npm run build
+        run: pnpm build
