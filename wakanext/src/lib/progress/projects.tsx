@@ -16,6 +16,14 @@ export const projects: ProjectProps[] = [
         end: ''
     },
     {
+        title: '名古屋大学×ノースカロライナ大学 サイバーセキュリティ・日米交流プログラム 採択',
+        description: '名古屋大学とノースカロライナ大学チャペルヒル校が連携して実施するサイバーセキュリティ・日米交流プログラムに7名の奨学生の1人として採択。2月にアメリカへ派遣、5月に名古屋大学にて交流を実施。',
+        tags: ['学校'],
+        start: '2026年2月',
+        end: '2026年5月',
+        link: 'https://www.iech.provost.nagoya-u.ac.jp/info/2025/10/post_93.html'
+    },
+    {
         title: '数学動画ジェネレーター「SUDO」を制作',
         description: 'JPHACKS2025出場の際に作成したプロダクト。決勝の全国大会に進出したほか、審査員特別賞やスポンサー賞を獲得。',
         tags: ['技術開発'],

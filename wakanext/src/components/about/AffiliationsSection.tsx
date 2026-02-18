@@ -10,6 +10,16 @@ const AffiliationsSection = () => {
                 {affiliations.items.map((item, index) =>
                     typeof item === 'string' ? (
                         <li key={index} className="text-sm md:text-base">{item}</li>
+                    ) : 'links' in item ? (
+                        <li key={index} className="text-sm md:text-base">
+                            {item.name}（{item.links.map((link, i) => (
+                                <span key={i}>
+                                    {i > 0 && '・'}
+                                    <Link className='text-[var(--link-color)] hover:text-[var(--accent)] underline' href={link.url}>{link.label}</Link>
+                                </span>
+                            ))}）
+                            <span> {item.description}</span>
+                        </li>
                     ) : (
                         <li key={index} className="text-sm md:text-base">
                             <Link className='text-[var(--link-color)] hover:text-[var(--accent)] underline' href={item.url}>{item.name}</Link>

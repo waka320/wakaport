@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Form from '@/components/contact/Form';
 import Link from 'next/link';
-import { FaEnvelope, FaFacebook } from 'react-icons/fa';
+import { FaEnvelope, FaFacebook, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const ContactPage = () => {
@@ -59,6 +59,20 @@ const ContactPage = () => {
                                 rel="noopener noreferrer"
                             >
                                 @waka320port
+                            </Link>
+                        </li>
+                        <li className="flex flex-col sm:flex-row sm:items-center">
+                            <div className="flex items-center mb-1 sm:mb-0">
+                                <FaLinkedin className="text-[var(--accent)] mr-3 text-lg md:text-xl" />
+                                <span className="font-medium mr-2">LinkedIn:</span>
+                            </div>
+                            <Link
+                                className='text-[var(--link-color)] hover:text-[var(--link-hover-color)] underline transition-colors break-all'
+                                href="https://www.linkedin.com/in/yuki-wakamatsu28/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Yuki Wakamatsu
                             </Link>
                         </li>
                     </ul>
