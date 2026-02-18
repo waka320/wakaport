@@ -16,7 +16,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.6.3",
-    "next": "15.0.3",
+    "next": "15.0.8",
     "next-themes": "^0.4.6",
     "nodemailer": "^6.9.16",
     "react": "^18.2.0",
@@ -31,7 +31,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3",
+    "eslint-config-next": "15.0.8",
     "next-sitemap": "^4.2.3",
     "postcss": "^8",
     "react": "^18.2.0",
@@ -43,5 +43,12 @@
   },
   "peerDependencies": {
     "react": "^18.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "sharp",
+      "unrs-resolver"
+    ]
   }
 }
