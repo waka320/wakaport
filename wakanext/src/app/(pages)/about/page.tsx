@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import AffiliationsSection from '@/components/about/AffiliationsSection';
+import PresentationsSection from '@/components/about/PresentationsSection';
 import QualificationsSection from '@/components/about/QualificationsSection';
 import GamesSection from '@/components/about/GamesSection';
 import { projects } from '@/lib/progress/projects';
@@ -25,6 +26,7 @@ const AboutPage = () => {
                 <div className="space-y-3">
                     {/* Introduction removed */}
                     <AffiliationsSection />
+                    <PresentationsSection />
                     {/* Skills removed */}
                     <QualificationsSection />
 

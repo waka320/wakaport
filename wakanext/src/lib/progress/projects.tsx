@@ -9,11 +9,27 @@ export type ProjectProps = {
 
 export const projects: ProjectProps[] = [
     {
-        title: '名古屋大学 大学院 情報学研究科 情報社会設計論講座 入学予定',
-        description: '学部での学びを深めるため、大学院進学を決意。情報社会設計論講座にて研究活動を継続予定。',
+        title: 'IIAI AAI 2026（福井）で研究発表',
+        description: '「Designing and Evaluating Pedestrian Count Dashboards for Data-Novice Local Tourism Businesses」を発表。',
+        tags: ['学校'],
+        start: '2026年7月',
+        end: '',
+        link: 'https://mdg.si.i.nagoya-u.ac.jp/2026/07/20/6369/'
+    },
+    {
+        title: '名古屋大学 大学院 情報学研究科 情報社会設計論講座 入学',
+        description: '情報学部を卒業し、情報学研究科の修士課程に入学。情報社会設計論講座で研究を続けている。',
         tags: ['学校'],
         start: '2026年4月',
         end: ''
+    },
+    {
+        title: '情報処理学会第88回全国大会で研究発表、学生奨励賞を受賞',
+        description: '「商店街事業者のための歩行者数データを用いた目的ベースダッシュボードの設計と開発」を発表し、学生奨励賞を受賞。',
+        tags: ['学校'],
+        start: '2026年3月',
+        end: '',
+        link: 'https://www.ipsj.or.jp/event/taikai/88/WEB/html/author/wa.html'
     },
     {
         title: '名古屋大学×ノースカロライナ大学 サイバーセキュリティ・日米交流プログラム 採択',
@@ -38,6 +54,13 @@ export const projects: ProjectProps[] = [
         start: '2025年9月',
         end: '',
         link: 'https://chromewebstore.google.com/detail/readeasyjp/jjfjlfbdjklmpgfnfomkbcfjhmiekhdn?authuser=0&hl=ja'
+    },
+    {
+        title: 'ECC外語学院 非常勤講師（岡崎校・バロー刈谷校）',
+        description: '岡崎校とバロー刈谷校で非常勤講師として勤務。',
+        tags: ['自分史'],
+        start: '2025年8月',
+        end: '2026年8月'
     },
     {
         title: '日本財団 HUMAIプログラム 奨励金A 採択',
@@ -135,11 +158,11 @@ export const projects: ProjectProps[] = [
         link: 'https://www.uni-muenster.de/studium/en/outgoing/CuriousU.html'
     },
     {
-        title: '名古屋大学 情報学部 人間・社会情報学科 入学',
-        description: '浪人を経て、名古屋大学の情報学部人間・社会情報学科に入学。',
+        title: '名古屋大学 情報学部 人間・社会情報学科 在学（2026年3月卒業）',
+        description: '浪人を経て名古屋大学の情報学部人間・社会情報学科に入学し、2026年3月に卒業した。',
         tags: ['自分史', '学校'],
         start: '2022年4月',
-        end: '2026年3月（見込み）'
+        end: '2026年3月'
     },
     {
         title: '河合塾名駅校で浪人',
