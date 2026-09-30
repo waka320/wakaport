@@ -9,6 +9,34 @@ export type ProjectProps = {
 
 export const projects: ProjectProps[] = [
     {
+        title: 'ソニーグループ株式会社 インクルーシブデザインインターンシップ 参加',
+        description: 'インクルーシブデザインのインターンシップに参加。',
+        tags: ['技術開発'],
+        start: '2026年9月14日',
+        end: '2026年9月17日'
+    },
+    {
+        title: 'GMOインターネットグループ株式会社 新卒年収710万プログラム ビジネス職 5daysインターンシップ 参加',
+        description: 'ビジネス職の5daysインターンシップに参加。',
+        tags: ['技術開発'],
+        start: '2026年8月24日',
+        end: '2026年8月28日'
+    },
+    {
+        title: 'シスコシステムズ合同会社 28卒向けCXサマーインターンシップ（テクニカルコンサルティングエンジニア職）参加',
+        description: 'テクニカルコンサルティングエンジニア職のCXサマーインターンシップに参加。',
+        tags: ['技術開発'],
+        start: '2026年8月17日',
+        end: '2026年8月20日'
+    },
+    {
+        title: 'アクセンチュア株式会社 和魂偉才塾 アドバンスト・アーキテクティング塾 参加',
+        description: 'アドバンスト・アーキテクティング塾に参加。',
+        tags: ['技術開発'],
+        start: '2026年8月3日',
+        end: '2026年8月6日'
+    },
+    {
         title: 'IIAI AAI 2026（福井）で研究発表',
         description: '「Designing and Evaluating Pedestrian Count Dashboards for Data-Novice Local Tourism Businesses」を発表。',
         tags: ['学校'],
